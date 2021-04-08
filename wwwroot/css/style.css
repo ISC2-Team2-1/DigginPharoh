@@ -91,8 +91,7 @@ button, a, a.btn,
    left: 0;
 }
 .home-inner {
-   /* background-image: url('https://via.placeholder.com/2000x1333'); */
-   background-image: url('../img/landingPG/4.jpg');
+   background-image: url('../img/4.jpg');
    position: fixed;
    height: 100%;
    width: 100%;
@@ -279,29 +278,6 @@ h3.heading {
 }
 
 /*============= TEAM SECTION FIXED BG IMG LIGHT =============*/
-
-/*--- Team Light Background Image --*/
-/* .fixed-light {
-   background-image: url('/img/tech.jpg');
-   position: fixed;
-   height: 100%;
-   width: 100%;
-   background-size: cover;
-   background-position: center center;
-   -webkit-transform: translateZ(0);
-   transform: translateZ(0);
-   will-change: transform;
-   z-index: -1;
-   top: 0;
-   left: 0;
-   display: table;
-}
-.light {
-   background-color: rgba(255, 255, 255, .75);
-   padding: 5rem 0;
-   z-index: 1000;
-} */
-
 .fixed-dark2 {
    background-image: url('/img/tokyo-2.jpg');
    position: fixed;
@@ -495,15 +471,15 @@ a.top-scroll:hover {
    #features h1 {
       font-size: 2rem;
    }
-   .fixed-dark {
-      background-image: url('https://via.placeholder.com/982x1000')
-   }
-   .fixed-light {
-      background-image: url('https://via.placeholder.com/1163x1002')
-   }
-   .footer {
-      background: url('https://via.placeholder.com/2000x1440') no-repeat;
-   }
+    .fixed-dark {
+        background-image: url('/img/footer-bg.jpg')
+    }
+    .fixed-light {
+        background-image: url('/img/footer-bg.jpg')
+    }
+    .footer {
+        background: url('/img/footer-bg.jpg') no-repeat;
+    }
    .top-scroll {
       display: none!important;
    }
