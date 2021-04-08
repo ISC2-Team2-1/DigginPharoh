@@ -1,4 +1,5 @@
 using DigginPharoh.Data;
+using DigginPharoh.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -64,6 +65,8 @@ namespace DigginPharoh
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            SeedData.EnsurePopulated(app);
         }
     }
 }
