@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
+    <Folder Include="Areas\Identity\Pages\Account\css\" />
   </ItemGroup>
 
 </Project>
