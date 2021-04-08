@@ -18,5 +18,7 @@ namespace DigginPharoh.Data
         }
 
         public DbSet<Book> Books { get; set; }
+
+        public DbSet<DigginPharoh.Models.ProjectRole> ProjectRole { get; set; }
     }
 }
