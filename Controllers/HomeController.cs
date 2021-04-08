@@ -24,11 +24,17 @@ namespace DigginPharoh.Controllers
 
         public IActionResult Index()
         {
+            return View();
+        }
+
+        public IActionResult HomePage()
+        {
             return View(new IndexViewModel
             {
                 Books = context.Books
             });
         }
+
 
         public IActionResult Privacy()
         {
