@@ -27,6 +27,7 @@ namespace DigginPharoh.Controllers
             return View();
         }
 
+<<<<<<< Updated upstream
         public IActionResult BurialSummary()
         {
             return View(new IndexViewModel());
@@ -38,6 +39,8 @@ namespace DigginPharoh.Controllers
         //}
 
 
+=======
+>>>>>>> Stashed changes
         public IActionResult Privacy()
         {
             return View();
