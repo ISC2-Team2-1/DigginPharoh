@@ -1,0 +1,570 @@
+﻿@model IEnumerable<DigginPharoh.Models.Burial>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Gamous_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.burial_depth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WESTTOHEAD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WESTTOFEET)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SOUTHTOHEAD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SOUTHTOFEET)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preservation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Burial_Situation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.head_direction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adult_Child)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estimate_age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AGEMETHOD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gender_body_col)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sex_Gender_GE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SEXMETHOD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GE_function_total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.length_of_remains)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sample_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.basilar_suture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ventral_arc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.subpubic_angle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sciatic_notch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pubic_bone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.preaur_sulcus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.medial_IP_ramus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dorsal_pitting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.femur_head)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.humerus_head)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.osteophytosis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pubic_symphysis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.femur_length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.humerus_length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tibia_length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.robust)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.supraorbital_ridges)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.orbit_edge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.parietal_bossing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gonian)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nuchal_crest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.zygomatic_crest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cranial_suture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.maximum_cranial_length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.maximum_cranial_breadth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.basion_bregma_height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.basion_nasion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.basion_prosthion_length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bizygomatic_diameter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nasion_prosthion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.maximum_nasal_breadth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.interorbital_breadth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.artifacts_description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hair_color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hair_taken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.soft_tissue_taken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bone_taken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tooth_taken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.textile_taken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SAMPLE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description_of_taken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.artifact_found)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estimate_living_stature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tooth_attrition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tooth_eruption)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pathology_anomalies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.epiphyseal_union)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.year_found)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.month_found)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.day_found)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Field_Book)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Field_Book_Page_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Skull_At_Magazine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Postcrania_At_Magazine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rack_And_Shelf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.To_Be_Confirmed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Skull_Trauma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Postcrania_Trauma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cribra_Orbitala)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Porotic_Hyperostosis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Porotic_Hyperostosis_Locations)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Metopic_Suture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Button_Osteoma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Osteology_Unknown_Comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Temporal_Mandibular_Joint_Osteoarthritis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Linear_Hypoplasia_Enamel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Area_Hill_Burials)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tomb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Goods)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cluster)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Face_Bundle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Body_Analysis_Year)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gamous_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.burial_depth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WESTTOHEAD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WESTTOFEET)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SOUTHTOHEAD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SOUTHTOFEET)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preservation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Burial_Situation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.head_direction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adult_Child)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estimate_age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AGEMETHOD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gender_body_col)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sex_Gender_GE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SEXMETHOD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GE_function_total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.length_of_remains)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sample_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.basilar_suture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ventral_arc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subpubic_angle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sciatic_notch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pubic_bone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.preaur_sulcus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.medial_IP_ramus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dorsal_pitting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.femur_head)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.humerus_head)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.osteophytosis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pubic_symphysis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.femur_length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.humerus_length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tibia_length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.robust)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.supraorbital_ridges)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.orbit_edge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.parietal_bossing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gonian)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nuchal_crest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.zygomatic_crest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cranial_suture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.maximum_cranial_length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.maximum_cranial_breadth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.basion_bregma_height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.basion_nasion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.basion_prosthion_length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bizygomatic_diameter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nasion_prosthion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.maximum_nasal_breadth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.interorbital_breadth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.artifacts_description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hair_color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hair_taken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soft_tissue_taken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bone_taken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tooth_taken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.textile_taken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SAMPLE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description_of_taken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.artifact_found)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estimate_living_stature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tooth_attrition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tooth_eruption)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pathology_anomalies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.epiphyseal_union)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.year_found)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.month_found)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.day_found)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Field_Book)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Field_Book_Page_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Skull_At_Magazine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postcrania_At_Magazine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rack_And_Shelf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.To_Be_Confirmed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Skull_Trauma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postcrania_Trauma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cribra_Orbitala)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Porotic_Hyperostosis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Porotic_Hyperostosis_Locations)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Metopic_Suture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Button_Osteoma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Osteology_Unknown_Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Temporal_Mandibular_Joint_Osteoarthritis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Linear_Hypoplasia_Enamel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area_Hill_Burials)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tomb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Goods)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cluster)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Face_Bundle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Body_Analysis_Year)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Burial_Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Burial_Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Burial_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
