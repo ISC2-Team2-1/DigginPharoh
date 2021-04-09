@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
+//We are not using this model
+
 namespace DigginPharoh.Models
 {
     public class Field_Note
