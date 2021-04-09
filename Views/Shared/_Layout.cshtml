@@ -44,17 +44,18 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a asp-action="Index" class="nav-link">Home</a>
+                                <a asp-action="ManageUser" asp-controller="admin" class="nav-link">Admin Stuff</a>
                             </li>
                             <li class="nav-item">
-                                <a asp-action="Index" asp-controller="Burial" class="nav-link">Burial</a>
+                                <a asp-action="Index" asp-controller="Home" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a asp-action="Index" asp-controller="BurialIDInfo" class="nav-link">Burial_ID</a>
+                                <a asp-action="Index" asp-controller="BurialIDInfoes" class="nav-link">Burial</a>
                             </li>
-                            <li class="nav-item">
+                            @*<li class="nav-item">
                                 <a asp-action="Index" asp-controller="Cranials" class="nav-link">Cranial</a>
-                            </li>
+                            </li>*@
+
                             @*<li class="nav-item">
             <a href="#features" class="nav-link">About</a>
         </li>*@
@@ -73,23 +74,23 @@
 
                             @if (SignInManager.IsSignedIn(User))
                             {
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-                                </li>
-                                <li class="nav-item">
-                                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                        <button type="submit" class="nav-link">Logout</button>
-                                    </form>
-                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+                            </li>
+                            <li class="nav-item">
+                                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                    <button type="submit" class="nav-link">Logout</button>
+                                </form>
+                            </li>
                             }
                             else
                             {
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
-                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                            </li>
                             }
                             @*<li class="nav-item">
             <a href="#stats" class="nav-link">Statistics</a>

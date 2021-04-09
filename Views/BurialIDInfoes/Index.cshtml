@@ -1,0 +1,90 @@
+﻿@model IEnumerable<DigginPharoh.Models.BurialIDInfo>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body data-spy="scroll" data-target="#navbarResponsive">
+
+    <div class="landing">
+        <div class="home-wrap">
+            <div class="home-inner"></div>
+        </div>
+    </div>
+
+
+    <h1>Index</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.burial_location_NS)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.burial_location_EW)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.low_pair_NS)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.high_pair_NS)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.low_pair_EW)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.high_pair_EW)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.burial_subplot)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BURIALNUM)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.burial_location_NS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.burial_location_EW)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.low_pair_NS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.high_pair_NS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.low_pair_EW)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.high_pair_EW)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.burial_subplot)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BURIALNUM)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Burial_Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Burial_Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Burial_Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+
