@@ -11,7 +11,7 @@ namespace DigginPharoh.Models
         [Key]
         [Required]
         public string Burial_Id { get; set; }
-        public int Gamous_Id { get; set; }
+        public int? Gamous_Id { get; set; }
         public string Field_Book { get; set; }
         public string Field_Book_Page_Number{ get; set; }
         public string Skull_At_Magazine { get; set; }
@@ -33,7 +33,7 @@ namespace DigginPharoh.Models
         public string Goods { get; set; }
         public string Cluster { get; set; }
         public string Face_Bundle { get; set; }
-        public int Body_Analysis_Year { get; set; }
+        public int? Body_Analysis_Year { get; set; }
 
     }
 }

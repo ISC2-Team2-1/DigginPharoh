@@ -24,7 +24,7 @@ namespace DigginPharoh.Migrations
                     b.Property<string>("Burial_id")
                         .HasColumnType("text");
 
-                    b.Property<int>("Cluster_num")
+                    b.Property<int?>("Cluster_num")
                         .HasColumnType("integer");
 
                     b.Property<string>("Container_Type")
@@ -36,7 +36,7 @@ namespace DigginPharoh.Migrations
                     b.Property<string>("Initials")
                         .HasColumnType("text");
 
-                    b.Property<bool>("Large_Item")
+                    b.Property<bool?>("Large_Item")
                         .HasColumnType("boolean");
 
                     b.Property<string>("Notes")
@@ -47,7 +47,7 @@ namespace DigginPharoh.Migrations
 
                     b.HasKey("Burial_id");
 
-                    b.ToTable("Samples");
+                    b.ToTable("BioSamples");
                 });
 
             modelBuilder.Entity("DigginPharoh.Models.Burial", b =>
@@ -61,22 +61,22 @@ namespace DigginPharoh.Migrations
                     b.Property<string>("Adult_Child")
                         .HasColumnType("text");
 
-                    b.Property<int>("Area_Hill_Burials")
+                    b.Property<int?>("Area_Hill_Burials")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Body_Analysis_Year")
+                    b.Property<int?>("Body_Analysis_Year")
                         .HasColumnType("integer");
 
                     b.Property<string>("Burial_Situation")
                         .HasColumnType("text");
 
-                    b.Property<bool>("Button_Osteoma")
+                    b.Property<bool?>("Button_Osteoma")
                         .HasColumnType("boolean");
 
                     b.Property<string>("Cluster")
                         .HasColumnType("text");
 
-                    b.Property<bool>("Cribra_Orbitala")
+                    b.Property<bool?>("Cribra_Orbitala")
                         .HasColumnType("boolean");
 
                     b.Property<string>("Face_Bundle")
@@ -85,22 +85,22 @@ namespace DigginPharoh.Migrations
                     b.Property<string>("Field_Book")
                         .HasColumnType("text");
 
-                    b.Property<int>("Field_Book_Page_Number")
+                    b.Property<int?>("Field_Book_Page_Number")
                         .HasColumnType("integer");
 
-                    b.Property<float>("GE_function_total")
+                    b.Property<float?>("GE_function_total")
                         .HasColumnType("real");
 
-                    b.Property<int>("Gamous_Id")
+                    b.Property<int?>("Gamous_Id")
                         .HasColumnType("integer");
 
                     b.Property<string>("Goods")
                         .HasColumnType("text");
 
-                    b.Property<bool>("Linear_Hypoplasia_Enamel")
+                    b.Property<bool?>("Linear_Hypoplasia_Enamel")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("Metopic_Suture")
+                    b.Property<bool?>("Metopic_Suture")
                         .HasColumnType("boolean");
 
                     b.Property<string>("Osteology_Unknown_Comment")
@@ -112,10 +112,10 @@ namespace DigginPharoh.Migrations
                     b.Property<string>("Porotic_Hyperostosis_Locations")
                         .HasColumnType("text");
 
-                    b.Property<bool>("Postcrania_At_Magazine")
+                    b.Property<bool?>("Postcrania_At_Magazine")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("Postcrania_Trauma")
+                    b.Property<bool?>("Postcrania_Trauma")
                         .HasColumnType("boolean");
 
                     b.Property<string>("Preservation")
@@ -124,43 +124,43 @@ namespace DigginPharoh.Migrations
                     b.Property<string>("Rack_And_Shelf")
                         .HasColumnType("text");
 
-                    b.Property<bool>("SAMPLE")
+                    b.Property<bool?>("SAMPLE")
                         .HasColumnType("boolean");
 
                     b.Property<string>("SEXMETHOD")
                         .HasColumnType("text");
 
-                    b.Property<float>("SOUTHTOFEET")
+                    b.Property<float?>("SOUTHTOFEET")
                         .HasColumnType("real");
 
-                    b.Property<float>("SOUTHTOHEAD")
+                    b.Property<float?>("SOUTHTOHEAD")
                         .HasColumnType("real");
 
                     b.Property<string>("Sex_Gender_GE")
                         .HasColumnType("text");
 
-                    b.Property<bool>("Skull_At_Magazine")
+                    b.Property<bool?>("Skull_At_Magazine")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("Skull_Trauma")
+                    b.Property<bool?>("Skull_Trauma")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("Temporal_Mandibular_Joint_Osteoarthritis")
+                    b.Property<bool?>("Temporal_Mandibular_Joint_Osteoarthritis")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("To_Be_Confirmed")
+                    b.Property<bool?>("To_Be_Confirmed")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("Tomb")
+                    b.Property<int?>("Tomb")
                         .HasColumnType("integer");
 
-                    b.Property<float>("WESTTOFEET")
+                    b.Property<float?>("WESTTOFEET")
                         .HasColumnType("real");
 
-                    b.Property<float>("WESTTOHEAD")
+                    b.Property<float?>("WESTTOHEAD")
                         .HasColumnType("real");
 
-                    b.Property<bool>("artifact_found")
+                    b.Property<bool?>("artifact_found")
                         .HasColumnType("boolean");
 
                     b.Property<string>("artifacts_description")
@@ -169,34 +169,34 @@ namespace DigginPharoh.Migrations
                     b.Property<string>("basilar_suture")
                         .HasColumnType("text");
 
-                    b.Property<float>("basion_bregma_height")
+                    b.Property<float?>("basion_bregma_height")
                         .HasColumnType("real");
 
-                    b.Property<float>("basion_nasion")
+                    b.Property<float?>("basion_nasion")
                         .HasColumnType("real");
 
-                    b.Property<float>("basion_prosthion_length")
+                    b.Property<float?>("basion_prosthion_length")
                         .HasColumnType("real");
 
-                    b.Property<float>("bizygomatic_diameter")
+                    b.Property<float?>("bizygomatic_diameter")
                         .HasColumnType("real");
 
-                    b.Property<bool>("bone_taken")
+                    b.Property<bool?>("bone_taken")
                         .HasColumnType("boolean");
 
-                    b.Property<float>("burial_depth")
+                    b.Property<float?>("burial_depth")
                         .HasColumnType("real");
 
                     b.Property<string>("cranial_suture")
                         .HasColumnType("text");
 
-                    b.Property<int>("day_found")
+                    b.Property<int?>("day_found")
                         .HasColumnType("integer");
 
                     b.Property<string>("description_of_taken")
                         .HasColumnType("text");
 
-                    b.Property<int>("dorsal_pitting")
+                    b.Property<int?>("dorsal_pitting")
                         .HasColumnType("integer");
 
                     b.Property<string>("epiphyseal_union")
@@ -205,106 +205,106 @@ namespace DigginPharoh.Migrations
                     b.Property<string>("estimate_age")
                         .HasColumnType("text");
 
-                    b.Property<float>("estimate_living_stature")
+                    b.Property<float?>("estimate_living_stature")
                         .HasColumnType("real");
 
-                    b.Property<float>("femur_head")
+                    b.Property<float?>("femur_head")
                         .HasColumnType("real");
 
-                    b.Property<float>("femur_length")
+                    b.Property<float?>("femur_length")
                         .HasColumnType("real");
 
                     b.Property<string>("gender_body_col")
                         .HasColumnType("text");
 
-                    b.Property<int>("gonian")
+                    b.Property<int?>("gonian")
                         .HasColumnType("integer");
 
                     b.Property<string>("hair_color")
                         .HasColumnType("text");
 
-                    b.Property<bool>("hair_taken")
+                    b.Property<bool?>("hair_taken")
                         .HasColumnType("boolean");
 
                     b.Property<string>("head_direction")
                         .HasColumnType("text");
 
-                    b.Property<float>("humerus_head")
+                    b.Property<float?>("humerus_head")
                         .HasColumnType("real");
 
-                    b.Property<float>("humerus_length")
+                    b.Property<float?>("humerus_length")
                         .HasColumnType("real");
 
-                    b.Property<float>("interorbital_breadth")
+                    b.Property<float?>("interorbital_breadth")
                         .HasColumnType("real");
 
-                    b.Property<int>("length_of_remains")
-                        .HasColumnType("integer");
-
-                    b.Property<float>("maximum_cranial_breadth")
+                    b.Property<float?>("length_of_remains")
                         .HasColumnType("real");
 
-                    b.Property<float>("maximum_cranial_length")
+                    b.Property<float?>("maximum_cranial_breadth")
                         .HasColumnType("real");
 
-                    b.Property<float>("maximum_nasal_breadth")
+                    b.Property<float?>("maximum_cranial_length")
                         .HasColumnType("real");
 
-                    b.Property<int>("medial_IP_ramus")
+                    b.Property<float?>("maximum_nasal_breadth")
+                        .HasColumnType("real");
+
+                    b.Property<int?>("medial_IP_ramus")
                         .HasColumnType("integer");
 
                     b.Property<string>("month_found")
                         .HasColumnType("text");
 
-                    b.Property<float>("nasion_prosthion")
+                    b.Property<float?>("nasion_prosthion")
                         .HasColumnType("real");
 
-                    b.Property<int>("nuchal_crest")
+                    b.Property<int?>("nuchal_crest")
                         .HasColumnType("integer");
 
-                    b.Property<int>("orbit_edge")
+                    b.Property<int?>("orbit_edge")
                         .HasColumnType("integer");
 
                     b.Property<string>("osteophytosis")
                         .HasColumnType("text");
 
-                    b.Property<int>("parietal_bossing")
+                    b.Property<int?>("parietal_bossing")
                         .HasColumnType("integer");
 
                     b.Property<string>("pathology_anomalies")
                         .HasColumnType("text");
 
-                    b.Property<int>("preaur_sulcus")
+                    b.Property<int?>("preaur_sulcus")
                         .HasColumnType("integer");
 
-                    b.Property<int>("pubic_bone")
+                    b.Property<int?>("pubic_bone")
                         .HasColumnType("integer");
 
                     b.Property<string>("pubic_symphysis")
                         .HasColumnType("text");
 
-                    b.Property<int>("robust")
+                    b.Property<int?>("robust")
                         .HasColumnType("integer");
 
-                    b.Property<int>("sample_number")
+                    b.Property<int?>("sample_number")
                         .HasColumnType("integer");
 
-                    b.Property<int>("sciatic_notch")
+                    b.Property<int?>("sciatic_notch")
                         .HasColumnType("integer");
 
-                    b.Property<bool>("soft_tissue_taken")
+                    b.Property<bool?>("soft_tissue_taken")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("subpubic_angle")
+                    b.Property<int?>("subpubic_angle")
                         .HasColumnType("integer");
 
-                    b.Property<int>("supraorbital_ridges")
+                    b.Property<int?>("supraorbital_ridges")
                         .HasColumnType("integer");
 
-                    b.Property<bool>("textile_taken")
+                    b.Property<bool?>("textile_taken")
                         .HasColumnType("boolean");
 
-                    b.Property<float>("tibia_length")
+                    b.Property<float?>("tibia_length")
                         .HasColumnType("real");
 
                     b.Property<string>("tooth_attrition")
@@ -313,21 +313,21 @@ namespace DigginPharoh.Migrations
                     b.Property<string>("tooth_eruption")
                         .HasColumnType("text");
 
-                    b.Property<bool>("tooth_taken")
+                    b.Property<bool?>("tooth_taken")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("ventral_arc")
+                    b.Property<int?>("ventral_arc")
                         .HasColumnType("integer");
 
-                    b.Property<int>("year_found")
+                    b.Property<int?>("year_found")
                         .HasColumnType("integer");
 
-                    b.Property<int>("zygomatic_crest")
+                    b.Property<int?>("zygomatic_crest")
                         .HasColumnType("integer");
 
                     b.HasKey("Burial_Id");
 
-                    b.ToTable("Burials");
+                    b.ToTable("GamousBurials");
                 });
 
             modelBuilder.Entity("DigginPharoh.Models.BurialIDInfo", b =>
@@ -363,7 +363,7 @@ namespace DigginPharoh.Migrations
 
                     b.HasKey("Burial_Id");
 
-                    b.ToTable("Infos");
+                    b.ToTable("BurialIdInfos");
                 });
 
             modelBuilder.Entity("DigginPharoh.Models.Carbon_Dating", b =>
@@ -371,37 +371,37 @@ namespace DigginPharoh.Migrations
                     b.Property<string>("Burial_Id")
                         .HasColumnType("text");
 
-                    b.Property<int>("AREA_Num")
+                    b.Property<int?>("AREA_Num")
                         .HasColumnType("integer");
 
-                    b.Property<int>("C14_Sample_2017")
+                    b.Property<int?>("C14_Sample_2017")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Calendar_Date_14C")
+                    b.Property<int?>("Calendar_Date_14C")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Calibrated_95_Calendar_Date_AVG")
+                    b.Property<int?>("Calibrated_95_Calendar_Date_AVG")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Calibrated_95_Calendar_Date_MAX")
+                    b.Property<int?>("Calibrated_95_Calendar_Date_MAX")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Calibrated_95_Calendar_Date_MIN")
+                    b.Property<int?>("Calibrated_95_Calendar_Date_MIN")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Calibrated_95_Calendar_Date_SPAN")
+                    b.Property<int?>("Calibrated_95_Calendar_Date_SPAN")
                         .HasColumnType("integer");
 
                     b.Property<string>("Category")
                         .HasColumnType("text");
 
-                    b.Property<int>("Conventional_14C_Age_BP")
+                    b.Property<int?>("Conventional_14C_Age_BP")
                         .HasColumnType("integer");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<int>("Foci")
+                    b.Property<int?>("Foci")
                         .HasColumnType("integer");
 
                     b.Property<string>("Location")
@@ -413,18 +413,18 @@ namespace DigginPharoh.Migrations
                     b.Property<string>("Question")
                         .HasColumnType("text");
 
-                    b.Property<int>("Rack_Num")
+                    b.Property<int?>("Rack_Num")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Size_ml")
+                    b.Property<int?>("Size_ml")
                         .HasColumnType("integer");
 
-                    b.Property<int>("TUBE_Num")
+                    b.Property<int?>("TUBE_Num")
                         .HasColumnType("integer");
 
                     b.HasKey("Burial_Id");
 
-                    b.ToTable("Carbon_Dates");
+                    b.ToTable("CarbonDates");
                 });
 
             modelBuilder.Entity("DigginPharoh.Models.Cranial", b =>
@@ -432,16 +432,16 @@ namespace DigginPharoh.Migrations
                     b.Property<string>("Burial_Id")
                         .HasColumnType("text");
 
-                    b.Property<float>("Basion_Bregma_Height")
+                    b.Property<float?>("Basion_Bregma_Height")
                         .HasColumnType("real");
 
-                    b.Property<float>("Basion_Nasion")
+                    b.Property<float?>("Basion_Nasion")
                         .HasColumnType("real");
 
-                    b.Property<float>("Basion_Prosthion_Length")
+                    b.Property<float?>("Basion_Prosthion_Length")
                         .HasColumnType("real");
 
-                    b.Property<float>("Bizygomatic_Diameter")
+                    b.Property<float?>("Bizygomatic_Diameter")
                         .HasColumnType("real");
 
                     b.Property<string>("Body_Gender")
@@ -450,36 +450,36 @@ namespace DigginPharoh.Migrations
                     b.Property<string>("Burial_Artifact_Description")
                         .HasColumnType("text");
 
-                    b.Property<float>("Burial_Depth")
+                    b.Property<float?>("Burial_Depth")
                         .HasColumnType("real");
 
-                    b.Property<bool>("Buried_with_Artifacts")
+                    b.Property<bool?>("Buried_with_Artifacts")
                         .HasColumnType("boolean");
 
                     b.Property<string>("Giles_Gender")
                         .HasColumnType("text");
 
-                    b.Property<float>("Interorbital_Breadth")
+                    b.Property<float?>("Interorbital_Breadth")
                         .HasColumnType("real");
 
-                    b.Property<float>("Maximum_Cranial_Breadth")
+                    b.Property<float?>("Maximum_Cranial_Breadth")
                         .HasColumnType("real");
 
-                    b.Property<float>("Maximum_Cranial_Length")
+                    b.Property<float?>("Maximum_Cranial_Length")
                         .HasColumnType("real");
 
-                    b.Property<float>("Maximum_Nasal_Breadth")
+                    b.Property<float?>("Maximum_Nasal_Breadth")
                         .HasColumnType("real");
 
-                    b.Property<float>("Nasion_Prosthion")
+                    b.Property<float?>("Nasion_Prosthion")
                         .HasColumnType("real");
 
-                    b.Property<int>("Sample_Number")
+                    b.Property<int?>("Sample_Number")
                         .HasColumnType("integer");
 
                     b.HasKey("Burial_Id");
 
-                    b.ToTable("Cranials");
+                    b.ToTable("Craniums");
                 });
 
             modelBuilder.Entity("DigginPharoh.Models.Field_Note", b =>
@@ -490,7 +490,7 @@ namespace DigginPharoh.Migrations
                     b.Property<string>("Area_Hill_Burials")
                         .HasColumnType("text");
 
-                    b.Property<int>("Body_Analysis_Year")
+                    b.Property<int?>("Body_Analysis_Year")
                         .HasColumnType("integer");
 
                     b.Property<string>("Button_Osteoma")
@@ -511,7 +511,7 @@ namespace DigginPharoh.Migrations
                     b.Property<string>("Field_Book_Page_Number")
                         .HasColumnType("text");
 
-                    b.Property<int>("Gamous_Id")
+                    b.Property<int?>("Gamous_Id")
                         .HasColumnType("integer");
 
                     b.Property<string>("Goods")
@@ -558,7 +558,7 @@ namespace DigginPharoh.Migrations
 
                     b.HasKey("Burial_Id");
 
-                    b.ToTable("Field_Notes");
+                    b.ToTable("FieldNotes");
                 });
 
             modelBuilder.Entity("DigginPharoh.Models.Note", b =>
@@ -571,7 +571,7 @@ namespace DigginPharoh.Migrations
 
                     b.HasKey("Burial_Id");
 
-                    b.ToTable("Notes");
+                    b.ToTable("JustNotes");
                 });
 
             modelBuilder.Entity("DigginPharoh.Models.ProjectRole", b =>
@@ -586,7 +586,7 @@ namespace DigginPharoh.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProjectRole");
+                    b.ToTable("ProjectRoles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

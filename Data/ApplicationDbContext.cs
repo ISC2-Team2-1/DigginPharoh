@@ -5,6 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+using DigginPharoh.Data;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+using Microsoft.AspNetCore.Identity;
+
 namespace DigginPharoh.Data
 {
     public class ApplicationDbContext : IdentityDbContext
@@ -17,13 +23,14 @@ namespace DigginPharoh.Data
         {
         }
 
-        public DbSet<BiologicalSamples> Samples { get; set; }
-        public DbSet<Burial> Burials { get; set; }
-        public DbSet<BurialIDInfo> Infos { get; set; }
-        public DbSet<Carbon_Dating> Carbon_Dates { get; set; }
-        public DbSet<Cranial> Cranials { get; set; }
-        public DbSet<Field_Note> Field_Notes { get; set; }
-        public DbSet<Note> Notes { get; set; }
-        public DbSet<DigginPharoh.Models.ProjectRole> ProjectRole { get; set; }
+        public DbSet<BiologicalSamples> BioSamples { get; set; }
+        public DbSet<Burial> GamousBurials { get; set; }
+        public DbSet<BurialIDInfo> BurialIdInfos { get; set; }
+        public DbSet<Carbon_Dating> CarbonDates { get; set; }
+        public DbSet<Cranial> Craniums { get; set; }
+        public DbSet<Field_Note> FieldNotes { get; set; }
+        public DbSet<Note> JustNotes { get; set; }
+        public DbSet<DigginPharoh.Models.ProjectRole> ProjectRoles { get; set; }
+
     }
 }
