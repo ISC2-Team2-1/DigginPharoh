@@ -35,20 +35,6 @@ namespace DigginPharoh.Models
         public string Goods { get; set; }
         public string Cluster { get; set; }
         public string Face_Bundle { get; set; }
-        public string Additional_Notes_1 { get; set; }
-        public string Additional_Notes_2 { get; set; }
-        public string Additional_Notes_3 { get; set; }
-        public string Additional_Notes_4 { get; set; }
-        public string Additional_Notes_5 { get; set; }
-        public string Additional_Notes_6 { get; set; }
-        public string Additional_Notes_7 { get; set; }
-        public string Additional_Notes_8 { get; set; }
-        public string Additional_Notes_9 { get; set; }
-        public string Additional_Notes_10 { get; set; }
-        public string Additional_Notes_11 { get; set; }
-        public string Additional_Notes_12 { get; set; }
-        public string Additional_Notes_13 { get; set; }
-        public string Additional_Notes_14 { get; set; }
         public int Body_Analysis_Year { get; set; }
 
     }
