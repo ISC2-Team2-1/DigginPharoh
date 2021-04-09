@@ -1058,6 +1058,26 @@ transform: rotate(-180deg);
     }
 }
 
+/* ==========================================================================
+   #Social Media Footer
+   ========================================================================== */
+.soci-row-posi {
+    margin-left: 2.4rem;
+}
+
+.social .soc-container {
+    text-align: center;
+}
+
+.social .soc-container ul {
+float: left;
+}
+
+.social .soc-container ul li {
+    float: left;
+    padding-left: 10px;
+    list-style-type: none;
+}
 
 /**//*============ BOOTSTRAP BREAK POINTS:
 
