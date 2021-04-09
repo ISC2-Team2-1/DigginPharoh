@@ -14,11 +14,15 @@ namespace DigginPharoh.Controllers
     public class AdminController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
+        private readonly UserManager<IdentityUser> userManager;
         private ApplicationDbContext context { get; set; }
 
-        public AdminController(RoleManager<IdentityRole> roleManager, ApplicationDbContext ctx)
+        public AdminController(RoleManager<IdentityRole> roleManager,
+                                    UserManager<IdentityUser> userManager, ApplicationDbContext ctx)
         {
             this.roleManager = roleManager;
+            this.userManager = userManager;
+
             context = ctx;
         }
         public IActionResult Index()
@@ -44,7 +48,8 @@ namespace DigginPharoh.Controllers
 
         public IActionResult ManageUser()
         {
-            return View(context.Users);
+            var users = userManager.Users;
+            return View(users);
         }
     }
 }
