@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DigginPharoh.Models
 {
-    public class Burial_ID_Info
+    public class BurialIDInfo
     {
         [Key]
         [Required]
