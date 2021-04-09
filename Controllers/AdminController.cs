@@ -18,7 +18,8 @@ namespace DigginPharoh.Controllers
         private ApplicationDbContext context { get; set; }
 
         public AdminController(RoleManager<IdentityRole> roleManager,
-                                    UserManager<IdentityUser> userManager, ApplicationDbContext ctx)
+                                    UserManager<IdentityUser> userManager, 
+                                    ApplicationDbContext ctx)
         {
             this.roleManager = roleManager;
             this.userManager = userManager;
@@ -49,6 +50,17 @@ namespace DigginPharoh.Controllers
         public IActionResult ManageUser()
         {
             var users = userManager.Users;
+            var roles = roleManager.Roles;
+
+
+
+            //Book book = repository.Books
+            //.Where(b => b.BookId == bookid)
+            //.FirstOrDefault();
+
+
+
+
             return View(users);
         }
     }
