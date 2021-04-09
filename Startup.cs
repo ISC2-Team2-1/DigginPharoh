@@ -13,6 +13,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using DigginPharoh.Services;
 
 namespace DigginPharoh
 {
@@ -33,10 +35,13 @@ namespace DigginPharoh
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-            services.AddRazorPages();
 
-            // This is for setting up the SendGrid server
-            //services.AddTransient<IMailService, SendGridMailService>();
+            // requires
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.Configure<AuthMessageSenderOptions>(Configuration);
+
+
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
