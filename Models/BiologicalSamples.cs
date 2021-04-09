@@ -10,6 +10,8 @@ namespace DigginPharoh.Models
     {
         [Key]
         [Required]
+        public int Biological_Samples_Id { get; set; }
+        [Required]
         public string Burial_id {get;set;}
         public string Container_Type { get; set; }
         public string Container_num { get; set; }
