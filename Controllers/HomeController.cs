@@ -29,10 +29,7 @@ namespace DigginPharoh.Controllers
 
         public IActionResult HomePage()
         {
-            return View(new IndexViewModel
-            {
-                Books = context.Books
-            });
+            return View();
         }
 
 

@@ -17,8 +17,11 @@ namespace DigginPharoh.Data
         {
         }
 
-        public DbSet<Book> Books { get; set; }
-
+        public DbSet<BiologicalSamples> Samples { get; set; }
+        public DbSet<Burial> Burials { get; set; }
+        public DbSet<BurialIDInfo> Infos { get; set; }
+        public DbSet<Carbon_Dating> Carbon_Dates { get; set; }
+        public DbSet<Cranial> Cranials { get; set; }
         public DbSet<DigginPharoh.Models.ProjectRole> ProjectRole { get; set; }
     }
 }

@@ -67,7 +67,6 @@ namespace DigginPharoh
                 endpoints.MapRazorPages();
             });
 
-            SeedData.EnsurePopulated(app);
         }
     }
 }

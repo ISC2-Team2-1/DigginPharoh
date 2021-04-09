@@ -1,4 +1,5 @@
-﻿using DigginPharoh.Models;
+﻿using DigginPharoh.Data;
+using DigginPharoh.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +14,12 @@ namespace DigginPharoh.Controllers
     public class AdminController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
+        private ApplicationDbContext context { get; set; }
 
-        public AdminController(RoleManager<IdentityRole> roleManager)
+        public AdminController(RoleManager<IdentityRole> roleManager, ApplicationDbContext ctx)
         {
             this.roleManager = roleManager;
+            context = ctx;
         }
         public IActionResult Index()
         {
@@ -37,6 +40,11 @@ namespace DigginPharoh.Controllers
                 var result = await roleManager.CreateAsync(new IdentityRole(role.RoleName));
             }
             return View();
+        }
+
+        public IActionResult ManageUser()
+        {
+            return View(context.Users);
         }
     }
 }
