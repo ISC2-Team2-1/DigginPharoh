@@ -10,7 +10,7 @@ namespace DigginPharoh.Models
     {
         [Key]
         [Required]
-        public string Burial_Id { get; set; }
+        public int Burial_Id { get; set; }
         public float Burial_Depth { get; set; }
         public int Sample_Number { get; set; }
         public float Maximum_Cranial_Length { get; set; }

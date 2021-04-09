@@ -10,9 +10,7 @@ namespace DigginPharoh.Models
     {
         [Key]
         [Required]
-        public int Carbon_Dating_Id{get; set;}
-        [Required]
-        public string Burial_Id { get; set; }
+        public int Burial_Id { get; set; }
         public int AREA_Num { get; set; }
         public int Rack_Num { get; set; }
         public int TUBE_Num { get; set; }

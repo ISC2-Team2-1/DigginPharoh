@@ -10,9 +10,7 @@ namespace DigginPharoh.Models
     {
         [Key]
         [Required]
-        public int Field_Notes_Id { get; set; }
-        [Required]
-        public string Burial_Id { get; set; }
+        public int Burial_Id { get; set; }
         public int Gamous_Id { get; set; }
         public string Field_Book { get; set; }
         public int Field_Book_Page_Number{ get; set; }
