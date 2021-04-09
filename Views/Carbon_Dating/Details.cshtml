@@ -1,0 +1,121 @@
+﻿@model DigginPharoh.Models.Carbon_Dating
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Carbon_Dating</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AREA_Num)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AREA_Num)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Rack_Num)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rack_Num)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TUBE_Num)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TUBE_Num)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Size_ml)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Size_ml)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Foci)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Foci)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.C14_Sample_2017)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.C14_Sample_2017)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Question)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Question)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Conventional_14C_Age_BP)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Conventional_14C_Age_BP)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Calendar_Date_14C)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Calendar_Date_14C)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Calibrated_95_Calendar_Date_MAX)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Calibrated_95_Calendar_Date_MAX)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Calibrated_95_Calendar_Date_MIN)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Calibrated_95_Calendar_Date_MIN)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Calibrated_95_Calendar_Date_SPAN)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Calibrated_95_Calendar_Date_SPAN)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Calibrated_95_Calendar_Date_AVG)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Calibrated_95_Calendar_Date_AVG)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Burial_Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
