@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace DigginPharoh.Models
 {
-    public class Addional_Field_Notes
+    public class Field_Note
     {
         [Key]
-        [Required]
-        public int Additional_Field_Notes { get; set; }
         [Required]
         public string Burial_Id { get; set; }
         public int Gamous_Id { get; set; }

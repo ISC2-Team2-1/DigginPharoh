@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace DigginPharoh.Models
 {
-    public class Notes
+    public class Note
     {
         [Key]
         [Required]
-        public int NoteId { get; set; }
-        [Required]
         public string Burial_Id { get; set; }
-        public string Note { get; set; }
+        public string Msg { get; set; }
     }
 }
