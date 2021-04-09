@@ -18,11 +18,14 @@
         color: white;
         font-size: 1.1rem;
     }
-    .title {
+    .titleLog {
         text-align: center;
         margin-bottom: 4rem;
-        color: #093971;
-        font-size: 32px;
+        color: #fff;
+        margin-bottom: 36px;
+        /* text-transform: uppercase; */
+        font-weight: 700;
+        font-size: 1.9rem;
     }
     h1 {
         text-align: center;
@@ -34,6 +37,12 @@
     .bt-pl {
         padding-left: 10px;
         color: white;
+    }
+
+    .bt-pl:hover {
+        padding-left: 10px;
+        color: black;
+        text-decoration: none;
     }
 </style>
 
@@ -79,7 +88,7 @@
         <div class="card-heading"></div>
         <div class="card-body">
             <div>
-                <h1 class="title">Log in with your account</h1>
+                <h1 class="titleLog">Log in with your account</h1>
             </div>
             <form id="account" method="post">
                 <hr />
@@ -95,14 +104,14 @@
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <div class="checkbox">
+                    <div class="checkbox buttonHolder">
                         <p>
                             <label asp-for="Input.RememberMe">
                                 <input asp-for="Input.RememberMe" />
                                 @Html.DisplayNameFor(m => m.Input.RememberMe)
                             </label>
 
-                            <a class="bt-pl" id="forgot-password" asp-page="./ForgotPassword">Forgot password?</a>
+                            <a class="bt-pl" id="forgot-password" asp-page="./ForgotPassword">Forgot Password</a>
                             <a class="bt-pl" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Create a New Account</a>
                         </p>
                     </div>
