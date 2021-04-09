@@ -32,6 +32,18 @@ namespace DigginPharoh
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("intexium_db")));
+            services.AddDbContext<BurialContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("intexium_db")));
+            services.AddDbContext<BurialIDInfoContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("intexium_db")));
+            services.AddDbContext<BiologicalSamplesContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("intexium_db")));
+            services.AddDbContext<CranialContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("intexium_db")));
+            services.AddDbContext<Carbon_DatingContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("intexium_db")));
+            services.AddDbContext<NoteContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("intexium_db")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
