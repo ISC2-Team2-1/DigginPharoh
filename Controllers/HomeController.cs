@@ -15,7 +15,7 @@ namespace DigginPharoh.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private ApplicationDbContext context;
+        private ApplicationDbContext context { get; set; }
         public int PageSize = 15;
 
         public HomeController(ILogger<HomeController> logger, ApplicationDbContext ctx)
@@ -77,13 +77,13 @@ namespace DigginPharoh.Controllers
             return RedirectToAction("BurialSummary", new { ID = id });
         }
 
-        public IActionResult BurialDetails(string? detailId)
+        public IActionResult BurialDetails(string detailId)
         {
             Burial burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == detailId);
             return View("BurialDetails", context.GamousBurials);
         }
 
-        public IActionResult FieldNotes(string? Burial_Id)
+        public IActionResult FieldNotes(string Burial_Id)
         {
             return View(new IndexViewModel
             {
