@@ -1,11 +1,13 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
     Layout = "_Layout-client";
 }
 @model DigginPharoh.Models.ViewModels.IndexViewModel
 
+<style>
+    body {
+        background-image: url('../img/EgyptDesert_1.jpg');
+    }
+</style>
 <head>
     <!-- Style.css -->
     <link href="~/css/style.css" rel="stylesheet" />
@@ -42,17 +44,17 @@
                         <option value="west">West</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary filter-bt">Filter</button>
             </form>
 
+            <button type="submit" class="btn filter-bt">Filter</button>
+            <a asp-action="BurialSummary" asp-route-id="" class="btn filter-bt">Clear</a>
 
-            <a asp-action="BurialSummary" asp-route-id="" class="btn btn-primary filter-bt">Clear</a>
         </div>
 
         <div class="col-md-10">
             <form>
                 <div class="form-group">
-                    <input asp-action="Create" asp-controller="Id" type="submit" value="Create New Record" class="btn btn-primary" />
+                    <input asp-action="Create" asp-controller="Id" type="submit" value="New Record" class="btn NewRocord-bt" />
                 </div>
             </form>
             
@@ -119,8 +121,8 @@
             <div class="col-md-10" style="padding-left:8.5rem;">
                 <div page-model="@Model.PagingInfo" page-action="BurialSummary"
                      page-classes-enabled="true" page-class="btn"
-                     page-class-normal="btn-outline-dark"
-                     page-class-selected="btn-secondary"
+                     page-class-normal="btn-dark"
+                     page-class-selected="btn-light text-dark"
                      class="btn-group btn-group-sm pull-right m-1">
                 </div>
             </div>

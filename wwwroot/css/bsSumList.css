@@ -1,9 +1,11 @@
-﻿
+﻿bsSumList.css
 /*============= Main Content =============*/
-
 body {
-    background-color: #FFBF80;
+    /*    background-color: #FFBF80;*/
     font-family: 'Lato', sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
 }
 
 .navbar {
@@ -12,11 +14,10 @@ body {
 }
 
 .BurialH1 {
-    font-size: 2.2rem;
+    color: white;
     letter-spacing: .2rem;
-    text-shadow: 0.1rem 0.1rem 0.1rem black;
+    text-shadow: 0.1rem 0.1rem 0.5rem black;
     margin-top: 4.2rem;
-    padding-bottom: 1rem;
     text-align: center;
 }
 
@@ -24,22 +25,17 @@ body {
     margin-top: 6.5rem;
 }
 
-.filter-bt {
-    margin: 0 0 .4rem 1rem;
-}
-
-
 /*============= Table =============*/
-    
+
 .tableFixHead {
     overflow-y: auto;
     height: 150px;
 }
 
-.tableFixHead thead th {
-    position: sticky;
-    top: 0;
-}
+    .tableFixHead thead th {
+        position: sticky;
+        top: 0;
+    }
 
 table {
     border-collapse: collapse;
@@ -49,11 +45,62 @@ table {
 th, td {
     padding: 8px 16px;
     border: 1px solid #ccc;
-    text-align:center;
+    text-align: center;
 }
 
 
 th {
     background: #2D3852;
     color: white;
+}
+
+/*============= button =============*/
+.NewRocord-bt {
+    display: inline-block;
+    width: auto;
+    margin-left: 2px;
+    margin-right: 2px;
+    text-align: center;
+    background: steelblue;
+}
+
+.NewRocord-bt.active, .NewRocord-bt:hover {
+    /*    display: inline-block;
+width: auto;
+margin-left: 2px;
+margin-right: 2px;
+text-align: center;*/
+    background: #78AEDB;
+    transition-delay: .1s;
+}
+
+.filter-bt {
+    margin: 0 0 .4rem 1rem;
+    background: steelblue;
+}
+
+.filter-bt.active, .filter-bt:hover {
+    /*    margin: 0 0 .4rem 1rem;*/
+    background: #78AEDB;
+    transition-delay: .1s;
+}
+
+label {
+    display: inline-block;
+    margin-left: 1rem;
+    margin-bottom: .5rem;
+    color: white;
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.form-control {
+    background-color: #53595f;
+    border-radius: 0;
+    border: .15rem solid #666b71;
+    color: white !important;
+    font-size: 1.1rem;
+    width: 6.5rem;
+    margin-left: 1.1rem;
 }
