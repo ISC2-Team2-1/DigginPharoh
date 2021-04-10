@@ -13,6 +13,7 @@ namespace DigginPharoh.Controllers
     public class IdController : Controller
     {
         private readonly ApplicationDbContext _context;
+        public string burialIdHolder = "";
 
         public IdController(ApplicationDbContext context)
         {
@@ -46,6 +47,7 @@ namespace DigginPharoh.Controllers
         // GET: Id/Create
         public IActionResult Create()
         {
+            ViewBag["BurialId"] = burialIdHolder;
             return View();
         }
 
@@ -62,6 +64,9 @@ namespace DigginPharoh.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            
+            burialIdHolder = burialIDInfo.Burial_Id;
+
             return View(burialIDInfo);
         }
 

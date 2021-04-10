@@ -17,6 +17,7 @@ namespace DigginPharoh.Controllers
         private readonly ILogger<HomeController> _logger;
         private ApplicationDbContext context { get; set; }
         public int PageSize = 15;
+        
 
         public HomeController(ILogger<HomeController> logger, ApplicationDbContext ctx)
         {
