@@ -79,8 +79,11 @@ namespace DigginPharoh.Controllers
 
         public IActionResult BurialDetails(string detailId)
         {
-            Burial burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == detailId);
-            return View("BurialDetails", context.GamousBurials);
+            return View(new IndexViewModel
+            {
+                BurialList = context.GamousBurials
+                 .Where(s => s.Burial_Id == detailId)
+            });
         }
 
         public IActionResult FieldNotes(string Burial_Id)
@@ -137,7 +140,10 @@ namespace DigginPharoh.Controllers
         {
             context.Remove(context.GamousBurials.FirstOrDefault(s => s.Burial_Id == deletionId));
             context.SaveChanges();
-            return View("BurialSummary", context.GamousBurials);
+            return View(new IndexViewModel
+            {
+                BurialList = context.GamousBurials
+            });
         }
 
 
