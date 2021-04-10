@@ -7,12 +7,15 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DigginPharoh.Data;
 using DigginPharoh.Models;
+using DigginPharoh.Models.ViewModels;
 
 namespace DigginPharoh.Controllers
 {
     public class BurialController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private ApplicationDbContext _context { get; set; }
+
+        public int PageSize = 20;
 
         public BurialController(ApplicationDbContext context)
         {
@@ -20,9 +23,29 @@ namespace DigginPharoh.Controllers
         }
 
         // GET: Burial
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageNum = 1)
         {
-            return View(await _context.GamousBurials.ToListAsync());
+            return View(new BurialListViewModel
+            {
+                Burials = _context.GamousBurials
+                    .OrderBy(x => x.year_found)//we can probably add the functionality that allows research to filter by the nearest and furtherest year found of the gamous
+                    .Skip((pageNum - 1) * PageSize)
+                    .Take(PageSize),
+
+                PagingInfo = new PagingInfo
+                    {
+                        CurrentPage = pageNum,
+                        ItemsPerPage = PageSize,
+                        TotalNumItems =  _context.GamousBurials.Count()
+                    },
+
+            });
+
+            //return View(await _context.GamousBurials
+            //    .OrderBy( x => x.year_found)//we can probably add the functionality that allows research to filter by the nearest and furtherest year found of the gamous
+            //    .Skip((pageNum - 1) * pageSize)
+            //    .Take(pageSize)
+            //    .ToListAsync());
         }
 
         // GET: Burial/Details/5
