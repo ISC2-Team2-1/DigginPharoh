@@ -29,7 +29,10 @@ namespace DigginPharoh.Controllers
 
         public IActionResult BurialSummary()
         {
-            return View(new IndexViewModel());
+            return View(new IndexViewModel 
+            { 
+
+            });
         }
 
         public IActionResult BurialDetails()
