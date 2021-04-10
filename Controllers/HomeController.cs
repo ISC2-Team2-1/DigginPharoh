@@ -51,7 +51,7 @@ namespace DigginPharoh.Controllers
             });
         }
 
-        public IActionResult BurialDetails()
+        public IActionResult BurialDetails(string? Burial_Id)
         {
             return View(new IndexViewModel
             {
