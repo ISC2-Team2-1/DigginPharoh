@@ -51,6 +51,14 @@ namespace DigginPharoh.Controllers
             });
         }
 
+        //This is called when the form on the Burial Summary page is submitted
+        [HttpPost]
+        public IActionResult Filter(string[] filter)
+        {
+            string id = string.Join('-', filter);
+            return RedirectToAction("BurialSummary", new { ID = id });
+        }
+
         public IActionResult BurialDetails(string? Burial_Id)
         {
             return View(new IndexViewModel
