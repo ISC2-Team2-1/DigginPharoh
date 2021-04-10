@@ -7,6 +7,18 @@ namespace DigginPharoh.Models
 {
     public class Filters
     {
+        public Filters(string filterstring)
+        {
+            FilterString = filterstring ?? "all";
+            string[] filters = FilterString.Split('-');
+            HeadDirection = filters[0];
+        }
+
+        public string FilterString { get; }
+        public string HeadDirection { get; }
+
+        public bool HasCategory => HeadDirection.ToLower() != "all";
+
         //public Filters(string filterstring)
         //{
         //    FilterString = filterstring ?? "all-all-all";
