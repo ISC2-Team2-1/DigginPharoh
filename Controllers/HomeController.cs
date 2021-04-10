@@ -31,7 +31,12 @@ namespace DigginPharoh.Controllers
         {
             return View(new IndexViewModel 
             { 
-
+                BurialList = context.GamousBurials,
+                BurialIDInfoList = context.BurialIdInfos,
+                BiologicalSampleList = context.BioSamples,
+                CranialList = context.Craniums,
+                NoteList = context.JustNotes,
+                Carbon_DatingList = context.CarbonDates
             });
         }
 
