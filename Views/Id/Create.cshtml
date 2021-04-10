@@ -33,6 +33,7 @@
                 <input asp-for="low_pair_NS" class="form-control" />
                 <span asp-validation-for="low_pair_NS" class="text-danger"></span>
             </div>
+            <!--Add razor code to set the high value equal to the low value plus 10-->
             <div class="form-group">
                 <label asp-for="high_pair_NS" class="control-label"></label>
                 <input asp-for="high_pair_NS" class="form-control" />
@@ -43,6 +44,7 @@
                 <input asp-for="low_pair_EW" class="form-control" />
                 <span asp-validation-for="low_pair_EW" class="text-danger"></span>
             </div>
+            <!--Add razor code to set the high value equal to the low value plus 10-->
             <div class="form-group">
                 <label asp-for="high_pair_EW" class="control-label"></label>
                 <input asp-for="high_pair_EW" class="form-control" />
@@ -58,6 +60,7 @@
                 <input asp-for="BURIALNUM" class="form-control" />
                 <span asp-validation-for="BURIALNUM" class="text-danger"></span>
             </div>
+            <!--Pass the ID through so that it can be used in the other forms-->
             <div class="form-group">
                 <input type="submit" value="Next" class="btn btn-primary" />
             </div>
