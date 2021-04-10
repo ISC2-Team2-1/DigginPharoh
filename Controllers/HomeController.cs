@@ -32,7 +32,6 @@ namespace DigginPharoh.Controllers
             return View(new IndexViewModel());
         }
 
-<<<<<<< HEAD
         public IActionResult BurialDetails()
         {
             return View(new IndexViewModel());
@@ -43,9 +42,6 @@ namespace DigginPharoh.Controllers
         //    return View();
         //}
 
-
-=======
->>>>>>> f7d284c941e264f80709964ff92194b6d488ab65
         public IActionResult Privacy()
         {
             return View();
