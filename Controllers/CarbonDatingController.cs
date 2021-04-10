@@ -10,24 +10,22 @@ using DigginPharoh.Models;
 
 namespace DigginPharoh.Controllers
 {
-    public class IdController : Controller
+    public class CarbonDatingController : Controller
     {
         private readonly ApplicationDbContext _context;
-        public string burialIdHolder = "";
 
-        public IdController(ApplicationDbContext context)
+        public CarbonDatingController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Id
+        // GET: CarbonDating
         public async Task<IActionResult> Index()
         {
-            ViewBag.BurialId = burialIdHolder;
-            return View(await _context.BurialIdInfos.ToListAsync());
+            return View(await _context.CarbonDates.ToListAsync());
         }
 
-        // GET: Id/Details/5
+        // GET: CarbonDating/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -35,43 +33,40 @@ namespace DigginPharoh.Controllers
                 return NotFound();
             }
 
-            var burialIDInfo = await _context.BurialIdInfos
+            var carbon_Dating = await _context.CarbonDates
                 .FirstOrDefaultAsync(m => m.Burial_Id == id);
-            if (burialIDInfo == null)
+            if (carbon_Dating == null)
             {
                 return NotFound();
             }
 
-            return View(burialIDInfo);
+            return View(carbon_Dating);
         }
 
-        // GET: Id/Create
-        public IActionResult Create()
+        // GET: CarbonDating/Create
+        public IActionResult Create(string burialId)
         {
-            ViewBag.BurialId = burialIdHolder;
+            ViewBag.BurialId = burialId;
             return View();
         }
 
-        // POST: Id/Create
+        // POST: CarbonDating/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Burial_Id,burial_location_NS,burial_location_EW,low_pair_NS,high_pair_NS,low_pair_EW,high_pair_EW,burial_subplot,BURIALNUM")] BurialIDInfo burialIDInfo)
+        public async Task<IActionResult> Create([Bind("Burial_Id,AREA_Num,Rack_Num,TUBE_Num,Description,Size_ml,Foci,C14_Sample_2017,Location,Question,Conventional_14C_Age_BP,Calendar_Date_14C,Calibrated_95_Calendar_Date_MAX,Calibrated_95_Calendar_Date_MIN,Calibrated_95_Calendar_Date_SPAN,Calibrated_95_Calendar_Date_AVG,Category,Notes")] Carbon_Dating carbon_Dating)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(burialIDInfo);
+                _context.Add(carbon_Dating);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            
-            burialIdHolder = burialIDInfo.Burial_Id;
-
-            return View(burialIDInfo);
+            return View(carbon_Dating);
         }
 
-        // GET: Id/Edit/5
+        // GET: CarbonDating/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -79,22 +74,22 @@ namespace DigginPharoh.Controllers
                 return NotFound();
             }
 
-            var burialIDInfo = await _context.BurialIdInfos.FindAsync(id);
-            if (burialIDInfo == null)
+            var carbon_Dating = await _context.CarbonDates.FindAsync(id);
+            if (carbon_Dating == null)
             {
                 return NotFound();
             }
-            return View(burialIDInfo);
+            return View(carbon_Dating);
         }
 
-        // POST: Id/Edit/5
+        // POST: CarbonDating/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Burial_Id,burial_location_NS,burial_location_EW,low_pair_NS,high_pair_NS,low_pair_EW,high_pair_EW,burial_subplot,BURIALNUM")] BurialIDInfo burialIDInfo)
+        public async Task<IActionResult> Edit(string id, [Bind("Burial_Id,AREA_Num,Rack_Num,TUBE_Num,Description,Size_ml,Foci,C14_Sample_2017,Location,Question,Conventional_14C_Age_BP,Calendar_Date_14C,Calibrated_95_Calendar_Date_MAX,Calibrated_95_Calendar_Date_MIN,Calibrated_95_Calendar_Date_SPAN,Calibrated_95_Calendar_Date_AVG,Category,Notes")] Carbon_Dating carbon_Dating)
         {
-            if (id != burialIDInfo.Burial_Id)
+            if (id != carbon_Dating.Burial_Id)
             {
                 return NotFound();
             }
@@ -103,12 +98,12 @@ namespace DigginPharoh.Controllers
             {
                 try
                 {
-                    _context.Update(burialIDInfo);
+                    _context.Update(carbon_Dating);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BurialIDInfoExists(burialIDInfo.Burial_Id))
+                    if (!Carbon_DatingExists(carbon_Dating.Burial_Id))
                     {
                         return NotFound();
                     }
@@ -119,10 +114,10 @@ namespace DigginPharoh.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(burialIDInfo);
+            return View(carbon_Dating);
         }
 
-        // GET: Id/Delete/5
+        // GET: CarbonDating/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -130,30 +125,30 @@ namespace DigginPharoh.Controllers
                 return NotFound();
             }
 
-            var burialIDInfo = await _context.BurialIdInfos
+            var carbon_Dating = await _context.CarbonDates
                 .FirstOrDefaultAsync(m => m.Burial_Id == id);
-            if (burialIDInfo == null)
+            if (carbon_Dating == null)
             {
                 return NotFound();
             }
 
-            return View(burialIDInfo);
+            return View(carbon_Dating);
         }
 
-        // POST: Id/Delete/5
+        // POST: CarbonDating/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var burialIDInfo = await _context.BurialIdInfos.FindAsync(id);
-            _context.BurialIdInfos.Remove(burialIDInfo);
+            var carbon_Dating = await _context.CarbonDates.FindAsync(id);
+            _context.CarbonDates.Remove(carbon_Dating);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BurialIDInfoExists(string id)
+        private bool Carbon_DatingExists(string id)
         {
-            return _context.BurialIdInfos.Any(e => e.Burial_Id == id);
+            return _context.CarbonDates.Any(e => e.Burial_Id == id);
         }
     }
 }
