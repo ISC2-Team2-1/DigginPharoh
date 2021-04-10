@@ -67,15 +67,17 @@
             <!--Filters go here-->
             <form asp-action="Filter" method="post">
                 <div class="form-group">
-                    @*<label>Head Direction:</label>
-                        <select name="filter" class="form-control"
-                                asp-items="@(new SelectList(ViewBag.GamousBurials, "head_direction", ViewBag.Filters.HeadDirection))">
-                            <option value="all">All</option>
-                        </select>*@
+                    <label>Head Direction:</label>
+                    <select name="filter" class="form-control">
+                        <option value="all">All</option>
+                        <option value="east">East</option>
+                        <option value="west">West</option>
+                    </select>
                 </div>
+                <button type="submit" class="btn btn-primary filter-bt">Filter</button>
             </form>
 
-            <button type="submit" class="btn btn-primary filter-bt">Filter</button>
+
             <a asp-action="BurialSummary" asp-route-id="" class="btn btn-primary filter-bt">Clear</a>
         </div>
 
