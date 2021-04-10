@@ -1,0 +1,59 @@
+﻿
+/*============= Main Content =============*/
+
+body {
+    background-color: #FFBF80;
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar {
+    background: rgba(0, 0, 0, .7) !important;
+    transition: background-color 1s ease;
+}
+
+.BurialH1 {
+    font-size: 2.2rem;
+    letter-spacing: .2rem;
+    text-shadow: 0.1rem 0.1rem 0.1rem black;
+    margin-top: 4.2rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.col-pos {
+    margin-top: 6.5rem;
+}
+
+.filter-bt {
+    margin: 0 0 .4rem 1rem;
+}
+
+
+/*============= Table =============*/
+    
+.tableFixHead {
+    overflow-y: auto;
+    height: 150px;
+}
+
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    text-align:center;
+}
+
+
+th {
+    background: #2D3852;
+    color: white;
+}
