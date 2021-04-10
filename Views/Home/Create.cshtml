@@ -7,13 +7,14 @@
 
 <h1>Create</h1>
 
-<h4>Burial</h4>
+<h4>Burial Id: @ViewBag.BurialId</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                
                 <label asp-for="Burial_Id" class="control-label"></label>
                 <input asp-for="Burial_Id" class="form-control" />
                 <span asp-validation-for="Burial_Id" class="text-danger"></span>
