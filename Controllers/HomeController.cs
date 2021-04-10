@@ -39,7 +39,6 @@ namespace DigginPharoh.Controllers
             ViewBag.HeadDirFilterValues = Filters.HeadDirFilterValues;
 
             IQueryable<Burial> query = context.GamousBurials;
-                //.Include(b => b.head_direction);
 
 
             if (filters.HasDirection)
