@@ -27,31 +27,22 @@ namespace DigginPharoh.Controllers
 
             context = ctx;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Create()
-        {
-            return View();
-        }
 
         [HttpPost]
         public async Task<IActionResult> Create(ProjectRole role)
         {
             var roleExist = await roleManager.RoleExistsAsync(role.RoleName);
+
             if (!roleExist)
             {
-                var result = await roleManager.CreateAsync(new IdentityRole(role.RoleName));
+                await roleManager.CreateAsync(new IdentityRole(role.RoleName));
             }
             return View();
         }
 
         public IActionResult ManageUser()
         {
-            var users = userManager.Users;
-            var roles = roleManager.Roles;
+            var users = userManager.Users.ToList();
 
             return View(users);
         }
@@ -83,17 +74,16 @@ namespace DigginPharoh.Controllers
             };
 
             // Retrieve all the Users
-            foreach (var user in userManager.Users)
+            foreach (var user in userManager.Users.ToList())
             {
-                // If the user is in this role, add the username to
-                // Users property of EditRoleViewModel. This model
-                // object is then passed to the view for display
-                if (await userManager.IsInRoleAsync(user, role.Name))
+
+                var result = await userManager.IsInRoleAsync(user, role.Name);
+
+                if (result)
                 {
                     model.Users.Add(user.UserName);
                 }
             }
-
             return View(model);
         }
 
