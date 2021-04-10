@@ -31,6 +31,7 @@ namespace DigginPharoh.Controllers
         {
             return View(new IndexViewModel());
         }
+<<<<<<< Updated upstream
 
 <<<<<<< HEAD
         public IActionResult BurialDetails()
@@ -56,5 +57,7 @@ namespace DigginPharoh.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+=======
+>>>>>>> Stashed changes
     }
 }

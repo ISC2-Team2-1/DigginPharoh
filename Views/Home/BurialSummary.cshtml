@@ -5,6 +5,25 @@
 }
 @model DigginPharoh.Models.ViewModels.IndexViewModel
 
+<head>
+    <link href="~/css/style.css" rel="stylesheet" />
+    <!-- Plugins.css -->
+    <link href="~/css/plugins.css" rel="stylesheet">
+    <!-- Google Fonts https://fonts.google.com/ -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Animate.css https://cdnjs.com/libraries/animate.css/
+    https://daneden.github.io/animate.css/ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Lightbox Image Gallery https://cdnjs.com/libraries/lightbox2  https://lokeshdhakar.com/projects/lightbox2/ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <!-- Owl Carousel https://cdnjs.com/libraries/OwlCarousel2
+    http://owlcarousel2.github.io/OwlCarousel2/ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+</head>
+
+<<<<<<< Updated upstream
 
 <table class="table table-striped">
     <thead>
@@ -21,6 +40,26 @@
     <tbody>
         
         <tr>
+=======
+<h1 class="BurialH1">Burial Summary</h1>
+
+<h4>Data Hilights Below</h4>
+<hr />
+
+<div class="h-75 d-inline-block">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Burial ID</th>
+                <th scope="col">Depth</th>
+                <th scope="col">Sex</th>
+                <th scope="col">Head Direction</th>
+                <th scope="col">Preservation</th>
+                <th scope="col">Year Found</th>
+            </tr>
+        </thead>
+        <tbody>
+>>>>>>> Stashed changes
             @foreach (var x in Model.BurialList)
             {
                 <th scope="row">@x.Burial_Id</th>
@@ -31,8 +70,15 @@
                 <td>@x.artifacts_description</td>
                 <td>@x.year_found</td>
             }
+<<<<<<< Updated upstream
         </tr>
         
 
     </tbody>
 </table>
+=======
+        </tbody>
+    </table>
+</div>
+
+>>>>>>> Stashed changes
