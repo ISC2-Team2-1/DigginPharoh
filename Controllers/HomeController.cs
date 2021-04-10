@@ -30,22 +30,21 @@ namespace DigginPharoh.Controllers
             return View();
         }
 
-        public IActionResult BurialSummary(int pageNum = 1, string? id = null, string? deletionId = null) //pass in string id
+        public IActionResult BurialSummary(string id, string deletionId, int pageNum = 1) //pass in string id
+
         {
             var filters = new Filters(id);
             ViewBag.Filters = filters;
-            //ViewBag.Categories = context.Categories.ToList();
-            //ViewBag.Statuses = context.Statuses.ToList();
-            //ViewBag.DueFilters = Filters.DueFilterValues;
             ViewBag.GamousBurials = context.GamousBurials.ToList(); // To get head direction
+            ViewBag.HeadDirFilterValues = Filters.HeadDirFilterValues;
 
-            IQueryable<Burial> query = context.GamousBurials
-                .Include(t => t.head_direction);
+            IQueryable<Burial> query = context.GamousBurials;
+                //.Include(b => b.head_direction);
 
 
             if (filters.HasDirection)
             {
-                query = query.Where(t => t.head_direction == filters.HeadDirection);
+                query = query.Where(t => t.head_direction.ToLower() == filters.HeadDirection.ToLower()) ;
             }
 
             //if people want to delete a record, the summary page will get deleteid
@@ -56,9 +55,10 @@ namespace DigginPharoh.Controllers
                 context.SaveChanges();
             }
 
+
             return View(new IndexViewModel 
             { 
-                BurialList = context.GamousBurials
+                BurialList = query
                     .OrderBy(x => x.year_found)//we can probably add the functionality that allows research to filter by the nearest and furtherest year found of the gamous
                     .Skip((pageNum - 1) * PageSize)
                     .Take(PageSize),
@@ -72,7 +72,7 @@ namespace DigginPharoh.Controllers
                 {
                     CurrentPage = pageNum,
                     ItemsPerPage = PageSize,
-                    TotalNumItems = context.GamousBurials.Count()
+                    TotalNumItems = query.Count()
                 },
             });
         }
