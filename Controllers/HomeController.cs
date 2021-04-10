@@ -77,7 +77,7 @@ namespace DigginPharoh.Controllers
             return RedirectToAction("BurialSummary", new { ID = id });
         }
 
-        public IActionResult BurialDetails(string? Burial_Id)
+        public IActionResult BurialDetails(string? detailId)
         {
             Burial burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == detailId);
             return View("BurialDetails", context.GamousBurials);
