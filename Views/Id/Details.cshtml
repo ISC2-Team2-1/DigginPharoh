@@ -1,0 +1,67 @@
+﻿@model DigginPharoh.Models.BurialIDInfo
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout-client.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>BurialIDInfo</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.burial_location_NS)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.burial_location_NS)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.burial_location_EW)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.burial_location_EW)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.low_pair_NS)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.low_pair_NS)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.high_pair_NS)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.high_pair_NS)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.low_pair_EW)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.low_pair_EW)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.high_pair_EW)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.high_pair_EW)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.burial_subplot)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.burial_subplot)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BURIALNUM)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BURIALNUM)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Burial_Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

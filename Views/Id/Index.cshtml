@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout-client.cshtml";
+}
+<!--Section 2 Group 1-->
+<!--This is the page where the user selects which type of record they would like to create with theidentity informatino they just added-->
+
+<h1>Create</h1>
+
+<h4>ProjectRole</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form>
+            <div class="text-danger"></div>
+            <div class="form-group">
+                <input asp-action="Create" asp-controller="Home" type="submit" value="Create New Burial Record" class="btn btn-primary" />
+            </div>
+            <div class="form-group">
+                <input asp-action="Create" asp-controller="Home" type="submit" value="Create New Biological Sample Record" class="btn btn-primary" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create New Carbon Dating Record" class="btn btn-primary" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create New Cranial Record" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
