@@ -14,7 +14,7 @@ namespace DigginPharoh.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private ApplicationDbContext context;
+        private ApplicationDbContext context { get; set; }
         public int PageSize = 10;
 
         public HomeController(ILogger<HomeController> logger, ApplicationDbContext ctx)
@@ -51,7 +51,26 @@ namespace DigginPharoh.Controllers
             });
         }
 
-        public IActionResult BurialDetails(string? Burial_Id)
+        //public IActionResult BurialDetails(string? Burial_Id)
+        //{
+        //    return View(new IndexViewModel
+        //    {
+        //        BurialList = context.GamousBurials,
+        //        BurialIDInfoList = context.BurialIdInfos,
+        //        BiologicalSampleList = context.BioSamples,
+        //        CranialList = context.Craniums,
+        //        NoteList = context.JustNotes,
+        //        Carbon_DatingList = context.CarbonDates,
+        //    });
+        //}
+
+        public IActionResult BurialDetails(string? detailId)
+        {
+            Burial burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == detailId);
+            return View("BurialDetails", context.GamousBurials);
+        }
+
+        public IActionResult FieldNotes(string? Burial_Id)
         {
             return View(new IndexViewModel
             {
@@ -62,6 +81,50 @@ namespace DigginPharoh.Controllers
                 NoteList = context.JustNotes,
                 Carbon_DatingList = context.CarbonDates,
             });
+        }
+
+        [HttpPost]
+        public IActionResult EditForm(string editId)
+        {
+            Burial burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == editId);
+            ViewBag.burialToEdit = burialToEdit;
+            return View("EditForm");
+        }
+
+        //Edit the database record
+        //we got the movieToEdit from the previous EditFrom Method
+        [HttpPost]
+        public IActionResult Edit(Burial burialWithEdits)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.burialToEdit = burialWithEdits;
+                return View("EditForm");
+            }
+            else
+            {
+                var burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == burialWithEdits.Burial_Id);
+                burialToEdit.Burial_Id = burialWithEdits.Burial_Id;
+                burialToEdit.burial_depth = burialWithEdits.burial_depth;
+                burialToEdit.Sex_Gender_GE = burialWithEdits.Sex_Gender_GE;
+                burialToEdit.gender_body_col = burialWithEdits.gender_body_col;
+                burialToEdit.head_direction = burialWithEdits.head_direction;
+                burialToEdit.Preservation = burialWithEdits.Preservation;
+                burialToEdit.year_found = burialWithEdits.year_found;
+                context.SaveChanges();
+                return View("BurialSummary", context.GamousBurials);
+            }
+
+        }
+
+        //Delete records
+        //By matching the deleteId we got from the input, we can delete the correct one that the user wants to delete
+        [HttpPost]
+        public IActionResult Delete(string deletionId)
+        {
+            context.Remove(context.GamousBurials.FirstOrDefault(s => s.Burial_Id == deletionId));
+            context.SaveChanges();
+            return View("BurialSummary", context.GamousBurials);
         }
 
 

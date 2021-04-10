@@ -17,6 +17,9 @@
             <thead>
                 <tr>
                     <th>
+                        Burial ID
+                    </th>
+                    <th>
                         Gamous_Id
                     </th>
                     <th>
@@ -573,16 +576,16 @@
 
                     @*Edit Movies matching edit and movieId research*@
                     <td>
-                        <form id="@x.Burial_Id" asp-action="EditForm" method="post" class="btn-outline-info">
-                            <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
+                        <form id="@x.Burial_Id" asp-action="EditDetailForm" method="post" class="btn-outline-info">
+                            <input type="hidden" asp-for="@x.Burial_Id" name="editId2" />
                             <button type="submit">Edit</button>
                         </form>
                     </td>
 
                     @*Delete Existing Movies using deleteid research*@
                     <td>
-                        <form id="@x.Burial_Id" asp-action="Delete" method="post" class="btn-outline-info">
-                            <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
+                        <form id="@x.Burial_Id" asp-action="DeleteDetailRecord" method="post" class="btn-outline-info">
+                            <input type="hidden" asp-for="@x.Burial_Id" name="deletionId2" />
                             <button type="submit">Delete</button>
                         </form>
                     </td>

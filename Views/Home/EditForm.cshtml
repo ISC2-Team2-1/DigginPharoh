@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Edit A Record";
+}
+
+@*@model DigginPharoh.Models.ViewModels.IndexViewModel*@
+@model DigginPharoh.Models.Burial
+
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" />
+    <div>
+        <label asp-for="Burial_Id">Burial ID</label>
+        <input asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" required />
+    </div>
+
+    <div>
+        <label asp-for="burial_depth">Depth</label>
+        <input asp-for="burial_depth" value="@ViewBag.burialToEdit.burial_depth" />
+    </div>
+
+    <div>
+        <label asp-for="Sex_Gender_GE">Sex</label>
+        <input asp-for="Sex_Gender_GE" value="@ViewBag.burialToEdit.Sex_Gender_GE" />
+    </div>
+
+    <div>
+        <label asp-for="gender_body_col">Body Gender</label>
+        <input asp-for="gender_body_col" value="@ViewBag.burialToEdit.gender_body_col" />
+    </div>
+
+    <div>
+        <label asp-for="head_direction">Head Direction</label>
+        <input asp-for="head_direction" value="@ViewBag.burialToEdit.head_direction" />
+    </div>
+
+    <div>
+        <label asp-for="Preservation">Preservation</label>
+        <input asp-for="Preservation" value="@ViewBag.burialToEdit.Preservation" />
+    </div>
+
+    <div>
+        <label asp-for="year_found">Year Found</label>
+        <input asp-for="year_found" value="@ViewBag.burialToEdit.year_found" />
+    </div>
+
+
+    <button type="submit">Submit Your New Record</button>
+
+    <div asp-validation-summary="All"></div>
+</form>
