@@ -100,7 +100,27 @@ namespace DigginPharoh.Controllers
             return View(burial);
         }
 
+        // GET: Id/Create
+        public IActionResult CreateId()
+        {
+            return View();
+        }
 
+        // POST: Id/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateId([Bind("Burial_Id,burial_location_NS,burial_location_EW,low_pair_NS,high_pair_NS,low_pair_EW,high_pair_EW,burial_subplot,BURIALNUM")] BurialIDInfo burialIDInfo)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Add(burialIDInfo);
+                await context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
 
         public IActionResult BurialDetails(string detailId)
         {
