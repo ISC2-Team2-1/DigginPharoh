@@ -13,7 +13,7 @@
 <div class="col-md-11">
 
     <div class="h-75 d-inline-block">
-        <table class="table table-striped">
+        <table class="table table-striped table-light table-hover">
             <thead>
                 <tr>
                     <th>
@@ -63,13 +63,79 @@
                     </th>
                     <th>
                         Sex Method
-                    </th>
                     <th>
                         GE_function_total
                     </th>
                     <th>
                         Length_of_remains
                     </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var x in Model.BurialList)
+                {
+                <tr>
+                    <th scope="row">@x.Burial_Id</th>
+                    <td>
+                        @x.Gamous_Id
+                    </td>
+                    <td>
+                        @x.burial_depth
+                    </td>
+                    <td>
+                        @x.WESTTOHEAD
+                    </td>
+                    <td>
+                        @x.WESTTOFEET
+                    </td>
+                    <td>
+                        @x.SOUTHTOHEAD
+                    </td>
+                    <td>
+                        @x.SOUTHTOFEET
+                    </td>
+                    <td>
+                        @x.Preservation
+                    </td>
+                    <td>
+                        @x.Burial_Situation
+                    </td>
+                    <td>
+                        @x.head_direction
+                    </td>
+                    <td>
+                        @x.Adult_Child
+                    </td>
+                    <td>
+                        @x.estimate_age
+                    </td>
+                    <td>
+                        @x.AGEMETHOD
+                    </td>
+                    <td>
+                        @x.gender_body_col
+                    </td>
+                    <td>
+                        @x.Sex_Gender_GE
+                    </td>
+                    <td>
+                        @x.SEXMETHOD
+                    </td>
+                    <td>
+                        @x.GE_function_total
+                    </td>
+                    <td>
+                        @x.length_of_remains
+                    </td>
+                </tr>
+                }
+
+                </tbody>
+
+            @*Second line of the Table*@
+            <thead>
+                <tr>
                     <th>
                         Sample#
                     </th>
@@ -124,6 +190,73 @@
                     <th>
                         supraorbital_ridges
                     </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var x in Model.BurialList)
+                {
+                <tr>
+                    <td>
+                        @x.sample_number
+                    </td>
+                    <td>
+                        @x.basilar_suture
+                    </td>
+                    <td>
+                        @x.ventral_arc
+                    </td>
+                    <td>
+                        @x.subpubic_angle
+                    </td>
+                    <td>
+                        @x.sciatic_notch
+                    </td>
+                    <td>
+                        @x.pubic_bone
+                    </td>
+                    <td>
+                        @x.preaur_sulcus
+                    </td>
+                    <td>
+                        @x.medial_IP_ramus
+                    </td>
+                    <td>
+                        @x.dorsal_pitting
+                    </td>
+                    <td>
+                        @x.femur_head
+                    </td>
+                    <td>
+                        @x.humerus_head
+                    </td>
+                    <td>
+                        @x.osteophytosis
+                    </td>
+                    <td>
+                        @x.pubic_symphysis
+                    </td>
+                    <td>
+                        @x.femur_length
+                    </td>
+                    <td>
+                        @x.humerus_length
+                    </td>
+                    <td>
+                        @x.tibia_length
+                    </td>
+                    <td>
+                        @x.robust
+                    </td>
+                    <td>
+                        @x.supraorbital_ridges
+                    </td>
+                </tr>
+                }
+                </tbody>
+
+            <thead>
+                <tr>
                     <th>
                         orbit_edge
                     </th>
@@ -178,6 +311,73 @@
                     <th>
                         hair_taken
                     </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var x in Model.BurialList)
+                {
+                <tr>
+                    <td>
+                        @x.orbit_edge
+                    </td>
+                    <td>
+                        @x.parietal_bossing
+                    </td>
+                    <td>
+                        @x.gonian
+                    </td>
+                    <td>
+                        @x.nuchal_crest
+                    </td>
+                    <td>
+                        @x.zygomatic_crest
+                    </td>
+                    <td>
+                        @x.cranial_suture
+                    </td>
+                    <td>
+                        @x.maximum_cranial_length
+                    </td>
+                    <td>
+                        @x.maximum_cranial_breadth
+                    </td>
+                    <td>
+                        @x.basion_bregma_height
+                    </td>
+                    <td>
+                        @x.basion_nasion
+                    </td>
+                    <td>
+                        @x.basion_prosthion_length
+                    </td>
+                    <td>
+                        @x.bizygomatic_diameter
+                    </td>
+                    <td>
+                        @x.nasion_prosthion
+                    </td>
+                    <td>
+                        @x.maximum_nasal_breadth
+                    </td>
+                    <td>
+                        @x.interorbital_breadth
+                    </td>
+                    <td>
+                        @x.artifacts_description
+                    </td>
+                    <td>
+                        @x.hair_color
+                    </td>
+                    <td>
+                        @x.hair_taken
+                    </td>
+                </tr>
+                }
+                </tbody>
+
+            <thead>
+                <tr>
                     <th>
                         soft_tissue_taken
                     </th>
@@ -232,6 +432,74 @@
                     <th>
                         Skull_At_Magazine
                     </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var x in Model.BurialList)
+                {
+
+                <tr>
+                    <td>
+                        @x.soft_tissue_taken
+                    </td>
+                    <td>
+                        @x.bone_taken
+                    </td>
+                    <td>
+                        @x.tooth_taken
+                    </td>
+                    <td>
+                        @x.textile_taken
+                    </td>
+                    <td>
+                        @x.SAMPLE
+                    </td>
+                    <td>
+                        @x.description_of_taken
+                    </td>
+                    <td>
+                        @x.artifact_found
+                    </td>
+                    <td>
+                        @x.estimate_living_stature
+                    </td>
+                    <td>
+                        @x.tooth_attrition
+                    </td>
+                    <td>
+                        @x.tooth_eruption
+                    </td>
+                    <td>
+                        @x.pathology_anomalies
+                    </td>
+                    <td>
+                        @x.epiphyseal_union
+                    </td>
+                    <td>
+                        @x.year_found
+                    </td>
+                    <td>
+                        @x.month_found
+                    </td>
+                    <td>
+                        @x.day_found
+                    </td>
+                    <td>
+                        @x.Field_Book
+                    </td>
+                    <td>
+                        @x.Field_Book_Page_Number
+                    </td>
+                    <td>
+                        @x.Skull_At_Magazine
+                    </td>
+                </tr>
+                }
+                </tbody>
+
+            <thead>
+                <tr>
                     <th>
                         Postcrania_At_Magazine
                     </th>
@@ -289,231 +557,13 @@
                     <th>
                         Body_Analysis_Year
                     </th>
-
-                    <th><!--This is a blank col for the button--></th>
-                    <th><!--This is a blank col for the button--></th>
-                    <th><!--This is a blank col for the button--></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var x in Model.BurialList)
                 {
-                <tr>
 
-                    <th scope="row">@x.Burial_Id</th>
-                    <td>
-                        @x.Gamous_Id
-                    </td>
-                    <td>
-                        @x.burial_depth
-                    </td>
-                    <td>
-                        @x.WESTTOHEAD
-                    </td>
-                    <td>
-                        @x.WESTTOFEET
-                    </td>
-                    <td>
-                        @x.SOUTHTOHEAD
-                    </td>
-                    <td>
-                        @x.SOUTHTOFEET
-                    </td>
-                    <td>
-                        @x.Preservation
-                    </td>
-                    <td>
-                        @x.Burial_Situation
-                    </td>
-                    <td>
-                        @x.head_direction
-                    </td>
-                    <td>
-                        @x.Adult_Child
-                    </td>
-                    <td>
-                        @x.estimate_age
-                    </td>
-                    <td>
-                        @x.AGEMETHOD
-                    </td>
-                    <td>
-                        @x.gender_body_col
-                    </td>
-                    <td>
-                        @x.Sex_Gender_GE
-                    </td>
-                    <td>
-                        @x.SEXMETHOD
-                    </td>
-                    <td>
-                        @x.GE_function_total
-                    </td>
-                    <td>
-                        @x.length_of_remains
-                    </td>
-                    <td>
-                        @x.sample_number
-                    </td>
-                    <td>
-                        @x.basilar_suture
-                    </td>
-                    <td>
-                        @x.ventral_arc
-                    </td>
-                    <td>
-                        @x.subpubic_angle
-                    </td>
-                    <td>
-                        @x.sciatic_notch
-                    </td>
-                    <td>
-                        @x.pubic_bone
-                    </td>
-                    <td>
-                        @x.preaur_sulcus
-                    </td>
-                    <td>
-                        @x.medial_IP_ramus
-                    </td>
-                    <td>
-                        @x.dorsal_pitting
-                    </td>
-                    <td>
-                        @x.femur_head
-                    </td>
-                    <td>
-                        @x.humerus_head
-                    </td>
-                    <td>
-                        @x.osteophytosis
-                    </td>
-                    <td>
-                        @x.pubic_symphysis
-                    </td>
-                    <td>
-                        @x.femur_length
-                    </td>
-                    <td>
-                        @x.humerus_length
-                    </td>
-                    <td>
-                        @x.tibia_length
-                    </td>
-                    <td>
-                        @x.robust
-                    </td>
-                    <td>
-                        @x.supraorbital_ridges
-                    </td>
-                    <td>
-                        @x.orbit_edge
-                    </td>
-                    <td>
-                        @x.parietal_bossing
-                    </td>
-                    <td>
-                        @x.gonian
-                    </td>
-                    <td>
-                        @x.nuchal_crest
-                    </td>
-                    <td>
-                        @x.zygomatic_crest
-                    </td>
-                    <td>
-                        @x.cranial_suture
-                    </td>
-                    <td>
-                        @x.maximum_cranial_length
-                    </td>
-                    <td>
-                        @x.maximum_cranial_breadth
-                    </td>
-                    <td>
-                        @x.basion_bregma_height
-                    </td>
-                    <td>
-                        @x.basion_nasion
-                    </td>
-                    <td>
-                        @x.basion_prosthion_length
-                    </td>
-                    <td>
-                        @x.bizygomatic_diameter
-                    </td>
-                    <td>
-                        @x.nasion_prosthion
-                    </td>
-                    <td>
-                        @x.maximum_nasal_breadth
-                    </td>
-                    <td>
-                        @x.interorbital_breadth
-                    </td>
-                    <td>
-                        @x.artifacts_description
-                    </td>
-                    <td>
-                        @x.hair_color
-                    </td>
-                    <td>
-                        @x.hair_taken
-                    </td>
-                    <td>
-                        @x.soft_tissue_taken
-                    </td>
-                    <td>
-                        @x.bone_taken
-                    </td>
-                    <td>
-                        @x.tooth_taken
-                    </td>
-                    <td>
-                        @x.textile_taken
-                    </td>
-                    <td>
-                        @x.SAMPLE
-                    </td>
-                    <td>
-                        @x.description_of_taken
-                    </td>
-                    <td>
-                        @x.artifact_found
-                    </td>
-                    <td>
-                        @x.estimate_living_stature
-                    </td>
-                    <td>
-                        @x.tooth_attrition
-                    </td>
-                    <td>
-                        @x.tooth_eruption
-                    </td>
-                    <td>
-                        @x.pathology_anomalies
-                    </td>
-                    <td>
-                        @x.epiphyseal_union
-                    </td>
-                    <td>
-                        @x.year_found
-                    </td>
-                    <td>
-                        @x.month_found
-                    </td>
-                    <td>
-                        @x.day_found
-                    </td>
-                    <td>
-                        @x.Field_Book
-                    </td>
-                    <td>
-                        @x.Field_Book_Page_Number
-                    </td>
-                    <td>
-                        @x.Skull_At_Magazine
-                    </td>
+                <tr>
                     <td>
                         @x.Postcrania_At_Magazine
                     </td>
@@ -571,29 +621,38 @@
                     <td>
                         @x.Body_Analysis_Year
                     </td>
-
-
-
-                    @*Edit Movies matching edit and movieId research*@
-                    <td>
-                        <form id="@x.Burial_Id" asp-action="EditForm" method="post" class="btn-outline-info">
-                            <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
-                            <button type="submit">Edit</button>
-                        </form>
-                    </td>
-
-                    @*Delete Existing Movies using deleteid research*@
-                    <td>
-                        <form id="@x.Burial_Id" asp-action="BurialSummary" method="post" class="btn-outline-info">
-                            <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
-                            <button type="submit">Delete</button>
-                        </form>
-                    </td>
-
                 </tr>
                 }
+            </tbody>
 
+            <thead>
+                <tr>
+                    <th><!--This is a blank col for the button--></th>
+                    <th><!--This is a blank col for the button--></th>
+                </tr>
+            </thead>
 
+            <tbody>
+                <tr>
+                    @foreach (var x in Model.BurialList)
+                    {
+                        @*Edit Movies matching edit and movieId research*@
+                        <td>
+                            <form id="@x.Burial_Id" asp-action="EditForm" method="post" class="btn-outline-info">
+                                <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
+                                <button type="submit">Edit</button>
+                            </form>
+                        </td>
+
+                        @*Delete Existing Movies using deleteid research*@
+                        <td>
+                            <form id="@x.Burial_Id" asp-action="BurialSummary" method="post" class="btn-outline-info">
+                                <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    }
+                    </tr>
             </tbody>
         </table>
     </div>
