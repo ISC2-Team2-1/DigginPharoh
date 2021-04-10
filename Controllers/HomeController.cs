@@ -29,23 +29,35 @@ namespace DigginPharoh.Controllers
 
         public IActionResult BurialSummary()
         {
-            return View(new IndexViewModel());
+            return View(new IndexViewModel
+            {
+                BurialList = context.GamousBurials,
+                BurialIDInfoList = context.BurialIdInfos
+            });
         }
 
-<<<<<<< HEAD
-        public IActionResult BurialDetails()
-        {
-            return View(new IndexViewModel());
-        }
-        
+
+        //public IEnumerable<Burial> BurialList { get; set; }
+        //public IEnumerable<BurialIDInfo> BurialIDInfoList { get; set; }
+        //public IEnumerable<BiologicalSamples> BiologicalSampleList { get; set; }
+        //public IEnumerable<Carbon_Dating> Carbon_DatingList { get; set; }
+        //public IEnumerable<Cranial> CranialList { get; set; }
+        //public IEnumerable<Note> NoteList { get; set; }
+
+        //public DbSet<BiologicalSamples> BioSamples { get; set; }
+        //public DbSet<Burial> GamousBurials { get; set; }
+        //public DbSet<BurialIDInfo> BurialIdInfos { get; set; }
+        //public DbSet<Carbon_Dating> CarbonDates { get; set; }
+        //public DbSet<Cranial> Craniums { get; set; }
+        //public DbSet<Field_Note> FieldNotes { get; set; }
+        //public DbSet<Note> JustNotes { get; set; }
+        //public DbSet<DigginPharoh.Models.ProjectRole> ProjectRoles { get; set; }
         //public IActionResult HomePage()
         //{
         //    return View();
         //}
 
 
-=======
->>>>>>> f7d284c941e264f80709964ff92194b6d488ab65
         public IActionResult Privacy()
         {
             return View();
