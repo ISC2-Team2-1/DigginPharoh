@@ -44,17 +44,14 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a asp-action="ManageUser" asp-controller="admin" class="nav-link">Admin Stuff</a>
-                            </li>
-                            <li class="nav-item">
                                 <a asp-action="Index" asp-controller="Home" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a asp-action="BurialSummary" asp-controller="Home" class="nav-link">Burials</a>
                             </li>
                             @*<li class="nav-item">
-                                <a asp-action="Index" asp-controller="Cranials" class="nav-link">Cranial</a>
-                            </li>*@
+            <a asp-action="Index" asp-controller="Cranials" class="nav-link">Cranial</a>
+        </li>*@
 
                             @*<li class="nav-item">
             <a href="#features" class="nav-link">About</a>
@@ -76,6 +73,9 @@
                             {
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-action="ListRoles" asp-controller="admin" class="nav-link">Admin Console</a>
                             </li>
                             <li class="nav-item">
                                 <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
