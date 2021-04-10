@@ -89,7 +89,7 @@ namespace DigginPharoh.Controllers
         // GET: Burials/Create
         public IActionResult Create(string burialId)
         {
-            ViewBag["BurialId"] = burialId;
+            ViewBag.BurialId = burialId;
             return View();
         }
 

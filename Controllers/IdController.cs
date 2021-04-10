@@ -23,6 +23,7 @@ namespace DigginPharoh.Controllers
         // GET: Id
         public async Task<IActionResult> Index()
         {
+            ViewBag.BurialId = burialIdHolder;
             return View(await _context.BurialIdInfos.ToListAsync());
         }
 
@@ -47,7 +48,7 @@ namespace DigginPharoh.Controllers
         // GET: Id/Create
         public IActionResult Create()
         {
-            ViewBag["BurialId"] = burialIdHolder;
+            ViewBag.BurialId = burialIdHolder;
             return View();
         }
 
