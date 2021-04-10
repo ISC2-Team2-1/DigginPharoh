@@ -32,6 +32,11 @@ namespace DigginPharoh.Controllers
             return View(new IndexViewModel());
         }
 
+        public IActionResult BurialDetails()
+        {
+            return View(new IndexViewModel());
+        }
+        
         //public IActionResult HomePage()
         //{
         //    return View();
