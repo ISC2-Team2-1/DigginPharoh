@@ -13,5 +13,6 @@ namespace DigginPharoh.Models.ViewModels
         public IEnumerable<Carbon_Dating> Carbon_DatingList { get; set; }
         public IEnumerable<Cranial> CranialList { get; set; }
         public IEnumerable<Note> NoteList { get; set; }
+        public PagingInfo PagingInfo { get; set; }
     }
 }
