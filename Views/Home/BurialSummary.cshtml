@@ -2,46 +2,37 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    Layout = "_Layout-client";
 }
 @model DigginPharoh.Models.ViewModels.IndexViewModel
 
 
-<h1>Burial Summary</h1>
-
-<h4>Data Hilights Below</h4>
-<hr />
-
-
-
-<div class="h-75 d-inline-block">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Burial ID</th>
-                <th scope="col">Depth</th>
-                <th scope="col">Sex</th>
-                <th scope="col">Head Direction</th>
-                <th scope="col">Preservation</th>
-                <th scope="col">Year Found</th>
-            </tr>
-        </thead>
-        <tbody>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Burial ID</th>
+            <th scope="col">Depth</th>
+            <th scope="col">Sex</th>
+            <th scope="col">Head Direction</th>
+            <th scope="col">Preservation / Burial Situation</th>
+            <th scope="col">Artifacts</th>
+            <th scope="col">Year Found</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr>
             @foreach (var x in Model.BurialList)
             {
-                <tr>
-
-                    <th scope="row">@x.Burial_Id</th>
-                    <td>@x.burial_depth cm.</td>
-                    <td>@x.Sex_Gender_GE @x.gender_body_col</td>
-                    <td>@x.head_direction</td>
-                    <td>@x.Preservation</td>
-                    <td>@x.year_found</td>
-                </tr>
+                <th scope="row">@x.Burial_Id</th>
+                <td>@x.burial_depth</td>
+                <td>@x.Sex_Gender_GE @x.gender_body_col</td>
+                <td>@x.head_direction</td>
+                <td>@x.Preservation @x.Burial_Situation</td>
+                <td>@x.artifacts_description</td>
+                <td>@x.year_found</td>
             }
+        </tr>
+        
 
-
-        </tbody>
-    </table>
-</div>
-
+    </tbody>
+</table>
