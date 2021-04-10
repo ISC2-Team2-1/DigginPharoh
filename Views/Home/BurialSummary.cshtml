@@ -29,9 +29,6 @@
 
 <h1 class="BurialH1">Burial Summary</h1>
 
-<h4>Data Hilights Below</h4>>
-<hr />
-
 <div class="row">
     <div class="col-md-2">
         <!--Filters go here-->
@@ -82,78 +79,96 @@
         </form>*@
 
     </div>
-        <div class="col-md-10">
+    <div class="col-md-10">
 
-            <div class="h-75 d-inline-block">
-                <table class="table table-striped">
-                    <thead>
+        <div class="h-75 d-inline-block">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Burial ID</th>
+                        <th scope="col">Depth</th>
+                        <th scope="col">Sex</th>
+                        <th scope="col">Head Direction</th>
+                        <th scope="col">Preservation</th>
+                        <th scope="col">Year Found</th>
+                        <th><!--This is a blank col for the button--></th>
+                        <th><!--This is a blank col for the button--></th>
+                        <th><!--This is a blank col for the button--></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model.BurialList)
+                    {
                         <tr>
-                            <th scope="col">Burial ID</th>
-                            <th scope="col">Depth</th>
-                            <th scope="col">Sex</th>
-                            <th scope="col">Head Direction</th>
-                            <th scope="col">Preservation</th>
-                            <th scope="col">Year Found</th>
-                            <th><!--This is a blank col for the button--></th>
-                            <th><!--This is a blank col for the button--></th>
-                            <th><!--This is a blank col for the button--></th>
+
+                            <th scope="row">@x.Burial_Id</th>
+                            <td>@x.burial_depth cm.</td>
+                            <td>@x.Sex_Gender_GE @x.gender_body_col</td>
+                            <td>@x.head_direction</td>
+                            <td>@x.Preservation</td>
+                            <td>@x.year_found</td>
+                            @*<td><a type="button" class="btn-outline-info">Details</a></td>*@
+
+                            @*See the Detail of the Gamous*@
+                            <td>
+                                <form id="@x.Burial_Id" asp-action="BurialDetails" method="post" class="btn-outline-info">
+                                    <input type="hidden" asp-for="@x.Burial_Id" name="" />
+                                    <button type="submit">Detail</button>
+                                </form>
+                            </td>
+
+                            @*Edit Movies matching edit and movieId research*@
+                            <td>
+                                <form id="@x.Burial_Id" asp-action="EditForm" method="post" class="btn-outline-info">
+                                    <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
+                                    <button type="submit">Edit</button>
+                                </form>
+                            </td>
+
+                            @*Delete Existing Movies using deleteid research*@
+                            <td>
+                                <form id="@x.Burial_Id" asp-action="Delete" method="post" class="btn-outline-info">
+                                    <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </td>
+
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var x in Model.BurialList)
-                        {
-                            <tr>
-
-                                <th scope="row">@x.Burial_Id</th>
-                                <td>@x.burial_depth cm.</td>
-                                <td>@x.Sex_Gender_GE @x.gender_body_col</td>
-                                <td>@x.head_direction</td>
-                                <td>@x.Preservation</td>
-                                <td>@x.year_found</td>
-                                @*<td><a type="button" class="btn-outline-info">Details</a></td>*@
-
-                                @*See the Detail of the Gamous*@
-                                <td>
-                                    <form id="@x.Burial_Id" asp-action="BurialDetails" method="post" class="btn-outline-info">
-                                        <input type="hidden" asp-for="@x.Burial_Id" name="" />
-                                        <button type="submit">Detail</button>
-                                    </form>
-                                </td>
-
-                                @*Edit Movies matching edit and movieId research*@
-                                <td>
-                                    <form id="@x.Burial_Id" asp-action="EditForm" method="post" class="btn-outline-info">
-                                        <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
-                                        <button type="submit">Edit</button>
-                                    </form>
-                                </td>
-
-                                @*Delete Existing Movies using deleteid research*@
-                                <td>
-                                    <form id="@x.Burial_Id" asp-action="Delete" method="post" class="btn-outline-info">
-                                        <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
-                                        <button type="submit">Delete</button>
-                                    </form>
-                                </td>
-
-                            </tr>
-                        }
+                    }
 
 
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
+        </div>
 
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-10">
+        <div page-model="@Model.PagingInfo" page-action="BurialSummary"
+             page-classes-enabled="true" page-class="btn"
+             page-class-normal="btn-outline-dark"
+             page-class-selected="btn-primary"
+             class="btn-group btn-group-sm pull-right m-1">
         </div>
     </div>
+</div>
+    
+
 
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
-<div page-model="@Model.PagingInfo" page-action="BurialSummary"
-     page-classes-enabled="true" page-class="btn"
-     page-class-normal="btn-outline-dark"
-     page-class-selected="btn-primary"
-     class="btn-group pull-right m-1">
-</div>
+@*<div class="col-md-10">
+    <div page-model="@Model.PagingInfo" page-action="BurialSummary"
+         page-classes-enabled="true" page-class="btn"
+         page-class-normal="btn-outline-dark"
+         page-class-selected="btn-primary"
+         class="btn-group btn-group-sm pull-right m-1">
+    </div>
+</div>*@
