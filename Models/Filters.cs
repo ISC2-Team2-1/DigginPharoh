@@ -17,7 +17,7 @@ namespace DigginPharoh.Models
         public string FilterString { get; }
         public string HeadDirection { get; }
 
-        public bool HasCategory => HeadDirection.ToLower() != "all";
+        public bool HasDirection => HeadDirection.ToLower() != "all";
 
         //public Filters(string filterstring)
         //{

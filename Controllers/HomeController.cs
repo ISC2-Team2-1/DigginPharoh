@@ -2,6 +2,7 @@
 using DigginPharoh.Models;
 using DigginPharoh.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace DigginPharoh.Controllers
             return View();
         }
 
-        public IActionResult BurialSummary(int pageNum = 1, string id = null) //pass in string id
+        public IActionResult BurialSummary(int pageNum = 1, string? id = null) //pass in string id
         {
             var filters = new Filters(id);
             ViewBag.Filters = filters;
@@ -36,6 +37,15 @@ namespace DigginPharoh.Controllers
             //ViewBag.Statuses = context.Statuses.ToList();
             //ViewBag.DueFilters = Filters.DueFilterValues;
             ViewBag.GamousBurials = context.GamousBurials.ToList(); // To get head direction
+
+            IQueryable<Burial> query = context.GamousBurials
+                .Include(t => t.head_direction);
+
+
+            if (filters.HasDirection)
+            {
+                query = query.Where(t => t.head_direction == filters.HeadDirection);
+            }
 
 
             return View(new IndexViewModel 
