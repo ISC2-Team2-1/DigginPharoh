@@ -29,7 +29,7 @@ namespace DigginPharoh.Controllers
             return View();
         }
 
-        public IActionResult BurialSummary(int pageNum = 1, string? id = null) //pass in string id
+        public IActionResult BurialSummary(int pageNum = 1, string? id = null, string? deletionId = null) //pass in string id
         {
             var filters = new Filters(id);
             ViewBag.Filters = filters;
@@ -47,6 +47,13 @@ namespace DigginPharoh.Controllers
                 query = query.Where(t => t.head_direction == filters.HeadDirection);
             }
 
+            //if people want to delete a record, the summary page will get deleteid
+            //here, we will check if the deleteid and the burialid matches;then, we will delete the record from the database
+            if (deletionId != null)
+            {
+                context.Remove(context.GamousBurials.FirstOrDefault(s => s.Burial_Id == deletionId));
+                context.SaveChanges();
+            }
 
             return View(new IndexViewModel 
             { 
@@ -158,18 +165,6 @@ namespace DigginPharoh.Controllers
 
         }
 
-        //Delete records
-        //By matching the deleteId we got from the input, we can delete the correct one that the user wants to delete
-        [HttpPost]
-        public IActionResult Delete(string deletionId)
-        {
-            context.Remove(context.GamousBurials.FirstOrDefault(s => s.Burial_Id == deletionId));
-            context.SaveChanges();
-            return View(new IndexViewModel
-            {
-                BurialList = context.GamousBurials
-            });
-        }
 
 
         public IActionResult Privacy()
