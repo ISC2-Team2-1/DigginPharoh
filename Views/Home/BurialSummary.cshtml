@@ -49,21 +49,48 @@
                         <th scope="col">Preservation</th>
                         <th scope="col">Year Found</th>
                         <th><!--This is a blank col for the button--></th>
+                        <th><!--This is a blank col for the button--></th>
+                        <th><!--This is a blank col for the button--></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var x in Model.BurialList)
                     {
-                        <tr>
+                    <tr>
 
-                            <th scope="row">@x.Burial_Id</th>
-                            <td>@x.burial_depth cm.</td>
-                            <td>@x.Sex_Gender_GE @x.gender_body_col</td>
-                            <td>@x.head_direction</td>
-                            <td>@x.Preservation</td>
-                            <td>@x.year_found</td>
-                            <td><a type="button" class="btn-info" asp-action="Edit" asp-route-id="@x.Burial_Id">Details</a></td>
-                        </tr>
+                        <th scope="row">@x.Burial_Id</th>
+                        <td>@x.burial_depth cm.</td>
+                        <td>@x.Sex_Gender_GE @x.gender_body_col</td>
+                        <td>@x.head_direction</td>
+                        <td>@x.Preservation</td>
+                        <td>@x.year_found</td>
+                        @*<td><a type="button" class="btn-outline-info">Details</a></td>*@
+
+                        @*See the Detail of the Gamous*@
+                        <td>
+                            <form id="@x.Burial_Id" asp-action="BurialDetails" method="post" class="btn-outline-info" >
+                                <input type="hidden" asp-for="@x.Burial_Id" name="" />
+                                <button type="submit">Detail</button>
+                            </form>
+                        </td>
+
+                        @*Edit Movies matching edit and movieId research*@
+                        <td>
+                            <form id="@x.Burial_Id" asp-action="EditForm" method="post" class="btn-outline-info" >
+                                <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
+                                <button type="submit">Edit</button>
+                            </form>
+                        </td>
+
+                        @*Delete Existing Movies using deleteid research*@
+                        <td>
+                            <form id="@x.Burial_Id" asp-action="Delete" method="post" class="btn-outline-info">
+                                <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+
+                    </tr>
                     }
 
 
