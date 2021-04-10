@@ -1,6 +1,5 @@
 ﻿using DigginPharoh.Data;
 using DigginPharoh.Models;
-using DigginPharoh.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -48,88 +47,21 @@ namespace DigginPharoh.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult ManageRoles()
-        {
-            var roles = roleManager.Roles;
-
-
-            return View(roles);
-        }
-
         public IActionResult ManageUser()
         {
             var users = userManager.Users;
+            var roles = roleManager.Roles;
+
+
+
+            //Book book = repository.Books
+            //.Where(b => b.BookId == bookid)
+            //.FirstOrDefault();
+
+
+
+
             return View(users);
-        }
-
-        // Role ID is passed from the URL to the action
-        [HttpGet]
-        public async Task<IActionResult> EditRole(string id)
-        {
-            // Find the role by Role ID
-            var role = await roleManager.FindByIdAsync(id);
-
-            if (role == null)
-            {
-                ViewBag.ErrorMessage = $"Role with Id = {id} cannot be found";
-                return View("NotFound");
-            }
-
-            var model = new EditRoleViewModel
-            {
-                Id = role.Id,
-                RoleName = role.Name
-            };
-
-            // Retrieve all the Users
-            foreach (var user in userManager.Users)
-            {
-                // If the user is in this role, add the username to
-                // Users property of EditRoleViewModel. This model
-                // object is then passed to the view for display
-
-                var result = await userManager.IsInRoleAsync(user, role.Name);
-
-                if (result)
-                {
-                    model.Users.Add(user.UserName);
-                }
-            }
-
-            return View(model);
-        }
-
-        // This action responds to HttpPost and receives EditRoleViewModel
-        [HttpPost]
-        public async Task<IActionResult> EditRole(EditRoleViewModel model)
-        {
-            var role = await roleManager.FindByIdAsync(model.Id);
-
-            if (role == null)
-            {
-                ViewBag.ErrorMessage = $"Role with Id = {model.Id} cannot be found";
-                return View("NotFound");
-            }
-            else
-            {
-                role.Name = model.RoleName;
-
-                // Update the Role using UpdateAsync
-                var result = await roleManager.UpdateAsync(role);
-
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("ListRoles");
-                }
-
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError("", error.Description);
-                }
-
-                return View(model);
-            }
         }
     }
 }
