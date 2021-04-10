@@ -14,5 +14,11 @@ namespace DigginPharoh.Models.ViewModels
         public IEnumerable<Cranial> CranialList { get; set; }
         public IEnumerable<Note> NoteList { get; set; }
         public PagingInfo PagingInfo { get; set; }
+
+        public bool HasHead;
+
+
+
     }
+
 }
