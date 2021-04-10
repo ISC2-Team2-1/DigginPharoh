@@ -137,14 +137,16 @@
                         }
                     </tbody>
                 </table>
+                <div class="col-md-10">
+                    <div page-model="@Model.PagingInfo" page-action="BurialSummary"
+                            page-classes-enabled="true" page-class="btn"
+                            page-class-normal="btn-outline-dark"
+                            page-class-selected="btn-primary"
+                            class="btn-group btn-group-sm pull-right m-1">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <div page-model="@Model.PagingInfo" page-action="BurialSummary"
-         page-classes-enabled="true" page-class="btn"
-         page-class-normal="btn-outline-dark"
-         page-class-selected="btn-primary"
-         class="btn-group pull-right m-1">
-    </div>
+    
 </body>
