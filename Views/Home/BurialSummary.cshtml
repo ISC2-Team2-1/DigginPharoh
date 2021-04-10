@@ -35,6 +35,20 @@
 <div class="row">
     <div class="col-md-2">
         <!--Filters go here-->
+        <form asp-action="Filter" method="post">
+            <div class="form-group">
+                <label>Head Direction:</label>
+                @*<select name="filter" class="form-control"
+                        asp-items="@(new SelectList(ViewBag.GamousBurials, "HeadDirection", ViewBag.Filters.HeadDirection))">
+                    <option value="all">All</option>
+                </select>*@
+            </div>
+        </form>
+
+        <button type="submit" class="btn btn-primary">Filter</button>
+
+        <a asp-action="BurialSummary" asp-route-id="" class="btn btn-primary">Clear</a>
+
         @*<form asp-action="Filter" method="post">
 
             <div class="form-group">
