@@ -28,8 +28,16 @@ namespace DigginPharoh.Controllers
             return View();
         }
 
-        public IActionResult BurialSummary(int pageNum = 1)
+        public IActionResult BurialSummary(int pageNum = 1) //pass in string id
         {
+            //var filters = new Filters(id);
+            //ViewBag.Filters = filters;
+            //ViewBag.Categories = context.Categories.ToList();
+            //ViewBag.Statuses = context.Statuses.ToList();
+            //ViewBag.DueFilters = Filters.DueFilterValues;
+            ViewBag.GamousBurials = context.GamousBurials.ToList(); // To get head direction
+
+
             return View(new IndexViewModel 
             { 
                 BurialList = context.GamousBurials
