@@ -48,7 +48,6 @@ namespace DigginPharoh.Controllers
         // GET: Id/Create
         public IActionResult Create()
         {
-            ViewBag.BurialId = burialIdHolder;
             return View();
         }
 
