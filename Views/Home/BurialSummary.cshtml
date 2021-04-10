@@ -88,6 +88,7 @@
                             <th scope="col">Burial ID</th>
                             <th scope="col">Depth</th>
                             <th scope="col">Sex</th>
+                            <th scope="col">Body Gender</th>
                             <th scope="col">Head Direction</th>
                             <th scope="col">Preservation</th>
                             <th scope="col">Year Found</th>
@@ -99,41 +100,42 @@
                     <tbody>
                         @foreach (var x in Model.BurialList)
                         {
-                            <tr>
+                        <tr>
 
-                                <th scope="row">@x.Burial_Id</th>
-                                <td>@x.burial_depth cm.</td>
-                                <td>@x.Sex_Gender_GE @x.gender_body_col</td>
-                                <td>@x.head_direction</td>
-                                <td>@x.Preservation</td>
-                                <td>@x.year_found</td>
-                                @*<td><a type="button" class="btn-outline-info">Details</a></td>*@
+                            <th scope="row">@x.Burial_Id</th>
+                            <td>@x.burial_depth cm.</td>
+                            <td>@x.Sex_Gender_GE</td>
+                            <td>@x.gender_body_col</td>
+                            <td>@x.head_direction</td>
+                            <td>@x.Preservation</td>
+                            <td>@x.year_found</td>
+                            @*<td><a type="button" class="btn-outline-info">Details</a></td>*@
 
-                                @*See the Detail of the Gamous*@
-                                <td>
-                                    <form id="@x.Burial_Id" asp-action="BurialDetails" method="post" class="btn-outline-info">
-                                        <input type="hidden" asp-for="@x.Burial_Id" name="" />
-                                        <button type="submit">Detail</button>
-                                    </form>
-                                </td>
+                            @*See the Detail of the Gamous*@
+                            <td>
+                                <form id="@x.Burial_Id" asp-action="BurialDetails" method="post" class="btn-outline-info">
+                                    <input type="hidden" asp-for="@x.Burial_Id" name="detailId" />
+                                    <button type="submit">Detail</button>
+                                </form>
+                            </td>
 
-                                @*Edit Movies matching edit and movieId research*@
-                                <td>
-                                    <form id="@x.Burial_Id" asp-action="EditForm" method="post" class="btn-outline-info">
-                                        <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
-                                        <button type="submit">Edit</button>
-                                    </form>
-                                </td>
+                            @*Edit Movies matching edit and movieId research*@
+                            <td>
+                                <form id="@x.Burial_Id" asp-action="EditForm" method="post" class="btn-outline-info">
+                                    <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
+                                    <button type="submit">Edit</button>
+                                </form>
+                            </td>
 
-                                @*Delete Existing Movies using deleteid research*@
-                                <td>
-                                    <form id="@x.Burial_Id" asp-action="Delete" method="post" class="btn-outline-info">
-                                        <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
-                                        <button type="submit">Delete</button>
-                                    </form>
-                                </td>
+                            @*Delete Existing Movies using deleteid research*@
+                            <td>
+                                <form id="@x.Burial_Id" asp-action="Delete" method="post" class="btn-outline-info">
+                                    <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </td>
 
-                            </tr>
+                        </tr>
                         }
                     </tbody>
                 </table>
