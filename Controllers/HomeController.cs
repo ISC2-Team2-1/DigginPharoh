@@ -29,11 +29,12 @@ namespace DigginPharoh.Controllers
 
         public IActionResult BurialSummary()
         {
-            return View(new IndexViewModel
-            {
-                BurialList = context.GamousBurials,
-                BurialIDInfoList = context.BurialIdInfos
-            });
+            return View(new IndexViewModel());
+        }
+
+        public IActionResult BurialDetails()
+        {
+            return View(new IndexViewModel());
         }
 
 
@@ -47,5 +48,6 @@ namespace DigginPharoh.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }
