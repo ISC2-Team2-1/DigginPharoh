@@ -2,6 +2,7 @@
 using DigginPharoh.Models;
 using DigginPharoh.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,8 @@ namespace DigginPharoh.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private ApplicationDbContext context { get; set; }
-        public int PageSize = 10;
+        private ApplicationDbContext context;
+        public int PageSize = 20;
 
         public HomeController(ILogger<HomeController> logger, ApplicationDbContext ctx)
         {
@@ -28,8 +29,25 @@ namespace DigginPharoh.Controllers
             return View();
         }
 
-        public IActionResult BurialSummary(int pageNum = 1)
+        public IActionResult BurialSummary(int pageNum = 1, string? id = null) //pass in string id
         {
+            var filters = new Filters(id);
+            ViewBag.Filters = filters;
+            //ViewBag.Categories = context.Categories.ToList();
+            //ViewBag.Statuses = context.Statuses.ToList();
+            //ViewBag.DueFilters = Filters.DueFilterValues;
+            ViewBag.GamousBurials = context.GamousBurials.ToList(); // To get head direction
+
+            IQueryable<Burial> query = context.GamousBurials
+                .Include(t => t.head_direction);
+
+
+            if (filters.HasDirection)
+            {
+                query = query.Where(t => t.head_direction == filters.HeadDirection);
+            }
+
+
             return View(new IndexViewModel 
             { 
                 BurialList = context.GamousBurials
@@ -51,20 +69,15 @@ namespace DigginPharoh.Controllers
             });
         }
 
-        //public IActionResult BurialDetails(string? Burial_Id)
-        //{
-        //    return View(new IndexViewModel
-        //    {
-        //        BurialList = context.GamousBurials,
-        //        BurialIDInfoList = context.BurialIdInfos,
-        //        BiologicalSampleList = context.BioSamples,
-        //        CranialList = context.Craniums,
-        //        NoteList = context.JustNotes,
-        //        Carbon_DatingList = context.CarbonDates,
-        //    });
-        //}
+        //This is called when the form on the Burial Summary page is submitted
+        [HttpPost]
+        public IActionResult Filter(string[] filter)
+        {
+            string id = string.Join('-', filter);
+            return RedirectToAction("BurialSummary", new { ID = id });
+        }
 
-        public IActionResult BurialDetails(string? detailId)
+        public IActionResult BurialDetails(string? Burial_Id)
         {
             Burial burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == detailId);
             return View("BurialDetails", context.GamousBurials);

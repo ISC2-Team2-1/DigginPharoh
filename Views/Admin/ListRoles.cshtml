@@ -4,28 +4,26 @@
     ViewBag.Title = "All Roles";
 }
 
-<h1>All Roles</h1>
+<br />
+<br />
+<br />
+<h1>Admin Console</h1>
+<br />
 
 @if (Model.Any())
 {
-    <a class="btn btn-primary mb-3" style="width:auto" asp-action="CreateRole"
-       asp-controller="administration">Add new role</a>
 
     foreach (var role in Model)
     {
         <div class="card mb-3">
-            <div class="card-header">
-                Role Id : @role.Id
-            </div>
             <div class="card-body">
-                <h5 class="card-title">@role.Name</h5>
+                <h5 class="card-title">@role.Name Privileges</h5>
             </div>
             <div class="card-footer">
                 <a asp-controller="admin" asp-action="EditRole"
                    asp-route-id="@role.Id" class="btn btn-primary">
-                    Edit
+                    View User Access
                 </a>
-                <a href="#" class="btn btn-danger">Delete</a>
             </div>
         </div>
     }
@@ -47,3 +45,14 @@ else
         </div>
     </div>
 }
+
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">List of Registered Users</h5>
+    </div>
+    <div class="card-footer">
+        <a asp-action="ManageUser" asp-controller="admin" class="btn btn-primary">
+            View Users
+        </a>
+    </div>
+</div>
