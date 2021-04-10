@@ -44,8 +44,9 @@ namespace DigginPharoh.Controllers
         }
 
         // GET: CarbonDating/Create
-        public IActionResult Create()
+        public IActionResult Create(string burialId)
         {
+            ViewBag["BurialId"] = burialId;
             return View();
         }
 
