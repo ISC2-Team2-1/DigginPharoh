@@ -28,7 +28,22 @@
     <div>
         <h1 class="BurialH1">Burial Detailes</h1>
     </div>
+    <div class="text-center">
+        @foreach (var x in Model.BurialList)
+        {
 
+            <form id="@x.Burial_Id" asp-action="DetailEditForm" method="post">
+                <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
+                <button type="submit" class="btn-sm btn-warning">Edit</button>
+            </form>
+
+            @*Delete Existing Burial Record using deleteid research*@
+            <form id="@x.Burial_Id" asp-action="BurialDetails" method="post">
+                <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
+                <button type="submit" class="btn-sm btn-danger">Delete</button>
+            </form>
+        }
+    </div>
 
     <div class="container">
         <div class="row">
@@ -281,9 +296,6 @@
 
                         <label>Skull At Magazine</label>
                         <input type="text" value="@x.Skull_At_Magazine" readonly /><br /><br />
-
-                        <label>Robust</label>
-                        <input type="text" value="@x.robust" readonly /><br /><br />
 
                         <label>Nasion Prosthion</label>
                         <input type="text" value="@x.nasion_prosthion" readonly /><br /><br />
