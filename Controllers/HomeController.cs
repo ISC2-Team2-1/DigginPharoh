@@ -55,32 +55,34 @@ namespace DigginPharoh.Controllers
 
             IQueryable<Burial> query = context.GamousBurials;
 
-            //if (filters.HasDirection)
-            //{
-            //    query = query.Where(t => t.head_direction.ToLower() == filters.HeadDirection.ToLower()) ;
-            //}
-            //if (filters.HasDepth)
-            //{
-            //    query = query.Where(t => t.burial_depth == filters.Depth);
-            //}
-            //if (filters.HasSexGe)
-            //{
-            //    query = query.Where(t => t.Sex_Gender_GE == filters.SexGE.ToLower());
-            //}
-            //if (filters.HasGenderBodCol)
-            //{
-            //    query = query.Where(t => t.gender_body_col.ToLower() == filters.GenderBodCol.ToLower());
-            //}
-            //if (filters.HasPreservation)
-            //{
-            //    query = query.Where(t => t.Preservation.ToLower() == filters.Preservation.ToLower());
-            //}
+            if (filters.HasDirection)
+            {
+                query = query.Where(t => t.head_direction.ToLower() == filters.HeadDirection.ToLower());
+            }
+            if (filters.HasDepth)
+            {
+                if (filters.Depth == 2.5)
+                {
+                    query = query.Where(t => t.burial_depth >= filters.Depth);
+                }
+                else
+                {
+                    query = query.Where(t => t.burial_depth >= filters.Depth && t.burial_depth < (filters.Depth + .5));
+                }
+            }
+            if (filters.HasSexGe)
+            {
+                query = query.Where(t => t.Sex_Gender_GE.ToLower() == filters.SexGE.ToLower());
+            }
+            if (filters.HasGenderBodCol)
+            {
+                query = query.Where(t => t.gender_body_col.ToLower() == filters.GenderBodCol.ToLower());
+            }
+            if (filters.HasPreservation)
+            {
+                query = query.Where(t => t.Preservation.ToLower() == filters.Preservation.ToLower());
+            }
 
-            //year is not in contex.GamousBurials query
-            //if (filters.HasYear)
-            //{
-            //    query = query.Where(t => t.head_direction.ToLower() == filters.YearFound);
-            //}
 
 
             //if people want to delete a record, the summary page will get deleteid

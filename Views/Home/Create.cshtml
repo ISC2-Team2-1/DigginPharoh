@@ -61,7 +61,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="head_direction" class="control-label"></label>
-                <input asp-for="head_direction" class="form-control" />
+                <select asp-for="head_direction" class="form-control" >
+                    <option></option>
+                    <option>East</option>
+                    <option>West</option>
+                </select>
                 <span asp-validation-for="head_direction" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -81,12 +85,24 @@
             </div>
             <div class="form-group">
                 <label asp-for="gender_body_col" class="control-label"></label>
-                <input asp-for="gender_body_col" class="form-control" />
+                <select asp-for="gender_body_col" class="form-control">
+                    <option></option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Subadult</option>
+                    <option>Unknown</option>
+                </select>
                 <span asp-validation-for="gender_body_col" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Sex_Gender_GE" class="control-label"></label>
-                <input asp-for="Sex_Gender_GE" class="form-control" />
+                <select asp-for="Sex_Gender_GE" class="form-control">
+                    <option></option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Subadult</option>
+                    <option>Unknown</option>
+                </select>
                 <span asp-validation-for="Sex_Gender_GE" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -281,7 +297,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="hair_taken" class="control-label"></label>
-                <input asp-for="hair_taken" class="form-control" />
+                <select asp-for="hair_taken" class="form-control" >
+                    <option></option>
+                    <option>True</option>
+                    <option>False</option>
+                </select>
                 <span asp-validation-for="hair_taken" class="text-danger"></span>
             </div>
             <div class="form-group">
