@@ -14,12 +14,25 @@
     color: white;
     letter-spacing: .2rem;
     text-shadow: 0.1rem 0.1rem 0.5rem black;
-    margin-top: 4.2rem;
     text-align: center;
+    margin-top: 4.5rem;
+    margin-bottom: 3rem;
+    background-color: ghostwhite;
+    padding: 30px;
 }
 
-.col-pos {
-    margin-top: 6.5rem;
+.backBT {
+    background: goldenrod;
+    font-weight: 700;
+    border: solid 2px black;
+    border-radius: 4px;
+    padding: 5px 8px;
+    text-transform: uppercase;
+}
+
+.backBT:active, .backBT:hover {
+    background: lightgoldenrodyellow;
+    transition-delay: .1s;
 }
 
 /*============= Main Content =============*/
@@ -53,4 +66,30 @@ fieldset {
     min-width: 0;
     border: solid black 2px;
     overflow: scroll;
+    max-height: 850px;
+    min-height: 800px;
+    border-radius: 7px;
 }
+
+
+
+
+/*============= Header =============*/
+
+/*.top-container {
+    background-color: #f1f1f1;
+    padding: 30px;
+    text-align: center;
+}*/
+
+/*.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}*/
+
+/*#wrapper {
+    display: block;
+    width: 90%;
+    margin: auto;
+} */
