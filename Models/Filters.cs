@@ -12,11 +12,11 @@ namespace DigginPharoh.Models
             FilterString = filterstring ?? "all";
             string[] filters = FilterString.Split('-');
             HeadDirection = filters[0];
-            Depth = int.Parse(filters[1]);
-            SexGE = filters[2];
-            GenderBodCol = filters[3];
-            Preservation = filters[4];
-            YearFound = filters[5];
+            //Depth = int.Parse(filters[1]);
+            //SexGE = filters[2];
+            //GenderBodCol = filters[3];
+            //Preservation = filters[4];
+            //YearFound = filters[5];
 
         }
 
