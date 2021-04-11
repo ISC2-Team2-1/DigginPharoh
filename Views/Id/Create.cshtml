@@ -15,7 +15,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Burial_Id" class="control-label"></label>
-                <input asp-for="Burial_Id" class="form-control" />
+                <input asp-for="Burial_Id" class="form-control"/>
                 <span asp-validation-for="Burial_Id" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -62,7 +62,7 @@
             </div>
             <!--Pass the ID through so that it can be used in the other forms-->
             <div class="form-group">
-                <button asp-action="Create" type="submit" class="btn btn-primary" >Next</button>
+                <input type="submit" value="Next" class="btn btn-primary" />
             </div>
         </form>
     </div>

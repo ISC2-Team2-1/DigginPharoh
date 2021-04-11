@@ -60,12 +60,11 @@ namespace DigginPharoh.Controllers
         {
             if (ModelState.IsValid)
             {
+                burialIdHolder = burialIDInfo.Burial_Id;
                 _context.Add(burialIDInfo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            
-            burialIdHolder = burialIDInfo.Burial_Id;
 
             return View(burialIDInfo);
         }
