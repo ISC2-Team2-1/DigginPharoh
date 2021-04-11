@@ -38,6 +38,13 @@ namespace DigginPharoh.Controllers
             return View("EditForm");
         }
 
+        public IActionResult DetailEditForm(string editId)
+        {
+            Burial burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == editId);
+            ViewBag.burialToEdit = burialToEdit;
+            return View("DetailEditForm");
+        }
+
         public IActionResult BurialSummary(string id, string deletionId, int pageNum = 1, Burial? burialWithEdits = null) //pass in string id
 
         {
@@ -110,13 +117,98 @@ namespace DigginPharoh.Controllers
             if (burialWithEdits.Burial_Id != null)
             {
                 var burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == burialWithEdits.Burial_Id);
-                burialToEdit.Burial_Id = burialWithEdits.Burial_Id;
+
+                //Those lines are for summary and detail page columns data update
+                burialToEdit.Gamous_Id = burialWithEdits.Gamous_Id;
                 burialToEdit.burial_depth = burialWithEdits.burial_depth;
-                burialToEdit.Sex_Gender_GE = burialWithEdits.Sex_Gender_GE;
-                burialToEdit.gender_body_col = burialWithEdits.gender_body_col;
-                burialToEdit.head_direction = burialWithEdits.head_direction;
+                burialToEdit.WESTTOHEAD = burialWithEdits.WESTTOHEAD;
+                burialToEdit.WESTTOFEET = burialWithEdits.WESTTOFEET;
+                burialToEdit.SOUTHTOHEAD = burialWithEdits.SOUTHTOHEAD;
+                burialToEdit.SOUTHTOFEET = burialWithEdits.SOUTHTOFEET;
                 burialToEdit.Preservation = burialWithEdits.Preservation;
+                burialToEdit.Burial_Situation = burialWithEdits.Burial_Situation;
+                burialToEdit.head_direction = burialWithEdits.head_direction;
+                burialToEdit.Adult_Child = burialWithEdits.Adult_Child;
+                burialToEdit.estimate_age = burialWithEdits.estimate_age;
+                burialToEdit.AGEMETHOD = burialWithEdits.AGEMETHOD;
+                burialToEdit.gender_body_col = burialWithEdits.gender_body_col;
+                burialToEdit.Sex_Gender_GE = burialWithEdits.Sex_Gender_GE;
+                burialToEdit.SEXMETHOD = burialWithEdits.SEXMETHOD;
+                burialToEdit.GE_function_total = burialWithEdits.GE_function_total;
+                burialToEdit.length_of_remains = burialWithEdits.length_of_remains;
+                burialToEdit.Rack_And_Shelf = burialWithEdits.Rack_And_Shelf;
+                burialToEdit.Button_Osteoma = burialWithEdits.Button_Osteoma;
+                burialToEdit.Tomb = burialWithEdits.Tomb;
+                burialToEdit.Goods = burialWithEdits.Goods;
+                burialToEdit.Cluster = burialWithEdits.Cluster;
+                burialToEdit.Face_Bundle = burialWithEdits.Face_Bundle;
+                burialToEdit.Area_Hill_Burials = burialWithEdits.Area_Hill_Burials;
+                burialToEdit.Linear_Hypoplasia_Enamel = burialWithEdits.Linear_Hypoplasia_Enamel;
+                burialToEdit.Body_Analysis_Year = burialWithEdits.Body_Analysis_Year;
+                burialToEdit.Temporal_Mandibular_Joint_Osteoarthritis = burialWithEdits.Temporal_Mandibular_Joint_Osteoarthritis;
+                burialToEdit.Osteology_Unknown_Comment = burialWithEdits.Osteology_Unknown_Comment;
+                burialToEdit.SAMPLE = burialWithEdits.SAMPLE;
+                burialToEdit.basilar_suture = burialWithEdits.basilar_suture;
+                burialToEdit.ventral_arc = burialWithEdits.ventral_arc;
+                burialToEdit.subpubic_angle = burialWithEdits.subpubic_angle;
+                burialToEdit.sciatic_notch = burialWithEdits.sciatic_notch;
+                burialToEdit.pubic_bone = burialWithEdits.pubic_bone;
+                burialToEdit.preaur_sulcus = burialWithEdits.preaur_sulcus;
+                burialToEdit.medial_IP_ramus = burialWithEdits.medial_IP_ramus;
+                burialToEdit.dorsal_pitting = burialWithEdits.dorsal_pitting;
+                burialToEdit.femur_head = burialWithEdits.femur_head;
+                burialToEdit.humerus_head = burialWithEdits.humerus_head;
+                burialToEdit.osteophytosis = burialWithEdits.osteophytosis;
+                burialToEdit.pubic_symphysis = burialWithEdits.pubic_symphysis;
+                burialToEdit.femur_length = burialWithEdits.femur_length;
+                burialToEdit.humerus_length = burialWithEdits.humerus_length;
+                burialToEdit.tibia_length = burialWithEdits.tibia_length;
+                burialToEdit.robust = burialWithEdits.robust;
+                burialToEdit.supraorbital_ridges = burialWithEdits.supraorbital_ridges;
+                burialToEdit.hair_color = burialWithEdits.hair_color;
+                burialToEdit.hair_taken = burialWithEdits.hair_taken;
+                burialToEdit.Postcrania_At_Magazine = burialWithEdits.Postcrania_At_Magazine;
+                burialToEdit.Skull_Trauma = burialWithEdits.Skull_Trauma;
+                burialToEdit.Postcrania_Trauma = burialWithEdits.Postcrania_Trauma;
+                burialToEdit.Cribra_Orbitala = burialWithEdits.Cribra_Orbitala;
+                burialToEdit.Porotic_Hyperostosis = burialWithEdits.Porotic_Hyperostosis;
+                burialToEdit.Porotic_Hyperostosis_Locations = burialWithEdits.Porotic_Hyperostosis_Locations;
+                burialToEdit.Metopic_Suture = burialWithEdits.Metopic_Suture;
+                burialToEdit.artifacts_description = burialWithEdits.artifacts_description;
+                burialToEdit.interorbital_breadth = burialWithEdits.interorbital_breadth;
+                burialToEdit.maximum_nasal_breadth = burialWithEdits.maximum_nasal_breadth;
+                burialToEdit.orbit_edge = burialWithEdits.orbit_edge;
+                burialToEdit.soft_tissue_taken = burialWithEdits.soft_tissue_taken;
+                burialToEdit.bone_taken = burialWithEdits.bone_taken;
+                burialToEdit.tooth_taken = burialWithEdits.tooth_taken;
+                burialToEdit.description_of_taken = burialWithEdits.description_of_taken;
+                burialToEdit.artifact_found = burialWithEdits.artifact_found;
+                burialToEdit.estimate_living_stature = burialWithEdits.estimate_living_stature;
+                burialToEdit.tooth_attrition = burialWithEdits.tooth_attrition;
+                burialToEdit.tooth_eruption = burialWithEdits.tooth_eruption;
+                burialToEdit.pathology_anomalies = burialWithEdits.pathology_anomalies;
+                burialToEdit.epiphyseal_union = burialWithEdits.epiphyseal_union;
                 burialToEdit.year_found = burialWithEdits.year_found;
+                burialToEdit.month_found = burialWithEdits.month_found;
+                burialToEdit.day_found = burialWithEdits.day_found;
+                burialToEdit.Field_Book = burialWithEdits.Field_Book;
+                burialToEdit.Field_Book_Page_Number = burialWithEdits.Field_Book_Page_Number;
+                burialToEdit.Skull_At_Magazine = burialWithEdits.Skull_At_Magazine;
+                burialToEdit.nasion_prosthion = burialWithEdits.nasion_prosthion;
+                burialToEdit.bizygomatic_diameter = burialWithEdits.bizygomatic_diameter;
+                burialToEdit.basion_prosthion_length = burialWithEdits.basion_prosthion_length;
+                burialToEdit.basion_nasion = burialWithEdits.basion_nasion;
+                burialToEdit.basion_bregma_height = burialWithEdits.basion_bregma_height;
+                burialToEdit.maximum_cranial_breadth = burialWithEdits.maximum_cranial_breadth;
+                burialToEdit.maximum_cranial_length = burialWithEdits.maximum_cranial_length;
+                burialToEdit.cranial_suture = burialWithEdits.cranial_suture;
+                burialToEdit.zygomatic_crest = burialWithEdits.zygomatic_crest;
+                burialToEdit.nuchal_crest = burialWithEdits.nuchal_crest;
+                burialToEdit.gonian = burialWithEdits.gonian;
+                burialToEdit.parietal_bossing = burialWithEdits.parietal_bossing;
+
+
+
                 context.SaveChanges();
             }
 

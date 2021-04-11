@@ -18,20 +18,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
 
 <body>
-    <h1 class="BurialH1">Burial Detailes</h1>
+    <br /><br />
+    <input class="backBT" type="button" value="Go back!" onclick="history.back()">
 
-    <div class="text-center small">
+    <div>
+        <h1 class="BurialH1">Burial Detailes</h1>
+    </div>
+    <div class="text-center">
         @foreach (var x in Model.BurialList)
         {
-            @*Edit Burial Info matching edit and Burial ID research*@
 
-            <form id="@x.Burial_Id" asp-action="EditForm" method="post">
+            <form id="@x.Burial_Id" asp-action="DetailEditForm" method="post">
                 <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
-                <button type="submit" class="btn-sm btn-warning" >Edit</button>
+                <button type="submit" class="btn-sm btn-warning">Edit</button>
             </form>
 
             @*Delete Existing Burial Record using deleteid research*@
@@ -137,7 +140,6 @@
 
                         <label>To Be Confirmed</label>
                         <input type="text" value="@x.To_Be_Confirmed" readonly /><br /><br />
-
                     </fieldset>
                 }
             </div>
@@ -294,9 +296,6 @@
 
                         <label>Skull At Magazine</label>
                         <input type="text" value="@x.Skull_At_Magazine" readonly /><br /><br />
-
-                        <label>Robust</label>
-                        <input type="text" value="@x.robust" readonly /><br /><br />
 
                         <label>Nasion Prosthion</label>
                         <input type="text" value="@x.nasion_prosthion" readonly /><br /><br />
