@@ -45,6 +45,10 @@ namespace DigginPharoh.Controllers
             ViewBag.Filters = filters;
             ViewBag.GamousBurials = context.GamousBurials.ToList(); // To get head direction
             ViewBag.HeadDirFilterValues = Filters.HeadDirFilterValues;
+            ViewBag.DepthFilterValues = Filters.DepthFilterValues;
+            ViewBag.SexGeFilterValues = Filters.SexGeFilterValues;
+            ViewBag.GenderFilterValues = Filters.GenderFilterValues;
+            ViewBag.PreservFilterValues = Filters.PreservFilterValues;
 
             IQueryable<Burial> query = context.GamousBurials;
 
@@ -73,7 +77,22 @@ namespace DigginPharoh.Controllers
             }
             if (filters.HasPreservation)
             {
-                query = query.Where(t => t.Preservation.ToLower() == filters.Preservation.ToLower());
+                if (filters.Preservation == "UnClassed")
+                {
+
+                    query = query.Where(t => (t.Preservation.ToLower() != null)
+                        && (t.Preservation != "Excellent (V)")
+                        && (t.Preservation != "Good (IV)")
+                        && (t.Preservation != "Average (III)")
+                        && (t.Preservation != "Fair (II)")
+                        && (t.Preservation != "Poor (I)")
+                        );
+
+                }
+                else
+                {
+                    query = query.Where(t => t.Preservation.ToLower() == filters.Preservation.ToLower());
+                }
             }
 
 

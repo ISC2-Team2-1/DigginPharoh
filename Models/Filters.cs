@@ -37,7 +37,45 @@ namespace DigginPharoh.Models
         new Dictionary<string, string>
         {
                     {"east", "East" },
-                    {"west", "West" },
+                    {"west", "West" }
+        };
+
+        public static Dictionary<string, string> DepthFilterValues =>
+        new Dictionary<string, string>
+        {
+                            {"0", "0-.49" },
+                            {".5", ".50-.99" },
+                            {"1", "1.00-1.49" },
+                            {"1.5", "1.50-1.99" },
+                            {"2", "2.00-2.49" },
+                            {"2.5", "2.50 and Up" }
+        };
+
+        public static Dictionary<string, string> SexGeFilterValues =>
+        new Dictionary<string, string>
+        {
+                            {"Female", "Female" },
+                            {"Male", "Male" },                            
+                            {"SubAdult", "SubAdult" },
+                            {"Unknown", "Unknown" }
+        };
+
+        public static Dictionary<string, string> GenderFilterValues =>
+        new Dictionary<string, string>
+        {
+                            {"Female", "Female" },
+                            {"Male", "Male" },
+                            {"Undetermined", "Undetermined" },
+        };
+        public static Dictionary<string, string> PreservFilterValues =>
+        new Dictionary<string, string>
+        {
+                                    {"Excellent (V)", "Excellent (V)" },
+                                    {"Good (IV)", "Good (IV)" },
+                                    {"Average (III)", "Average (III)" },
+                                    {"Fair (II)", "Fair (II)" },
+                                    {"Poor (I)", "Poor (I)" },
+                                    {"UnClassed", "UnClassed" },
         };
 
         public bool IsEast => HeadDirection.ToLower() == "east";
