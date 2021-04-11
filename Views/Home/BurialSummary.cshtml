@@ -14,25 +14,16 @@
     }
 </style>
 <head>
-    <!-- Style.css -->
-    <link href="~/css/style.css" rel="stylesheet" />
-    <!-- Plugins.css -->
-    <link href="~/css/plugins.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <link href="~/css/bsSumList.css" rel="stylesheet">
-    <!-- Google Fonts https://fonts.google.com/ -->
+    <link href="~/css/plugins.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Animate.css https://cdnjs.com/libraries/animate.css/
-    https://daneden.github.io/animate.css/ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <!-- Lightbox Image Gallery https://cdnjs.com/libraries/lightbox2  https://lokeshdhakar.com/projects/lightbox2/ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-    <!-- Owl Carousel https://cdnjs.com/libraries/OwlCarousel2
-    http://owlcarousel2.github.io/OwlCarousel2/ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
-
 
 <body>
     <h1 class="BurialH1">Burial Summary</h1>
@@ -43,7 +34,7 @@
             <form asp-action="Filter" method="post">
                 <div class="form-group">
                     <label>Head Direction:</label>
-6                    <select name="filter" class="form-control" asp-items="@(new SelectList(ViewBag.HeadDirFilterValues, "Key", "Value", ViewBag.Filters.HeadDirection))">
+                    <select name="filter" class="form-control" asp-items="@(new SelectList(ViewBag.HeadDirFilterValues, "Key", "Value", ViewBag.Filters.HeadDirection))">
                         <option value="all">All</option>
                     </select>
                 </div>
@@ -84,7 +75,7 @@
 
         </div>
 
-        <div class="col-md-10">
+        <div class="col-md-10" style="max-height:800px">
             <form>
                 <div class="form-group">
                     <input asp-action="Create" asp-controller="Id" type="submit" value="New Record" class="btn NewRocord-bt" />
@@ -124,9 +115,12 @@
 
                                 @*See the Detail of the Gamous*@
                                 <td>
-                                    <form id="@x.Burial_Id" asp-action="BurialDetails" method="post" class="btn-outline-info">
+                                    <form id="@x.Burial_Id" asp-action="BurialDetails" method="post" class="">
                                         <input type="hidden" asp-for="@x.Burial_Id" name="detailId" />
-                                        <button type="submit">Detail</button>
+                                        @*<button type="submit">Detail</button>*@
+                                        <button class="btn-sum btn-primary" type="submit" data-toggle="tooltip" data-placement="top" title="View">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
                                     </form>
                                 </td>
 
@@ -134,7 +128,10 @@
                                 <td>
                                     <form id="@x.Burial_Id" asp-action="EditForm" method="post" class="btn-outline-info">
                                         <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
-                                        <button type="submit">Edit</button>
+                                        @*<button type="submit">Edit</button>*@
+                                        <button class="btn-sum btn-success" type="submit" data-toggle="tooltip" data-placement="top" title="Edit">
+                                            <i class="fa fa-edit"></i>
+                                        </button>
                                     </form>
                                 </td>
 
@@ -142,7 +139,10 @@
                                 <td>
                                     <form id="@x.Burial_Id" asp-action="BurialSummary" method="post" class="btn-outline-info">
                                         <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
-                                        <button type="submit">Delete</button>
+                                        @*<button type="submit">Delete</button>*@
+                                        <button class="btn-sum btn-danger" type="submit" data-toggle="tooltip" data-placement="top" title="Delete">
+                                            <i class="fa fa-trash-alt"></i>
+                                        </button>
                                     </form>
                                 </td>
 
