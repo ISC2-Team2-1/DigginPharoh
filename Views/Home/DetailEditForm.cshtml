@@ -9,7 +9,7 @@
 @model DigginPharoh.Models.Burial
 
 
-<form asp-action="BurialDetails" method="post">
+<form asp-action="BurialSummary" method="post">
     <input type="hidden" asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" />
     <div>
         <label asp-for="Burial_Id">Burial ID</label>

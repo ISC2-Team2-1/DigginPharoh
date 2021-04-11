@@ -28,11 +28,13 @@
     <div>
         <h1 class="BurialH1">Burial Detailes</h1>
     </div>
-
+    <div class="text-center">
+        @foreach (var x in Model.BurialList)
+        {
 
             <form id="@x.Burial_Id" asp-action="DetailEditForm" method="post">
                 <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
-                <button type="submit" class="btn-sm btn-warning" >Edit</button>
+                <button type="submit" class="btn-sm btn-warning">Edit</button>
             </form>
 
             @*Delete Existing Burial Record using deleteid research*@
