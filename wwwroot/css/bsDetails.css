@@ -1,0 +1,56 @@
+﻿body {
+    font-family: 'Lato', sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+.navbar {
+    background: rgba(0, 0, 0, .7) !important;
+    transition: background-color 1s ease;
+}
+
+.BurialH1 {
+    color: white;
+    letter-spacing: .2rem;
+    text-shadow: 0.1rem 0.1rem 0.5rem black;
+    margin-top: 4.2rem;
+    text-align: center;
+}
+
+.col-pos {
+    margin-top: 6.5rem;
+}
+
+/*============= Main Content =============*/
+
+label {
+    display: inline-block;
+    margin-left: 1rem;
+    margin-bottom: .5rem;
+    color: black;
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+input {
+    outline: none;
+    border: solid 2.5px;
+    box-shadow: none;
+    width: auto;
+    font-size: 12px;
+    font-family: inherit;
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+fieldset {
+    height: 28%;
+    width: auto;
+    min-width: 0;
+    border: solid black 2px;
+    overflow: scroll;
+}

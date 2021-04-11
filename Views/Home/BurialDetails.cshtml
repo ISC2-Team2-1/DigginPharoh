@@ -2,659 +2,323 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    Layout = "_Layout";
+    Layout = "_Layout-client";
 }
 @model DigginPharoh.Models.ViewModels.IndexViewModel
 
-<h1 class="BurialH1">Detailed Burial Information </h1>
+<head>
+    <!-- Style.css -->
+    <link href="~/css/style.css" rel="stylesheet" />
+    <!-- Plugins.css -->
+    <link href="~/css/plugins.css" rel="stylesheet">
+    <link href="~/css/bsDetails.css" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+</head>
 
+<body>
+    <h1 class="BurialH1">Burial Detailes</h1>
 
-<div class="col-md-11">
-
-    <div class="h-75 d-inline-block">
-        <table class="table table-striped table-light table-hover">
-            <thead>
-                <tr>
-                    <th>
-                        Burial ID
-                    </th>
-                    <th>
-                        Gamous_Id
-                    </th>
-                    <th>
-                        Burial Depth
-                    </th>
-                    <th>
-                        WEST TO Head
-                    </th>
-                    <th>
-                        WEST TO Feet
-                    </th>
-                    <th>
-                        SOUTH TO Head
-                    </th>
-                    <th>
-                        SOUTH TO Feet
-                    </th>
-                    <th>
-                        Preservation
-                    </th>
-                    <th>
-                        Burial Situation
-                    </th>
-                    <th>
-                        Head Direction
-                    </th>
-                    <th>
-                        Adult/Child
-                    </th>
-                    <th>
-                        Estimate Age
-                    </th>
-                    <th>
-                        Age Method
-                    </th>
-                    <th>
-                        Gender Body Col
-                    </th>
-                    <th>
-                        Sex Gender GE
-                    </th>
-                    <th>
-                        Sex Method
-                    <th>
-                        GE_function_total
-                    </th>
-                    <th>
-                        Length_of_remains
-                    </th>
-                </tr>
-            </thead>
-
-            <tbody>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
                 @foreach (var x in Model.BurialList)
-                {
-                <tr>
-                    <th scope="row">@x.Burial_Id</th>
-                    <td>
-                        @x.Gamous_Id
-                    </td>
-                    <td>
-                        @x.burial_depth
-                    </td>
-                    <td>
-                        @x.WESTTOHEAD
-                    </td>
-                    <td>
-                        @x.WESTTOFEET
-                    </td>
-                    <td>
-                        @x.SOUTHTOHEAD
-                    </td>
-                    <td>
-                        @x.SOUTHTOFEET
-                    </td>
-                    <td>
-                        @x.Preservation
-                    </td>
-                    <td>
-                        @x.Burial_Situation
-                    </td>
-                    <td>
-                        @x.head_direction
-                    </td>
-                    <td>
-                        @x.Adult_Child
-                    </td>
-                    <td>
-                        @x.estimate_age
-                    </td>
-                    <td>
-                        @x.AGEMETHOD
-                    </td>
-                    <td>
-                        @x.gender_body_col
-                    </td>
-                    <td>
-                        @x.Sex_Gender_GE
-                    </td>
-                    <td>
-                        @x.SEXMETHOD
-                    </td>
-                    <td>
-                        @x.GE_function_total
-                    </td>
-                    <td>
-                        @x.length_of_remains
-                    </td>
-                </tr>
-                }
+                 {
+                    <fieldset>
+                        <label>Burial ID</label>
+                        <input type="text" value="@x.Burial_Id" readonly /><br /><br />
 
-                </tbody>
+                        <label>Gamous_Id</label>
+                        <input type="text" value="@x.Gamous_Id" readonly /><br /><br />
 
-            @*Second line of the Table*@
-            <thead>
-                <tr>
-                    <th>
-                        Sample#
-                    </th>
-                    <th>
-                        Basilar_suture
-                    </th>
-                    <th>
-                        Ventral_arc
-                    </th>
-                    <th>
-                        Subpubic_angle
-                    </th>
-                    <th>
-                        sciatic_notch
-                    </th>
-                    <th>
-                        pubic_bone
-                    </th>
-                    <th>
-                        preaur_sulcus
-                    </th>
-                    <th>
-                        Medial_IP_ramus
-                    </th>
-                    <th>
-                        dorsal_pitting
-                    </th>
-                    <th>
-                        femur_head
-                    </th>
-                    <th>
-                        humerus_head
-                    </th>
-                    <th>
-                        osteophytosis
-                    </th>
-                    <th>
-                        pubic_symphysis
-                    </th>
-                    <th>
-                        femur_length
-                    </th>
-                    <th>
-                        humerus_length
-                    </th>
-                    <th>
-                        tibia_length
-                    </th>
-                    <th>
-                        robust
-                    </th>
-                    <th>
-                        supraorbital_ridges
-                    </th>
-                </tr>
-            </thead>
+                        <label>Burial Depth</label>
+                        <input type="text" value="@x.burial_depth" readonly /><br /><br />
 
-            <tbody>
+                        <label>WEST TO Head</label>
+                        <input type="text" value="@x.WESTTOHEAD" readonly /><br /><br />
+
+                        <label>WEST TO Feet</label>
+                        <input type="text" value="@x.WESTTOFEET" readonly /><br /><br />
+
+                        <label>SOUTH TO Head</label>
+                        <input type="text" value="@x.SOUTHTOHEAD" readonly /><br /><br />
+
+                        <label>SOUTH TO Feet</label>
+                        <input type="text" value="@x.SOUTHTOFEET" readonly /><br /><br />
+
+                        <label>Preservation</label>
+                        <input type="text" value="@x.Preservation" readonly /><br /><br />
+
+                        <label>Burial Situation</label>
+                        <input type="text" value="@x.Burial_Situation" readonly /><br /><br />
+
+                        <label>Head Direction</label>
+                        <input type="text" value="@x.head_direction" readonly /><br /><br />
+
+                        <label>Adult/Child</label>
+                        <input type="text" value="@x.Adult_Child" readonly /><br /><br />
+
+                        <label>Estimate Age</label>
+                        <input type="text" value="@x.estimate_age" readonly /><br /><br />
+
+                        <label>Age Method</label>
+                        <input type="text" value="@x.AGEMETHOD" readonly /><br /><br />
+
+                        <label>Gender Body Col</label>
+                        <input type="text" value="@x.gender_body_col" readonly /><br /><br />
+
+                        <label>Sex Gender GE</label>
+                        <input type="text" value="@x.Sex_Gender_GE" readonly /><br /><br />
+
+                        <label>Sex Method</label>
+                        <input type="text" value="@x.SEXMETHOD" readonly /><br /><br />
+
+                        <label>GE_function_total</label>
+                        <input type="text" value="@x.GE_function_total" readonly /><br /><br />
+
+                        <label>Length_of_remains</label>
+                        <input type="text" value="@x.length_of_remains" readonly /><br /><br />
+
+                        <label>Rack & Shelf</label>
+                        <input type="text" value="@x.Rack_And_Shelf" readonly /><br /><br />
+
+                        <label>Button Osteoma</label>
+                        <input type="text" value="@x.Button_Osteoma" readonly /><br /><br />
+
+                        <label>Tomb</label>
+                        <input type="text" value="@x.Tomb" readonly /><br /><br />
+
+                        <label>Goods</label>
+                        <input type="text" value="@x.Goods" readonly /><br /><br />
+
+                        <label>Cluster</label>
+                        <input type="text" value="@x.Cluster" readonly /><br /><br />
+
+                        <label>Face_Bundle</label>
+                        <input type="text" value="@x.Face_Bundle" readonly /><br /><br />
+
+                        <label>Area Hill Burials</label>
+                        <input type="text" value="@x.Area_Hill_Burials" readonly /><br /><br />
+
+                        <label>Linear Hypoplasia Enamel</label>
+                        <input type="text" value="@x.Linear_Hypoplasia_Enamel" readonly /><br /><br />
+
+                        <label>Body Analysis Year</label>
+                        <input type="text" value="@x.Body_Analysis_Year" readonly /><br /><br />
+
+                        <label>Temporal Mandibular Joint Osteoarthritis</label>
+                        <input type="text" value="@x.Temporal_Mandibular_Joint_Osteoarthritis" readonly /><br /><br />
+
+                        <label>Osteology Unknown Comment</label>
+                        <input type="text" value="@x.Osteology_Unknown_Comment" readonly /><br /><br />
+
+                        <label>To Be Confirmed</label>
+                        <input type="text" value="@x.To_Be_Confirmed" readonly /><br /><br />
+                    </fieldset>
+                 }
+            </div>
+
+            <div class="col-md-4">
                 @foreach (var x in Model.BurialList)
-                {
-                <tr>
-                    <td>
-                        @x.sample_number
-                    </td>
-                    <td>
-                        @x.basilar_suture
-                    </td>
-                    <td>
-                        @x.ventral_arc
-                    </td>
-                    <td>
-                        @x.subpubic_angle
-                    </td>
-                    <td>
-                        @x.sciatic_notch
-                    </td>
-                    <td>
-                        @x.pubic_bone
-                    </td>
-                    <td>
-                        @x.preaur_sulcus
-                    </td>
-                    <td>
-                        @x.medial_IP_ramus
-                    </td>
-                    <td>
-                        @x.dorsal_pitting
-                    </td>
-                    <td>
-                        @x.femur_head
-                    </td>
-                    <td>
-                        @x.humerus_head
-                    </td>
-                    <td>
-                        @x.osteophytosis
-                    </td>
-                    <td>
-                        @x.pubic_symphysis
-                    </td>
-                    <td>
-                        @x.femur_length
-                    </td>
-                    <td>
-                        @x.humerus_length
-                    </td>
-                    <td>
-                        @x.tibia_length
-                    </td>
-                    <td>
-                        @x.robust
-                    </td>
-                    <td>
-                        @x.supraorbital_ridges
-                    </td>
-                </tr>
-                }
-                </tbody>
+                 {
+                    <fieldset>
+                        <label>Sample#</label>
+                        <input type="text" value="@x.SAMPLE" readonly /><br /><br />
 
-            <thead>
-                <tr>
-                    <th>
-                        orbit_edge
-                    </th>
-                    <th>
-                        parietal_bossing
-                    </th>
-                    <th>
-                        gonian
-                    </th>
-                    <th>
-                        nuchal_crest
-                    </th>
-                    <th>
-                        zygomatic_crest
-                    </th>
-                    <th>
-                        cranial_suture
-                    </th>
-                    <th>
-                        maximum_cranial_length
-                    </th>
-                    <th>
-                        maximum_cranial_breadth
-                    </th>
-                    <th>
-                        basion_bregma_height
-                    </th>
-                    <th>
-                        basion_nasion
-                    </th>
-                    <th>
-                        basion_prosthion_length
-                    </th>
-                    <th>
-                        bizygomatic_diameter
-                    </th>
-                    <th>
-                        nasion_prosthion
-                    </th>
-                    <th>
-                        maximum_nasal_breadth
-                    </th>
-                    <th>
-                        interorbital_breadth
-                    </th>
-                    <th>
-                        artifacts_description
-                    </th>
-                    <th>
-                        hair_color
-                    </th>
-                    <th>
-                        hair_taken
-                    </th>
-                </tr>
-            </thead>
+                        <label>Basilar Suture</label>
+                        <input type="text" value="@x.basilar_suture" readonly /><br /><br />
 
-            <tbody>
+                        <label>Ventral Arc</label>
+                        <input type="text" value="@x.ventral_arc" readonly /><br /><br />
+
+                        <label>Subpubic Angle</label>
+                        <input type="text" value="@x.subpubic_angle" readonly /><br /><br />
+
+                        <label>Sciatic Notch</label>
+                        <input type="text" value="@x.sciatic_notch" readonly /><br /><br />
+
+                        <label>Pubic Bone</label>
+                        <input type="text" value="@x.pubic_bone" readonly /><br /><br />
+
+                        <label>Preaur Sulcus</label>
+                        <input type="text" value="@x.preaur_sulcus" readonly /><br /><br />
+
+                        <label>Medial IP Ramus</label>
+                        <input type="text" value="@x.medial_IP_ramus" readonly /><br /><br />
+
+                        <label>Dorsal Pitting</label>
+                        <input type="text" value="@x.dorsal_pitting" readonly /><br /><br />
+
+                        <label>Femur Head</label>
+                        <input type="text" value="@x.femur_head" readonly /><br /><br />
+
+                        <label>Humerus Head</label>
+                        <input type="text" value="@x.humerus_head" readonly /><br /><br />
+
+                        <label>Osteophytosis</label>
+                        <input type="text" value="@x.osteophytosis" readonly /><br /><br />
+
+                        <label>Pubic Symphysis</label>
+                        <input type="text" value="@x.pubic_symphysis" readonly /><br /><br />
+
+                        <label>Femur Length</label>
+                        <input type="text" value="@x.femur_length" readonly /><br /><br />
+
+                        <label>Humerus Length</label>
+                        <input type="text" value="@x.humerus_length" readonly /><br /><br />
+
+                        <label>Tibia Length</label>
+                        <input type="text" value="@x.tibia_length" readonly /><br /><br />
+
+                        <label>Robust</label>
+                        <input type="text" value="@x.robust" readonly /><br /><br />
+
+                        <label>Supraorbital Ridges</label>
+                        <input type="text" value="@x.supraorbital_ridges" readonly /><br /><br />
+
+                        <label>Hair Color</label>
+                        <input type="text" value="@x.hair_color" readonly /><br /><br />
+
+                        <label>Hair Taken</label>
+                        <input type="text" value="@x.hair_taken" readonly /><br /><br />
+
+                        <label>Postcrania At Magazine</label>
+                        <input type="text" value="@x.Postcrania_At_Magazine" readonly /><br /><br />
+
+                        <label>Skull Trauma</label>
+                        <input type="text" value="@x.Skull_Trauma" readonly /><br /><br />
+
+                        <label>Postcrania Trauma</label>
+                        <input type="text" value="@x.Postcrania_Trauma" readonly /><br /><br />
+
+                        <label>Cribra Orbitala</label>
+                        <input type="text" value="@x.Cribra_Orbitala" readonly /><br /><br />
+
+                        <label>Porotic Hyperostosis</label>
+                        <input type="text" value="@x.Porotic_Hyperostosis" readonly /><br /><br />
+
+                        <label>Porotic Hyperostosis Locations</label>
+                        <input type="text" value="@x.Porotic_Hyperostosis_Locations" readonly /><br /><br />
+
+                        <label>Metopic Suture</label>
+                        <input type="text" value="@x.Metopic_Suture" readonly /><br /><br />
+
+                        <label>Artifacts Description</label>
+                        <input type="text" value="@x.artifacts_description" readonly /><br /><br />
+
+                        <label>Interorbital Breadth</label>
+                        <input type="text" value="@x.interorbital_breadth" readonly /><br /><br />
+
+                        <label>Max Nasal Breadth</label>
+                        <input type="text" value="@x.maximum_nasal_breadth" readonly /><br /><br />
+                    </fieldset>
+                 }
+            </div>
+
+            <div class="col-md-4">
                 @foreach (var x in Model.BurialList)
-                {
-                <tr>
-                    <td>
-                        @x.orbit_edge
-                    </td>
-                    <td>
-                        @x.parietal_bossing
-                    </td>
-                    <td>
-                        @x.gonian
-                    </td>
-                    <td>
-                        @x.nuchal_crest
-                    </td>
-                    <td>
-                        @x.zygomatic_crest
-                    </td>
-                    <td>
-                        @x.cranial_suture
-                    </td>
-                    <td>
-                        @x.maximum_cranial_length
-                    </td>
-                    <td>
-                        @x.maximum_cranial_breadth
-                    </td>
-                    <td>
-                        @x.basion_bregma_height
-                    </td>
-                    <td>
-                        @x.basion_nasion
-                    </td>
-                    <td>
-                        @x.basion_prosthion_length
-                    </td>
-                    <td>
-                        @x.bizygomatic_diameter
-                    </td>
-                    <td>
-                        @x.nasion_prosthion
-                    </td>
-                    <td>
-                        @x.maximum_nasal_breadth
-                    </td>
-                    <td>
-                        @x.interorbital_breadth
-                    </td>
-                    <td>
-                        @x.artifacts_description
-                    </td>
-                    <td>
-                        @x.hair_color
-                    </td>
-                    <td>
-                        @x.hair_taken
-                    </td>
-                </tr>
-                }
-                </tbody>
+                 {
+                    <fieldset>
 
-            <thead>
-                <tr>
-                    <th>
-                        soft_tissue_taken
-                    </th>
-                    <th>
-                        bone_taken
-                    </th>
-                    <th>
-                        tooth_taken
-                    </th>
-                    <th>
-                        textile_taken
-                    </th>
-                    <th>
-                        SAMPLE
-                    </th>
-                    <th>
-                        description_of_taken
-                    </th>
-                    <th>
-                        artifact_found
-                    </th>
-                    <th>
-                        estimate_living_stature
-                    </th>
-                    <th>
-                        tooth_attrition
-                    </th>
-                    <th>
-                        tooth_eruption
-                    </th>
-                    <th>
-                        pathology_anomalies
-                    </th>
-                    <th>
-                        epiphyseal_union
-                    </th>
-                    <th>
-                        year_found
-                    </th>
-                    <th>
-                        month_found
-                    </th>
-                    <th>
-                        day_found
-                    </th>
-                    <th>
-                        Field_Book
-                    </th>
-                    <th>
-                        Field_Book_Page_Number
-                    </th>
-                    <th>
-                        Skull_At_Magazine
-                    </th>
-                </tr>
-            </thead>
+                        <label>Orbit Edge</label>
+                        <input type="text" value="@x.orbit_edge" readonly /><br /><br />
 
-            <tbody>
-                @foreach (var x in Model.BurialList)
-                {
+                        <label>Soft Tissue Taken</label>
+                        <input type="text" value="@x.soft_tissue_taken" readonly /><br /><br />
 
-                <tr>
-                    <td>
-                        @x.soft_tissue_taken
-                    </td>
-                    <td>
-                        @x.bone_taken
-                    </td>
-                    <td>
-                        @x.tooth_taken
-                    </td>
-                    <td>
-                        @x.textile_taken
-                    </td>
-                    <td>
-                        @x.SAMPLE
-                    </td>
-                    <td>
-                        @x.description_of_taken
-                    </td>
-                    <td>
-                        @x.artifact_found
-                    </td>
-                    <td>
-                        @x.estimate_living_stature
-                    </td>
-                    <td>
-                        @x.tooth_attrition
-                    </td>
-                    <td>
-                        @x.tooth_eruption
-                    </td>
-                    <td>
-                        @x.pathology_anomalies
-                    </td>
-                    <td>
-                        @x.epiphyseal_union
-                    </td>
-                    <td>
-                        @x.year_found
-                    </td>
-                    <td>
-                        @x.month_found
-                    </td>
-                    <td>
-                        @x.day_found
-                    </td>
-                    <td>
-                        @x.Field_Book
-                    </td>
-                    <td>
-                        @x.Field_Book_Page_Number
-                    </td>
-                    <td>
-                        @x.Skull_At_Magazine
-                    </td>
-                </tr>
-                }
-                </tbody>
+                        <label>Bone Taken</label>
+                        <input type="text" value="@x.bone_taken" readonly /><br /><br />
 
-            <thead>
-                <tr>
-                    <th>
-                        Postcrania_At_Magazine
-                    </th>
-                    <th>
-                        Rack_And_Shelf
-                    </th>
-                    <th>
-                        To_Be_Confirmed
-                    </th>
-                    <th>
-                        Skull_Trauma
-                    </th>
-                    <th>
-                        Postcrania_Trauma
-                    </th>
-                    <th>
-                        Cribra_Orbitala
-                    </th>
-                    <th>
-                        Porotic_Hyperostosis
-                    </th>
-                    <th>
-                        Porotic_Hyperostosis_Locations
-                    </th>
-                    <th>
-                        Metopic_Suture
-                    </th>
-                    <th>
-                        Button_Osteoma
-                    </th>
-                    <th>
-                        Osteology_Unknown_Comment
-                    </th>
-                    <th>
-                        Temporal_Mandibular_Joint_Osteoarthritis
-                    </th>
-                    <th>
-                        Linear_Hypoplasia_Enamel
-                    </th>
-                    <th>
-                        Area_Hill_Burials
-                    </th>
-                    <th>
-                        Tomb
-                    </th>
-                    <th>
-                        Goods
-                    </th>
-                    <th>
-                        Cluster
-                    </th>
-                    <th>
-                        Face_Bundle
-                    </th>
-                    <th>
-                        Body_Analysis_Year
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var x in Model.BurialList)
-                {
+                        <label>Tooth Taken</label>
+                        <input type="text" value="@x.tooth_taken" readonly /><br /><br />
 
-                <tr>
-                    <td>
-                        @x.Postcrania_At_Magazine
-                    </td>
-                    <td>
-                        @x.Rack_And_Shelf
-                    </td>
-                    <td>
-                        @x.To_Be_Confirmed
-                    </td>
-                    <td>
-                        @x.Skull_Trauma
-                    </td>
-                    <td>
-                        @x.Postcrania_Trauma
-                    </td>
-                    <td>
-                        @x.Cribra_Orbitala
-                    </td>
-                    <td>
-                        @x.Porotic_Hyperostosis
-                    </td>
-                    <td>
-                        @x.Porotic_Hyperostosis_Locations
-                    </td>
-                    <td>
-                        @x.Metopic_Suture
-                    </td>
-                    <td>
-                        @x.Button_Osteoma
-                    </td>
-                    <td>
-                        @x.Osteology_Unknown_Comment
-                    </td>
-                    <td>
-                        @x.Temporal_Mandibular_Joint_Osteoarthritis
-                    </td>
-                    <td>
-                        @x.Linear_Hypoplasia_Enamel
-                    </td>
-                    <td>
-                        @x.Area_Hill_Burials
-                    </td>
-                    <td>
-                        @x.Tomb
-                    </td>
-                    <td>
-                        @x.Goods
-                    </td>
-                    <td>
-                        @x.Cluster
-                    </td>
-                    <td>
-                        @x.Face_Bundle
-                    </td>
-                    <td>
-                        @x.Body_Analysis_Year
-                    </td>
-                </tr>
-                }
-            </tbody>
+                        <label>Token Description</label>
+                        <input type="text" value="@x.description_of_taken" readonly /><br /><br />
 
-            <thead>
-                <tr>
-                    <th><!--This is a blank col for the button--></th>
-                    <th><!--This is a blank col for the button--></th>
-                </tr>
-            </thead>
+                        <label>Artifact Found</label>
+                        <input type="text" value="@x.artifact_found" readonly /><br /><br />
 
-            <tbody>
-                <tr>
-                    @foreach (var x in Model.BurialList)
-                    {
-                        @*Edit Movies matching edit and movieId research*@
-                        <td>
-                            <form id="@x.Burial_Id" asp-action="EditForm" method="post" class="btn-outline-info">
-                                <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
-                                <button type="submit">Edit</button>
-                            </form>
-                        </td>
+                        <label>Est. Living Stature</label>
+                        <input type="text" value="@x.estimate_living_stature" readonly /><br /><br />
 
-                        @*Delete Existing Movies using deleteid research*@
-                        <td>
-                            <form id="@x.Burial_Id" asp-action="BurialSummary" method="post" class="btn-outline-info">
-                                <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
-                                <button type="submit">Delete</button>
-                            </form>
-                        </td>
-                    }
-                    </tr>
-            </tbody>
-        </table>
+                        <label>Tooth Attrition</label>
+                        <input type="text" value="@x.tooth_attrition" readonly /><br /><br />
+
+                        <label>Tooth Eruption</label>
+                        <input type="text" value="@x.tooth_eruption" readonly /><br /><br />
+
+                        <label>Pathology Anomalies</label>
+                        <input type="text" value="@x.pathology_anomalies" readonly /><br /><br />
+
+                        <label>Epiphyseal Union</label>
+                        <input type="text" value="@x.epiphyseal_union" readonly /><br /><br />
+
+                        <label>Year Found</label>
+                        <input type="text" value="@x.year_found" readonly /><br /><br />
+
+                        <label>Month Found</label>
+                        <input type="text" value="@x.month_found" readonly /><br /><br />
+
+                        <label>Day Found</label>
+                        <input type="text" value="@x.day_found" readonly /><br /><br />
+
+                        <label>Field_Book</label>
+                        <input type="text" value="@x.Field_Book" readonly /><br /><br />
+
+                        <label>FieldBook Pg_Num</label>
+                        <input type="text" value="@x.Field_Book_Page_Number" readonly /><br /><br />
+
+                        <label>Skull At Magazine</label>
+                        <input type="text" value="@x.Skull_At_Magazine" readonly /><br /><br />
+
+                        <label>Robust</label>
+                        <input type="text" value="@x.robust" readonly /><br /><br />
+
+                        <label>Nasion Prosthion</label>
+                        <input type="text" value="@x.nasion_prosthion" readonly /><br /><br />
+
+                        <label>Bizygomatic Diameter</label>
+                        <input type="text" value="@x.bizygomatic_diameter" readonly /><br /><br />
+
+                        <label>Basion Prosthion Length</label>
+                        <input type="text" value="@x.basion_prosthion_length" readonly /><br /><br />
+
+                        <label>Basion Nasion</label>
+                        <input type="text" value="@x.basion_nasion" readonly /><br /><br />
+
+                        <label>Basion Bregma Height</label>
+                        <input type="text" value="@x.basion_bregma_height" readonly /><br /><br />
+
+                        <label>Maximum Cranial Breadth</label>
+                        <input type="text" value="@x.maximum_cranial_breadth" readonly /><br /><br />
+
+                        <label>Max Cranial Length</label>
+                        <input type="text" value="@x.maximum_cranial_length" readonly /><br /><br />
+
+                        <label>Cranial Suture</label>
+                        <input type="text" value="@x.cranial_suture" readonly /><br /><br />
+
+                        <label>Zygomatic Crest</label>
+                        <input type="text" value="@x.zygomatic_crest" readonly /><br /><br />
+
+                        <label>Nuchal Crest</label>
+                        <input type="text" value="@x.nuchal_crest" readonly /><br /><br />
+
+                        <label>Gonian</label>
+                        <input type="text" value="@x.gonian" readonly /><br /><br />
+
+                        <label>Parietal Bossing</label>
+                        <input type="text" value="@x.parietal_bossing" readonly /><br /><br />
+                    </fieldset>
+                 }
+            </div>
+        </div>
     </div>
+</body>
 
-</div>
+
