@@ -18,17 +18,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
 
 <body>
     <h1 class="BurialH1">Burial Detailes</h1>
 
+    <div class="text-center small">
+        @foreach (var x in Model.BurialList)
+        {
+            @*Edit Burial Info matching edit and Burial ID research*@
+
+            <form id="@x.Burial_Id" asp-action="EditForm" method="post">
+                <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
+                <button type="submit" class="btn-sm btn-warning" >Edit</button>
+            </form>
+
+            @*Delete Existing Burial Record using deleteid research*@
+            <form id="@x.Burial_Id" asp-action="BurialDetails" method="post">
+                <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
+                <button type="submit" class="btn-sm btn-danger">Delete</button>
+            </form>
+        }
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 @foreach (var x in Model.BurialList)
-                 {
+                {
                     <fieldset>
                         <label>Burial ID</label>
                         <input type="text" value="@x.Burial_Id" readonly /><br /><br />
@@ -119,13 +137,14 @@
 
                         <label>To Be Confirmed</label>
                         <input type="text" value="@x.To_Be_Confirmed" readonly /><br /><br />
+
                     </fieldset>
-                 }
+                }
             </div>
 
             <div class="col-md-4">
                 @foreach (var x in Model.BurialList)
-                 {
+                {
                     <fieldset>
                         <label>Sample#</label>
                         <input type="text" value="@x.SAMPLE" readonly /><br /><br />
@@ -217,12 +236,12 @@
                         <label>Max Nasal Breadth</label>
                         <input type="text" value="@x.maximum_nasal_breadth" readonly /><br /><br />
                     </fieldset>
-                 }
+                }
             </div>
 
             <div class="col-md-4">
                 @foreach (var x in Model.BurialList)
-                 {
+                {
                     <fieldset>
 
                         <label>Orbit Edge</label>
@@ -315,7 +334,7 @@
                         <label>Parietal Bossing</label>
                         <input type="text" value="@x.parietal_bossing" readonly /><br /><br />
                     </fieldset>
-                 }
+                }
             </div>
         </div>
     </div>
