@@ -29,7 +29,7 @@
         {
             @*Edit Burial Info matching edit and Burial ID research*@
 
-            <form id="@x.Burial_Id" asp-action="EditForm" method="post">
+            <form id="@x.Burial_Id" asp-action="DetailEditForm" method="post">
                 <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
                 <button type="submit" class="btn-sm btn-warning" >Edit</button>
             </form>
@@ -294,9 +294,6 @@
 
                         <label>Skull At Magazine</label>
                         <input type="text" value="@x.Skull_At_Magazine" readonly /><br /><br />
-
-                        <label>Robust</label>
-                        <input type="text" value="@x.robust" readonly /><br /><br />
 
                         <label>Nasion Prosthion</label>
                         <input type="text" value="@x.nasion_prosthion" readonly /><br /><br />
