@@ -5,11 +5,11 @@
     ViewBag.Title = "Edit A Record";
 }
 
-@*@model DigginPharoh.Models.ViewModels.Edit_Delete_Detail_ViewModel*@
+@*@model DigginPharoh.Models.ViewModels.IndexViewModel*@
 @model DigginPharoh.Models.Burial
 
 
-<form asp-action="Edit" method="post">
+<form asp-action="BurialSummary" method="post">
     <input type="hidden" asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" />
     <div>
         <label asp-for="Burial_Id">Burial ID</label>

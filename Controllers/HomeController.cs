@@ -30,7 +30,15 @@ namespace DigginPharoh.Controllers
             return View();
         }
 
-        public IActionResult BurialSummary(string id, string deletionId, int pageNum = 1) //pass in string id
+        [HttpPost]
+        public IActionResult EditForm(string editId)
+        {
+            Burial burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == editId);
+            ViewBag.burialToEdit = burialToEdit;
+            return View("EditForm");
+        }
+
+        public IActionResult BurialSummary(string id, string deletionId, int pageNum = 1, Burial? burialWithEdits = null) //pass in string id
 
         {
             var filters = new Filters(id);
@@ -73,6 +81,21 @@ namespace DigginPharoh.Controllers
             if (deletionId != null)
             {
                 context.Remove(context.GamousBurials.FirstOrDefault(s => s.Burial_Id == deletionId));
+                context.SaveChanges();
+            }
+
+            //if people want to edit a record, the summary page will get editid
+            //here, we will check if the editid and the burialid matches;then, we will allow edit and updates of that record
+            if (burialWithEdits.Burial_Id != null)
+            {
+                var burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == burialWithEdits.Burial_Id);
+                burialToEdit.Burial_Id = burialWithEdits.Burial_Id;
+                burialToEdit.burial_depth = burialWithEdits.burial_depth;
+                burialToEdit.Sex_Gender_GE = burialWithEdits.Sex_Gender_GE;
+                burialToEdit.gender_body_col = burialWithEdits.gender_body_col;
+                burialToEdit.head_direction = burialWithEdits.head_direction;
+                burialToEdit.Preservation = burialWithEdits.Preservation;
+                burialToEdit.year_found = burialWithEdits.year_found;
                 context.SaveChanges();
             }
 
@@ -173,41 +196,6 @@ namespace DigginPharoh.Controllers
                 Carbon_DatingList = context.CarbonDates,
             });
         }
-
-        [HttpPost]
-        public IActionResult EditForm(string editId)
-        {
-            Burial burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == editId);
-            ViewBag.burialToEdit = burialToEdit;
-            return View("EditForm");
-        }
-
-        //Edit the database record
-        //we got the movieToEdit from the previous EditFrom Method
-        [HttpPost]
-        public IActionResult Edit(Burial burialWithEdits)
-        {
-            if (!ModelState.IsValid)
-            {
-                ViewBag.burialToEdit = burialWithEdits;
-                return View("EditForm");
-            }
-            else
-            {
-                var burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == burialWithEdits.Burial_Id);
-                burialToEdit.Burial_Id = burialWithEdits.Burial_Id;
-                burialToEdit.burial_depth = burialWithEdits.burial_depth;
-                burialToEdit.Sex_Gender_GE = burialWithEdits.Sex_Gender_GE;
-                burialToEdit.gender_body_col = burialWithEdits.gender_body_col;
-                burialToEdit.head_direction = burialWithEdits.head_direction;
-                burialToEdit.Preservation = burialWithEdits.Preservation;
-                burialToEdit.year_found = burialWithEdits.year_found;
-                context.SaveChanges();
-                return View("BurialSummary", context.GamousBurials);
-            }
-
-        }
-
 
 
         public IActionResult Privacy()
