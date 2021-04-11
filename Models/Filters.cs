@@ -29,12 +29,12 @@ namespace DigginPharoh.Models
         public string YearFound { get; }
 
 
-        public bool HasDirection => HeadDirection.ToLower() != "all";
-        public bool HasDepth => Depth != -1;
-        public bool HasSexGe => SexGE.ToLower() != "all";
-        public bool HasGenderBodCol => GenderBodCol.ToLower() != "all";
-        public bool HasPreservation => Preservation.ToLower() != "all";
-        public bool HasYear => YearFound.ToLower() != "all";
+        //public bool HasDirection => HeadDirection.ToLower() != "all";
+        //public bool HasDepth => Depth != -1;
+        //public bool HasSexGe => SexGE.ToLower() != "all";
+        //public bool HasGenderBodCol => GenderBodCol.ToLower() != "all";
+        //public bool HasPreservation => Preservation.ToLower() != "all";
+        //public bool HasYear => YearFound.ToLower() != "all";
 
 
         public static Dictionary<string, string> HeadDirFilterValues =>
