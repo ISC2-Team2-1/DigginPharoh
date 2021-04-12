@@ -344,7 +344,9 @@ namespace DigginPharoh.Controllers
         // GET: Burials/Create
         public IActionResult Create(string id)
         {
-            ViewBag.BurialId = id;
+            //Removes encoding
+            string cleanId = id.Replace("%2F", "/");
+            ViewBag.BurialId = cleanId;
             return View();
         }
 
@@ -367,7 +369,9 @@ namespace DigginPharoh.Controllers
         // GET: Cranials/Create
         public IActionResult CreateCranial(string id)
         {
-            ViewBag.BurialId = id;
+            //Removes encoding
+            string cleanId = id.Replace("%2F", "/");
+            ViewBag.BurialId = cleanId;
             return View();
         }
 
@@ -390,7 +394,9 @@ namespace DigginPharoh.Controllers
         // GET: BiologicalSamples/Create
         public IActionResult CreateBioSample(string id)
         {
-            ViewBag.BurialId = id;
+            //Removes encoding
+            string cleanId = id.Replace("%2F", "/");
+            ViewBag.BurialId = cleanId;
             return View();
         }
 
@@ -413,7 +419,9 @@ namespace DigginPharoh.Controllers
         // GET: CarbonDating/Create
         public IActionResult CreateCarbonDating(string id)
         {
-            ViewBag.BurialId = id;
+            //Removes encoding
+            string cleanId = id.Replace("%2F", "/");
+            ViewBag.BurialId = cleanId;
             return View();
         }
 
@@ -437,7 +445,9 @@ namespace DigginPharoh.Controllers
         // GET: Notes/Create
         public IActionResult CreateNote(string id)
         {
-            ViewBag.BurialId = id;
+            //Removes encoding
+            string cleanId = id.Replace("%2F", "/");
+            ViewBag.BurialId = cleanId;
             return View();
         }
 
