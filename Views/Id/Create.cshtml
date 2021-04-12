@@ -2,79 +2,111 @@
 
 @{
     ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout-client.cshtml";
+    Layout = "_Layout-client";
 }
 
-<h1>Set Identification Information for New Record</h1>
+<head>
+    @*<link rel="stylesheet" href="css/style.css">*@
+    <link href="~/css/newrecord.css" rel="stylesheet">
+    <link href="~/css/plugins.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+</head>
 
-<h4>BurialIDInfo</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                @*<label asp-for="Burial_Id" class="control-label"></label>*@
-                <input type="hidden" value="Temp" asp-for="Burial_Id" class="form-control"/>
-                @*<span asp-validation-for="Burial_Id" class="text-danger"></span>*@
+
+<body>
+
+        <h1 class="BurialH1">Enter Data</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-gp">
+                        @*<label asp-for="Burial_Id" class="control-label"></label>*@
+                        <input type="hidden" value="Temp" asp-for="Burial_Id" class="form-control" />
+                        @*<span asp-validation-for="Burial_Id" class="text-danger"></span>*@
+                    </div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="form-gp">
+                                <label asp-for="burial_location_NS" class="control-label"></label>
+                                <select asp-for="burial_location_NS" class="form-control">
+                                    <option></option>
+                                    <option>N</option>
+                                    <option>S</option>
+                                </select>
+                                <span asp-validation-for="burial_location_NS" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-gp">
+                                <label asp-for="burial_location_EW" class="control-label"></label>
+                                <Select asp-for="burial_location_EW" class="form-control">
+                                    <option></option>
+                                    <option>E</option>
+                                    <option>W</option>
+                                </Select>
+                                <span asp-validation-for="burial_location_EW" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="form-gp">
+                                <label asp-for="low_pair_NS" class="control-label"></label>
+                                <input asp-for="low_pair_NS" class="form-control" />
+                                <span asp-validation-for="low_pair_NS" class="text-danger"></span>
+                            </div>
+
+                            <!--Add razor code to set the high value equal to the low value plus 10-->
+                            @*<div class="form-group">
+                    <label asp-for="high_pair_NS" class="control-label"></label>
+                    <input asp-for="high_pair_NS" class="form-control" />
+                    <span asp-validation-for="high_pair_NS" class="text-danger"></span>
+                </div>*@
+                            <div class="form-gp">
+                                <label asp-for="low_pair_EW" class="control-label"></label>
+                                <input asp-for="low_pair_EW" class="form-control" />
+                                <span asp-validation-for="low_pair_EW" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Add razor code to set the high value equal to the low value plus 10-->
+                    @*<div class="form-group">
+            <label asp-for="high_pair_EW" class="control-label"></label>
+            <input asp-for="high_pair_EW" class="form-control" />
+            <span asp-validation-for="high_pair_EW" class="text-danger"></span>
+        </div>*@
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="form-gp">
+                                <label asp-for="burial_subplot" class="control-label"></label>
+                                <input asp-for="burial_subplot" class="form-control" />
+                                <span asp-validation-for="burial_subplot" class="text-danger"></span>
+                            </div>
+                            <div class="form-gp">
+                                <label asp-for="BURIALNUM" class="control-label"></label>
+                                <input asp-for="BURIALNUM" class="form-control" />
+                                <span asp-validation-for="BURIALNUM" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Pass the ID through so that it can be used in the other forms-->
+                    <div class="form-gp" >
+                        <input type="submit" value="Next" class="btn btn-primary" style="margin-top:25px;" />
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="burial_location_NS" class="control-label"></label>
-                <select asp-for="burial_location_NS" class="form-control" >
-                    <option></option>
-                    <option>N</option>
-                    <option>S</option>
-                </select>
-                <span asp-validation-for="burial_location_NS" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="burial_location_EW" class="control-label"></label>
-                <Select asp-for="burial_location_EW" class="form-control" >
-                    <option></option>
-                    <option>E</option>
-                    <option>W</option>
-                </Select>
-                <span asp-validation-for="burial_location_EW" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="low_pair_NS" class="control-label"></label>
-                <input asp-for="low_pair_NS" class="form-control" />
-                <span asp-validation-for="low_pair_NS" class="text-danger"></span>
-            </div>
-            <!--Add razor code to set the high value equal to the low value plus 10-->
-            @*<div class="form-group">
-                <label asp-for="high_pair_NS" class="control-label"></label>
-                <input asp-for="high_pair_NS" class="form-control" />
-                <span asp-validation-for="high_pair_NS" class="text-danger"></span>
-            </div>*@
-            <div class="form-group">
-                <label asp-for="low_pair_EW" class="control-label"></label>
-                <input asp-for="low_pair_EW" class="form-control" />
-                <span asp-validation-for="low_pair_EW" class="text-danger"></span>
-            </div>
-            <!--Add razor code to set the high value equal to the low value plus 10-->
-            @*<div class="form-group">
-                <label asp-for="high_pair_EW" class="control-label"></label>
-                <input asp-for="high_pair_EW" class="form-control" />
-                <span asp-validation-for="high_pair_EW" class="text-danger"></span>
-            </div>*@
-            <div class="form-group">
-                <label asp-for="burial_subplot" class="control-label"></label>
-                <input asp-for="burial_subplot" class="form-control" />
-                <span asp-validation-for="burial_subplot" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BURIALNUM" class="control-label"></label>
-                <input asp-for="BURIALNUM" class="form-control" />
-                <span asp-validation-for="BURIALNUM" class="text-danger"></span>
-            </div>
-            <!--Pass the ID through so that it can be used in the other forms-->
-            <div class="form-group">
-                <input type="submit" value="Next" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+            <div class="col-md-3"></div>
+
+        </div>
+</body>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
