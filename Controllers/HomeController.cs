@@ -366,5 +366,30 @@ namespace DigginPharoh.Controllers
         }
 
 
+
+        // GET: Cranials/Create
+        public IActionResult CreateCranial(string burialId)
+        {
+            ViewBag.BurialId = burialId;
+            return View();
+        }
+
+        // POST: Cranials/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateCranial([Bind("Burial_Id,Burial_Depth,Sample_Number,Maximum_Cranial_Length,Maximum_Cranial_Breadth,Basion_Bregma_Height,Basion_Nasion,Basion_Prosthion_Length,Bizygomatic_Diameter,Nasion_Prosthion,Maximum_Nasal_Breadth,Interorbital_Breadth,Burial_Artifact_Description,Buried_with_Artifacts,Giles_Gender,Body_Gender")] Cranial cranial)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Add(cranial);
+                await context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(cranial);
+        }
+
+
     }
 }
