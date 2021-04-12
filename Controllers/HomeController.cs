@@ -371,7 +371,7 @@ namespace DigginPharoh.Controllers
                 //Return to index
                 if (nextStep == "Not now")
                 {
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("BurialDetails", new { detailId = cleanId });
                 }
                 //Yes, a Burial
                 if (nextStep == "Yes, a Burial")
@@ -434,7 +434,7 @@ namespace DigginPharoh.Controllers
                 //Return to index
                 if (nextStep == "Not now")
                 {
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("BurialDetails", new { detailId = cleanId });
                 }
                 //Yes, a Burial
                 if (nextStep == "Yes, a Burial")
@@ -498,7 +498,7 @@ namespace DigginPharoh.Controllers
                 //Return to index
                 if (nextStep == "Not now")
                 {
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("BurialDetails", new { detailId = cleanId });
                 }
                 //Yes, a Burial
                 if (nextStep == "Yes, a Burial")
@@ -561,7 +561,7 @@ namespace DigginPharoh.Controllers
                 //Return to index
                 if (nextStep == "Not now")
                 {
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("BurialDetails", new { detailId = cleanId });
                 }
                 //Yes, a Burial
                 if (nextStep == "Yes, a Burial")
@@ -625,7 +625,7 @@ namespace DigginPharoh.Controllers
                 //Return to index
                 if (nextStep == "Not now")
                 {
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("BurialDetails", new { detailId = cleanId });
                 }
                 //Yes, a Burial
                 if (nextStep == "Yes, a Burial")
