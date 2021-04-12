@@ -243,30 +243,6 @@ namespace DigginPharoh.Controllers
             return RedirectToAction("BurialSummary", new { ID = id });
         }
 
-
-        // GET: Burials/Create
-        public IActionResult Create(string burialid)
-        {
-            ViewBag.BurialId = burialid;
-            return View();
-        }
-
-        // POST: Burials/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Burial_Id,Gamous_Id,burial_depth,WESTTOHEAD,WESTTOFEET,SOUTHTOHEAD,SOUTHTOFEET,Preservation,Burial_Situation,head_direction,Adult_Child,estimate_age,AGEMETHOD,gender_body_col,Sex_Gender_GE,SEXMETHOD,GE_function_total,length_of_remains,sample_number,basilar_suture,ventral_arc,subpubic_angle,sciatic_notch,pubic_bone,preaur_sulcus,medial_IP_ramus,dorsal_pitting,femur_head,humerus_head,osteophytosis,pubic_symphysis,femur_length,humerus_length,tibia_length,robust,supraorbital_ridges,orbit_edge,parietal_bossing,gonian,nuchal_crest,zygomatic_crest,cranial_suture,maximum_cranial_length,maximum_cranial_breadth,basion_bregma_height,basion_nasion,basion_prosthion_length,bizygomatic_diameter,nasion_prosthion,maximum_nasal_breadth,interorbital_breadth,artifacts_description,hair_color,hair_taken,soft_tissue_taken,bone_taken,tooth_taken,textile_taken,SAMPLE,description_of_taken,artifact_found,estimate_living_stature,tooth_attrition,tooth_eruption,pathology_anomalies,epiphyseal_union,year_found,month_found,day_found,Field_Book,Field_Book_Page_Number,Skull_At_Magazine,Postcrania_At_Magazine,Rack_And_Shelf,To_Be_Confirmed,Skull_Trauma,Postcrania_Trauma,Cribra_Orbitala,Porotic_Hyperostosis,Porotic_Hyperostosis_Locations,Metopic_Suture,Button_Osteoma,Osteology_Unknown_Comment,Temporal_Mandibular_Joint_Osteoarthritis,Linear_Hypoplasia_Enamel,Area_Hill_Burials,Tomb,Goods,Cluster,Face_Bundle,Body_Analysis_Year")] Burial burial)
-        {
-            if (ModelState.IsValid)
-            {
-                context.Add(burial);
-                await context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(burial);
-        }
-
         public IActionResult BurialDetails(string detailId)
         {
             return View(new IndexViewModel
@@ -338,33 +314,349 @@ namespace DigginPharoh.Controllers
 
                 if (NextPage == "Burial")
                 {
-                    return RedirectToAction("IndexId", new { ID = burialIdHolder });
+                    return RedirectToAction("Create", new { ID = burialIdHolder });
                 }
 
                 if (NextPage == "Biological Sample")
                 {
-                    return RedirectToAction("IndexId", new { ID = burialIdHolder });
+                    return RedirectToAction("CreateBioSample", new { ID = burialIdHolder });
                 }
 
                 if (NextPage == "Cranial")
                 {
-                    return RedirectToAction("IndexId", new { ID = burialIdHolder });
+                    return RedirectToAction("CreateCranial", new { ID = burialIdHolder });
                 }
 
                 if (NextPage == "Carbon Dating")
                 {
-                    return RedirectToAction("IndexId", new { ID = burialIdHolder });
+                    return RedirectToAction("CreateCarbonDating", new { ID = burialIdHolder });
                 }
 
                 if (NextPage == "Note")
                 {
-                    return RedirectToAction("IndexId", new { ID = burialIdHolder });
+                    return RedirectToAction("CreateNote", new { ID = burialIdHolder });
                 }
             }
 
             return View(burialIDInfo); // make error page
         }
 
+        // GET: Burials/Create
+        public IActionResult Create(string id)
+        {
+            //Removes encoding
+            string cleanId = id.Replace("%2F", "/");
+            ViewBag.BurialId = cleanId;
+            return View();
+        }
+
+        // POST: Burials/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Burial_Id,Gamous_Id,burial_depth,WESTTOHEAD,WESTTOFEET,SOUTHTOHEAD,SOUTHTOFEET,Preservation,Burial_Situation,head_direction,Adult_Child,estimate_age,AGEMETHOD,gender_body_col,Sex_Gender_GE,SEXMETHOD,GE_function_total,length_of_remains,sample_number,basilar_suture,ventral_arc,subpubic_angle,sciatic_notch,pubic_bone,preaur_sulcus,medial_IP_ramus,dorsal_pitting,femur_head,humerus_head,osteophytosis,pubic_symphysis,femur_length,humerus_length,tibia_length,robust,supraorbital_ridges,orbit_edge,parietal_bossing,gonian,nuchal_crest,zygomatic_crest,cranial_suture,maximum_cranial_length,maximum_cranial_breadth,basion_bregma_height,basion_nasion,basion_prosthion_length,bizygomatic_diameter,nasion_prosthion,maximum_nasal_breadth,interorbital_breadth,artifacts_description,hair_color,hair_taken,soft_tissue_taken,bone_taken,tooth_taken,textile_taken,SAMPLE,description_of_taken,artifact_found,estimate_living_stature,tooth_attrition,tooth_eruption,pathology_anomalies,epiphyseal_union,year_found,month_found,day_found,Field_Book,Field_Book_Page_Number,Skull_At_Magazine,Postcrania_At_Magazine,Rack_And_Shelf,To_Be_Confirmed,Skull_Trauma,Postcrania_Trauma,Cribra_Orbitala,Porotic_Hyperostosis,Porotic_Hyperostosis_Locations,Metopic_Suture,Button_Osteoma,Osteology_Unknown_Comment,Temporal_Mandibular_Joint_Osteoarthritis,Linear_Hypoplasia_Enamel,Area_Hill_Burials,Tomb,Goods,Cluster,Face_Bundle,Body_Analysis_Year")] Burial burial, string id)
+        {
+            if (ModelState.IsValid)
+            {
+                //Saves next step the user selected, whether they will create an additional record for this ID or not
+                var nextStep = burial.Burial_Id;
+                //Cleans Id passed through in route, then saves it to the note object to be addded to the database
+                string cleanId = id.Replace("%2F", "/");
+                burial.Burial_Id = cleanId;
+                //Adds note to context
+                context.Add(burial);
+                await context.SaveChangesAsync();
+                //Redirects based on the user's  nextStep selection
+                //Return to index
+                if (nextStep == "Not now")
+                {
+                    return RedirectToAction("BurialDetails", new { detailId = cleanId });
+                }
+                //Yes, a Burial
+                if (nextStep == "Yes, a Burial")
+                {
+                    return RedirectToAction("Create", new { ID = cleanId });
+                }
+                //Yes, a Biological Sample
+                if (nextStep == "Yes, a Biological Sample")
+                {
+                    return RedirectToAction("CreateBioSample", new { ID = cleanId });
+                }
+                //Yes, a Cranial Record
+                if (nextStep == "Yes, a Cranial Record")
+                {
+                    return RedirectToAction("CreateCranial", new { ID = cleanId });
+                }
+                //Yes, a Carbon Dating Record
+                if (nextStep == "Yes, a Carbon Dating Record")
+                {
+                    return RedirectToAction("CreateCarbonDating", new { ID = cleanId });
+                }
+                //Yes, a Note
+                if (nextStep == "Yes, a Note")
+                {
+                    return RedirectToAction("CreateNote", new { ID = cleanId });
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View(burial);
+        }
+
+        // GET: Cranials/Create
+        public IActionResult CreateCranial(string id)
+        {
+            //Removes encoding
+            string cleanId = id.Replace("%2F", "/");
+            ViewBag.BurialId = cleanId;
+            return View();
+        }
+
+        // POST: Cranials/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateCranial([Bind("Burial_Id,Burial_Depth,Sample_Number,Maximum_Cranial_Length,Maximum_Cranial_Breadth,Basion_Bregma_Height,Basion_Nasion,Basion_Prosthion_Length,Bizygomatic_Diameter,Nasion_Prosthion,Maximum_Nasal_Breadth,Interorbital_Breadth,Burial_Artifact_Description,Buried_with_Artifacts,Giles_Gender,Body_Gender")] Cranial cranial, string id)
+        {
+            if (ModelState.IsValid)
+            {
+                //Saves next step the user selected, whether they will create an additional record for this ID or not
+                var nextStep = cranial.Burial_Id;
+                //Cleans Id passed through in route, then saves it to the note object to be addded to the database
+                string cleanId = id.Replace("%2F", "/");
+                cranial.Burial_Id = cleanId;
+                //Adds note to context
+                context.Add(cranial);
+                await context.SaveChangesAsync();
+                //Redirects based on the user's  nextStep selection
+                //Return to index
+                if (nextStep == "Not now")
+                {
+                    return RedirectToAction("BurialDetails", new { detailId = cleanId });
+                }
+                //Yes, a Burial
+                if (nextStep == "Yes, a Burial")
+                {
+                    return RedirectToAction("Create", new { ID = cleanId });
+                }
+                //Yes, a Biological Sample
+                if (nextStep == "Yes, a Biological Sample")
+                {
+                    return RedirectToAction("CreateBioSample", new { ID = cleanId });
+                }
+                //Yes, a Cranial Record
+                if (nextStep == "Yes, a Cranial Record")
+                {
+                    return RedirectToAction("CreateCranial", new { ID = cleanId });
+                }
+                //Yes, a Carbon Dating Record
+                if (nextStep == "Yes, a Carbon Dating Record")
+                {
+                    return RedirectToAction("CreateCarbonDating", new { ID = cleanId });
+                }
+                //Yes, a Note
+                if (nextStep == "Yes, a Note")
+                {
+                    return RedirectToAction("CreateNote", new { ID = cleanId });
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        // GET: BiologicalSamples/Create
+        public IActionResult CreateBioSample(string id)
+        {
+            //Removes encoding
+            string cleanId = id.Replace("%2F", "/");
+            ViewBag.BurialId = cleanId;
+            return View();
+
+        }
+
+        // POST: BiologicalSamples/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateBioSample([Bind("Burial_id,Container_Type,Container_num,Large_Item,Cluster_num,Previously_Sampled,Notes,Initials")] BiologicalSamples biologicalSamples, string id)
+        {
+            if (ModelState.IsValid)
+            {               
+                //Saves next step the user selected, whether they will create an additional record for this ID or not
+                var nextStep = biologicalSamples.Burial_id;
+                //Cleans Id passed through in route, then saves it to the note object to be addded to the database
+                string cleanId = id.Replace("%2F", "/");
+                biologicalSamples.Burial_id = cleanId;
+                //Adds note to context
+                context.Add(biologicalSamples);
+                await context.SaveChangesAsync();
+                //Redirects based on the user's  nextStep selection
+                //Return to index
+                if (nextStep == "Not now")
+                {
+                    return RedirectToAction("BurialDetails", new { detailId = cleanId });
+                }
+                //Yes, a Burial
+                if (nextStep == "Yes, a Burial")
+                {
+                    return RedirectToAction("Create", new { ID = cleanId });
+                }
+                //Yes, a Biological Sample
+                if (nextStep == "Yes, a Biological Sample")
+                {
+                    return RedirectToAction("CreateBioSample", new { ID = cleanId });
+                }
+                //Yes, a Cranial Record
+                if (nextStep == "Yes, a Cranial Record")
+                {
+                    return RedirectToAction("CreateCranial", new { ID = cleanId });
+                }
+                //Yes, a Carbon Dating Record
+                if (nextStep == "Yes, a Carbon Dating Record")
+                {
+                    return RedirectToAction("CreateCarbonDating", new { ID = cleanId });
+                }
+                //Yes, a Note
+                if (nextStep == "Yes, a Note")
+                {
+                    return RedirectToAction("CreateNote", new { ID = cleanId });
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View(biologicalSamples);
+        }
+
+        // GET: CarbonDating/Create
+        public IActionResult CreateCarbonDating(string id)
+        {
+            //Removes encoding
+            string cleanId = id.Replace("%2F", "/");
+            ViewBag.BurialId = cleanId;
+            return View();
+        }
+
+        // POST: CarbonDating/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateCarbonDating([Bind("Burial_Id,AREA_Num,Rack_Num,TUBE_Num,Description,Size_ml,Foci,C14_Sample_2017,Location,Question,Conventional_14C_Age_BP,Calendar_Date_14C,Calibrated_95_Calendar_Date_MAX,Calibrated_95_Calendar_Date_MIN,Calibrated_95_Calendar_Date_SPAN,Calibrated_95_Calendar_Date_AVG,Category,Notes")] Carbon_Dating carbon_Dating, string id)
+        {
+            if (ModelState.IsValid)
+            {
+                //Saves next step the user selected, whether they will create an additional record for this ID or not
+                var nextStep = carbon_Dating.Burial_Id;
+                //Cleans Id passed through in route, then saves it to the note object to be addded to the database
+                string cleanId = id.Replace("%2F", "/");
+                carbon_Dating.Burial_Id = cleanId;
+                //Adds note to context
+                context.Add(carbon_Dating);
+                await context.SaveChangesAsync();
+                //Redirects based on the user's  nextStep selection
+                //Return to index
+                if (nextStep == "Not now")
+                {
+                    return RedirectToAction("BurialDetails", new { detailId = cleanId });
+                }
+                //Yes, a Burial
+                if (nextStep == "Yes, a Burial")
+                {
+                    return RedirectToAction("Create", new { ID = cleanId });
+                }
+                //Yes, a Biological Sample
+                if (nextStep == "Yes, a Biological Sample")
+                {
+                    return RedirectToAction("CreateBioSample", new { ID = cleanId });
+                }
+                //Yes, a Cranial Record
+                if (nextStep == "Yes, a Cranial Record")
+                {
+                    return RedirectToAction("CreateCranial", new { ID = cleanId });
+                }
+                //Yes, a Carbon Dating Record
+                if (nextStep == "Yes, a Carbon Dating Record")
+                {
+                    return RedirectToAction("CreateCarbonDating", new { ID = cleanId });
+                }
+                //Yes, a Note
+                if (nextStep == "Yes, a Note")
+                {
+                    return RedirectToAction("CreateNote", new { ID = cleanId });
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View(carbon_Dating);
+        }
+
+
+        // GET: Notes/Create
+        public IActionResult CreateNote(string id)
+        {
+            //Removes encoding
+            string cleanId = id.Replace("%2F", "/");
+            ViewBag.BurialId = cleanId;
+            return View();
+        }
+
+        // POST: Notes/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateNote([Bind("Burial_Id,Msg")] Note note, string id)
+        {
+            if (ModelState.IsValid)
+            {
+                //Saves next step the user selected, whether they will create an additional record for this ID or not
+                var nextStep = note.Burial_Id;
+                //Cleans Id passed through in route, then saves it to the note object to be addded to the database
+                string cleanId = id.Replace("%2F", "/");
+                note.Burial_Id = cleanId;
+                //Adds note to context
+                context.Add(note);
+                await context.SaveChangesAsync();
+                //Redirects based on the user's  nextStep selection
+                //Return to index
+                if (nextStep == "Not now")
+                {
+                    return RedirectToAction("BurialDetails", new { detailId = cleanId });
+                }
+                //Yes, a Burial
+                if (nextStep == "Yes, a Burial")
+                {
+                    return RedirectToAction("Create", new { ID = cleanId });
+                }
+                //Yes, a Biological Sample
+                if (nextStep == "Yes, a Biological Sample")
+                {
+                    return RedirectToAction("CreateBioSample", new { ID = cleanId });
+                }
+                //Yes, a Cranial Record
+                if (nextStep == "Yes, a Cranial Record")
+                {
+                    return RedirectToAction("CreateCranial", new { ID = cleanId });
+                }
+                //Yes, a Carbon Dating Record
+                if (nextStep == "Yes, a Carbon Dating Record")
+                {
+                    return RedirectToAction("CreateCarbonDating", new { ID = cleanId });
+                }
+                //Yes, a Note
+                if (nextStep == "Yes, a Note")
+                {
+                    return RedirectToAction("CreateNote", new { ID = cleanId });
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View(note);
+        }
 
     }
 }

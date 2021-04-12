@@ -5,19 +5,16 @@
     Layout = "~/Views/Shared/_Layout-client.cshtml";
 }
 
-<h1>Create</h1>
+<h1>Create Burial Record</h1>
 
-<h4>Burial Id: @ViewBag.BurialId</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                
-                <label asp-for="Burial_Id" class="control-label"></label>
-                <input asp-for="Burial_Id" class="form-control" />
-                <span asp-validation-for="Burial_Id" class="text-danger"></span>
+                <label class="control-label">Burial Id</label>
+                <input value="@ViewBag.BurialId" class="form-control" readonly />
             </div>
             <div class="form-group">
                 <label asp-for="Gamous_Id" class="control-label"></label>
@@ -61,7 +58,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="head_direction" class="control-label"></label>
-                <select asp-for="head_direction" class="form-control" >
+                <select asp-for="head_direction" class="form-control">
                     <option></option>
                     <option>East</option>
                     <option>West</option>
@@ -297,7 +294,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="hair_taken" class="control-label"></label>
-                <select asp-for="hair_taken" class="form-control" >
+                <select asp-for="hair_taken" class="form-control">
                     <option></option>
                     <option>True</option>
                     <option>False</option>
@@ -490,7 +487,18 @@
                 <span asp-validation-for="Body_Analysis_Year" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label class="control-label">Do you wish to add an additional reocrd for @ViewBag.BurialId at this time?</label>
+                <select asp-for="Burial_Id" class="form-control">
+                    <option>Not now</option>
+                    <option>Yes, a Burial</option>
+                    <option>Yes, a Biological Sample</option>
+                    <option>Yes, a Cranial Record</option>
+                    <option>Yes, a Carbon Dating Record</option>
+                    <option>Yes, a Note</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input asp-route-id="@ViewBag.BurialId" type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
