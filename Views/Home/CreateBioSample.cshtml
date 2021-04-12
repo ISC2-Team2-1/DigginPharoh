@@ -14,9 +14,8 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Burial_id" class="control-label"></label>
-                <input asp-for="Burial_id" class="form-control" />
-                <span asp-validation-for="Burial_id" class="text-danger"></span>
+                <label class="control-label">Burial Id</label>
+                <input value="@ViewBag.BurialId" class="form-control" readonly />
             </div>
             <div class="form-group">
                 <label asp-for="Container_Type" class="control-label"></label>
@@ -54,7 +53,19 @@
                 <span asp-validation-for="Initials" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label class="control-label">Do you wish to add an additional reocrd for @ViewBag.BurialId at this time?</label>
+                <select asp-for="Burial_id" class="form-control">
+                    <option>Not now</option>
+                    <option>Yes, a Burial</option>
+                    <option>Yes, a Biological Sample</option>
+                    <option>Yes, a Cranial Record</option>
+                    <option>Yes, a Carbon Dating Record</option>
+                    <option>Yes, a Note</option>
+                </select>
+                <span asp-validation-for="Burial_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-route-id="@ViewBag.BurialId" type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
