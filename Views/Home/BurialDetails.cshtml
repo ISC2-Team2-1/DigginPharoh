@@ -35,7 +35,7 @@
                     <div class="col-md-6 row-bt">
                         <form id="@x.Burial_Id" asp-action="DetailEditForm" method="post">
                             <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
-                            <button class="btn btn-success btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Edit">
+                            <button class="btn-sum btn-success" type="submit" data-toggle="tooltip" data-placement="top" title="Edit">
                                 <i class="fa fa-edit"></i>
                             </button>
 
@@ -44,7 +44,7 @@
                             @*Delete Existing Burial Record using deleteid research*@
                         <form id="@x.Burial_Id" asp-action="BurialDetails" method="post">
                             <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
-                            <button class="btn btn-danger btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Delete">
+                            <button class="btn-sum btn-danger" type="submit" data-toggle="tooltip" data-placement="top" title="Delete">
                                 <i class="fa fa-trash"></i>
                             </button>
 
