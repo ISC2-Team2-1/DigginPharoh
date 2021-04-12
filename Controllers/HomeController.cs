@@ -365,8 +365,6 @@ namespace DigginPharoh.Controllers
             return View(burialIDInfo); // make error page
         }
 
-
-
         // GET: Cranials/Create
         public IActionResult CreateCranial(string burialId)
         {
@@ -390,6 +388,75 @@ namespace DigginPharoh.Controllers
             return View(cranial);
         }
 
+        // GET: BiologicalSamples/Create
+        public IActionResult CreateBioSample(string burialId)
+        {
+            ViewBag.BurialId = burialId;
+            return View();
+        }
+
+        // POST: BiologicalSamples/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateBioSample([Bind("Burial_id,Container_Type,Container_num,Large_Item,Cluster_num,Previously_Sampled,Notes,Initials")] BiologicalSamples biologicalSamples)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Add(biologicalSamples);
+                await context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(biologicalSamples);
+        }
+
+        // GET: CarbonDating/Create
+        public IActionResult CreateCarbonDating(string burialId)
+        {
+            ViewBag.BurialId = burialId;
+            return View();
+        }
+
+        // POST: CarbonDating/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateCarbonDating([Bind("Burial_Id,AREA_Num,Rack_Num,TUBE_Num,Description,Size_ml,Foci,C14_Sample_2017,Location,Question,Conventional_14C_Age_BP,Calendar_Date_14C,Calibrated_95_Calendar_Date_MAX,Calibrated_95_Calendar_Date_MIN,Calibrated_95_Calendar_Date_SPAN,Calibrated_95_Calendar_Date_AVG,Category,Notes")] Carbon_Dating carbon_Dating)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Add(carbon_Dating);
+                await context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(carbon_Dating);
+        }
+
+
+        // GET: Notes/Create
+        public IActionResult CreateNote(string burialId)
+        {
+            ViewBag.BurialId = burialId;
+            return View();
+        }
+
+        // POST: Notes/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateNote([Bind("Burial_Id,Msg")] Note note)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Add(note);
+                await context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(note);
+        }
 
     }
 }
