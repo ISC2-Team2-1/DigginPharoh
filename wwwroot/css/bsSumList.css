@@ -59,7 +59,6 @@ th {
 
 .btn-sum {
     display: inline-block;
-    -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
     font-size: 1.5rem;
     border-width: 2px;
@@ -107,6 +106,10 @@ label {
     font-weight: 700;
 }
 
+.form-group{
+    margin-top: 3.3rem;
+}
+
 .form-control {
     background-color: #53595f;
     border-radius: 0;
@@ -115,4 +118,6 @@ label {
     font-size: 1.1rem;
     width: 6.5rem;
     margin-left: 1.1rem;
+    border-radius: 12px;
+    padding: 5px;
 }

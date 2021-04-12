@@ -35,9 +35,17 @@
     background: lightgoldenrodyellow;
     transition-delay: .1s;
 }
+.btn-sum {
+    display: inline-block;
+    transition: all 0.4s ease;
+    font-size: 1.5rem;
+    border-width: 2px;
+    padding: .3rem .8rem !important;
+    border-radius: 5px;
+    margin: .4rem;
+}
 
 /*============= Main Content =============*/
-
 label {
     display: inline-block;
     margin-left: 1rem;
@@ -51,14 +59,16 @@ label {
 
 input {
     outline: none;
-    border: solid 2.5px;
-    box-shadow: none;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
     width: auto;
     font-size: 12px;
     font-family: inherit;
     float: right;
     margin-right: 10px;
-    margin-top: 10px;
+    margin: 10px;
+    padding: 10px 4px;
+    border-radius: 10px;
 }
 
 fieldset {
