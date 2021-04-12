@@ -456,12 +456,50 @@ namespace DigginPharoh.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateNote([Bind("Burial_Id,Msg")] Note note)
+        public async Task<IActionResult> CreateNote([Bind("Burial_Id,Msg")] Note note, string id)
         {
             if (ModelState.IsValid)
             {
+                //Saves next step the user selected, whether they will create an additional record for this ID or not
+                var nextStep = note.Burial_Id;
+                //Cleans Id passed through in route, then saves it to the note object to be addded to the database
+                string cleanId = id.Replace("%2F", "/");
+                note.Burial_Id = cleanId;
+                //Adds note to context
                 context.Add(note);
                 await context.SaveChangesAsync();
+                //Redirects based on the user's  nextStep selection
+                //Return to index
+                if (nextStep == "Not now")
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                //Yes, a Burial
+                if (nextStep == "Yes, a Burial")
+                {
+                    return RedirectToAction("Create", new { ID = cleanId });
+                }
+                //Yes, a Biological Sample
+                if (nextStep == "Yes, a Biological Sample")
+                {
+                    return RedirectToAction("CreateBioSample", new { ID = cleanId });
+                }
+                //Yes, a Cranial Record
+                if (nextStep == "Yes, a Cranial Record")
+                {
+                    return RedirectToAction("CreateCranial", new { ID = cleanId });
+                }
+                //Yes, a Carbon Dating Record
+                if (nextStep == "Yes, a Carbon Dating Record")
+                {
+                    return RedirectToAction("CreateCarbonDating", new { ID = cleanId });
+                }
+                //Yes, a Note
+                if (nextStep == "Yes, a Note")
+                {
+                    return RedirectToAction("CreateNote", new { ID = cleanId });
+                }
+
                 return RedirectToAction(nameof(Index));
             }
             return View(note);
