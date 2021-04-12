@@ -39,9 +39,19 @@ namespace DigginPharoh.Controllers
             return View("EditForm");
         }
 
+
+
         public IActionResult DetailEditForm(string editId)
         {
             Burial burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == editId);
+            ViewBag.burialToEdit = burialToEdit;
+            return View("DetailEditForm");
+        }
+
+        public IActionResult EditFormTransfer(string id)
+        {
+            string cleanId = id.Replace("%2F", "/");
+            Burial burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == cleanId);
             ViewBag.burialToEdit = burialToEdit;
             return View("DetailEditForm");
         }

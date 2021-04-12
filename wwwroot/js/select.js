@@ -1,6 +1,4 @@
-﻿document.write("JS executed");
-
-function setSelectedIndex(s, valsearch) {
+﻿function setSelectedIndex(s, valsearch) {
 
     // Loop through all the items in drop down list
 
