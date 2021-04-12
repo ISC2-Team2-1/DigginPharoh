@@ -2,13 +2,29 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewBag.Title = "Edit A Record";
+    Layout = "_Layout_Summary";
 }
 
 @*@model DigginPharoh.Models.ViewModels.IndexViewModel*@
 @model DigginPharoh.Models.Burial
+<head>
+    <!-- External css  -->
+    <link href="~/css/spForm/style.css" rel="stylesheet" />
+    <link href="~/css/spForm/material-design-iconic-font.min.css" rel="stylesheet" />
 
 
+<<<<<<< HEAD
+    <link href="~/css/style.css" rel="stylesheet" />
+    <!-- Plugins.css -->
+    <link href="~/css/plugins.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+</head>
+=======
 <input type="hidden" id="Preserve" value="@ViewBag.burialToEdit.Preservation" />
 
 
@@ -18,12 +34,102 @@
         <label asp-for="Burial_Id">Burial ID</label>
         <input asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" required />
     </div>
+>>>>>>> 70d21b48812c1de2f335890e35e016ac3e44fe65
 
-    <div>
-        <label asp-for="burial_depth">Depth</label>
-        <input asp-for="burial_depth" value="@ViewBag.burialToEdit.burial_depth" />
-    </div>
+<style>
+    body {
+        font-family: 'Lato', sans-serif;
+        background-image: url('@Url.Content("~/img/body-bg.jpg")');
+    }
 
+<<<<<<< HEAD
+    h2 {
+        color: #4966B1;
+        font-weight: 400;
+        font-size: 2rem;
+        letter-spacing: .2rem;
+        text-shadow: 0.1rem 0.1rem 0.3rem black;
+        margin: 2.2rem 0 1.2rem 0;
+        text-align: center;
+        letter-spacing: .1rem;
+        text-transform: uppercase;
+    }
+
+    label {
+        display: inline-block;
+        margin-bottom: .5rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+
+    input {
+        margin: 0;
+        margin-bottom: 15px;
+        border: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        width: 100%;
+        font-size: 14px;
+        font-family: inherit;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        border-bottom: 1px solid black!important;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <form asp-action="BurialSummary" method="post" class="appointment-form" id="appointment-form">
+                <h2>Edit your record here</h2>
+
+                <input type="hidden" asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" />
+
+                <div class="form-group-1">
+                    <div>
+                        <label asp-for="Burial_Id">Burial ID</label>
+                        <input asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" type="text" required />
+                    </div>
+
+                    <div>
+                        <label asp-for="burial_depth">Depth</label>
+                        <input asp-for="burial_depth" value="@ViewBag.burialToEdit.burial_depth" type="text" />
+                    </div>
+
+                    <div>
+                        <label asp-for="Sex_Gender_GE">Sex</label>
+                        <input asp-for="Sex_Gender_GE" value="@ViewBag.burialToEdit.Sex_Gender_GE" type="text" />
+                    </div>
+
+                    <div>
+                        <label asp-for="gender_body_col">Body Gender</label>
+                        <input asp-for="gender_body_col" value="@ViewBag.burialToEdit.gender_body_col" type="text" />
+                    </div>
+                </div>
+
+                <div class="form-group-2">
+                    <div>
+                        <label asp-for="head_direction">Head Direction</label>
+                        <input asp-for="head_direction" value="@ViewBag.burialToEdit.head_direction" />
+                    </div>
+
+                    <div>
+                        <label asp-for="Preservation">Preservation</label>
+                        <input asp-for="Preservation" value="@ViewBag.burialToEdit.Preservation" />
+                    </div>
+
+                    <div>
+                        <label asp-for="year_found">Year Found</label>
+                        <input asp-for="year_found" value="@ViewBag.burialToEdit.year_found" />
+                    </div>
+
+                </div>
+                <div class="form-submit">
+                    <button type="submit" name="submit" id="submit" class="submit">Update Record</button>
+                </div>
+=======
     <div>
         <label asp-for="Sex_Gender_GE">Sex (Giles Elliot)</label>
         <select id="SexGeSelect">
@@ -65,15 +171,20 @@
             <option value="Poor (I)">Poor (I)</option>
         </select>
     </div>
+>>>>>>> 70d21b48812c1de2f335890e35e016ac3e44fe65
 
-    <div>
-        <label asp-for="year_found">Year Found</label>
-        <input asp-for="year_found" value="@ViewBag.burialToEdit.year_found" />
+                <div asp-validation-summary="All"></div>
+            </form>
+        </div>
     </div>
 
 
-    <button type="submit">Submit Your New Record</button>
 
+<<<<<<< HEAD
+    <script src="~/css/spForm/main.js"></script>
+    <script src="~/css/spForm/jquery.min.js"></script>
+</body>
+=======
     <div asp-validation-summary="All"></div>
 </form>
 
@@ -89,3 +200,4 @@
 @section Scripts {
     <script src="~/js/select.js"></script>
 }
+>>>>>>> 70d21b48812c1de2f335890e35e016ac3e44fe65
