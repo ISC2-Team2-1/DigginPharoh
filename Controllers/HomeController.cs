@@ -359,10 +359,6 @@ namespace DigginPharoh.Controllers
         {
             if (ModelState.IsValid)
             {
-                //context.Add(burial);
-                //await context.SaveChangesAsync();
-                //return RedirectToAction(nameof(Index));
-
                 //Saves next step the user selected, whether they will create an additional record for this ID or not
                 var nextStep = burial.Burial_Id;
                 //Cleans Id passed through in route, then saves it to the note object to be addded to the database
