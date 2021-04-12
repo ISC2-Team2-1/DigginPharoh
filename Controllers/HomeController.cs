@@ -244,9 +244,9 @@ namespace DigginPharoh.Controllers
 
 
         // GET: Burials/Create
-        public IActionResult Create(string burialId)
+        public IActionResult Create(string burialid)
         {
-            ViewBag.BurialId = burialId;
+            ViewBag.BurialId = burialid;
             return View();
         }
 

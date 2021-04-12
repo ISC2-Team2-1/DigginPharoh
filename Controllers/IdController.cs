@@ -15,9 +15,9 @@ namespace DigginPharoh.Controllers
     {
         private readonly ApplicationDbContext _context;
         //Saves correct value in one function but is null when I call it int the next function
-        //public string burialIdHolder;
+        public string burialIdHolder;
 
-        public System.Collections.IDictionary dictionary;
+        //public System.Collections.IDictionary dictionary;
 
         //Null reference error unless I pass it int the controller function, in which case it doesn not allow me to also pass context
         //I assume that I cannot add it to context because it is not in the database
@@ -53,27 +53,29 @@ namespace DigginPharoh.Controllers
             {
                 burialIDInfo.high_pair_EW = burialIDInfo.low_pair_EW + 10;
                 burialIDInfo.high_pair_NS = burialIDInfo.low_pair_NS + 10;
+                burialIDInfo.Burial_Id = burialIDInfo.burial_location_NS + " " + burialIDInfo.low_pair_NS.ToString() + "/" + burialIDInfo.high_pair_NS.ToString() + " " + burialIDInfo.burial_location_EW + " " + burialIDInfo.low_pair_EW.ToString() + "/" + burialIDInfo.high_pair_EW.ToString() + " " + burialIDInfo.burial_subplot + " #" + burialIDInfo.BURIALNUM;
 
                 //dictionary.Set(burialIDInfo.Burial_Id);
 
                 //Saves here but is null when called in other function
-                //burialIdHolder = burialIDInfo.Burial_Id;
+                burialIdHolder = burialIDInfo.Burial_Id;
 
                 //null reference error
                 //burialIdHolder.BurialIdVar = burialIDInfo.Burial_Id;
                 _context.Add(burialIDInfo);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", new { ID = burialIdHolder });
+                //return RedirectToAction(nameof(Index));
             }
 
-            return View(burialIDInfo);
+            return View(burialIDInfo); // make error page
         }
 
         // GET: Id
-        public IActionResult Index(string burialIdHolder) // This is the destination
+        public IActionResult Index(string id) // This is the destination
         {
             //Burial Id holder value is not saved from when it is set in other function
-            //ViewBag.BurialId = burialIdHolder;
+            ViewBag.BurialId = id;
 
             //ViewBag.BurialId = burialIdHolder.Key");
 
