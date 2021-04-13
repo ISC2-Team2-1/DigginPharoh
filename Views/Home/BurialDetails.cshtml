@@ -32,26 +32,7 @@
         {
             <div class="container">
                 <div class="row">
-<<<<<<< HEAD
                     <div class="col-md-10 row-bt">
-                        <form id="@x.Burial_Id" asp-action="DetailEditForm" method="post">
-                            <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
-                            <button class="btn-sum btn-success" type="submit" data-toggle="tooltip" data-placement="top" title="Edit">
-                                <i class="fa fa-edit"></i>
-                            </button>
-
-                        </form>
-
-                            @*Delete Existing Burial Record using deleteid research*@
-                        <form id="@x.Burial_Id" asp-action="BurialDetails" method="post">
-                            <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
-                            <button class="btn-sum btn-danger" type="submit" data-toggle="tooltip" data-placement="top" title="Delete">
-                                <i class="fa fa-trash"></i>
-                            </button>
-
-                        </form>
-=======
-                    <div class="col-md-6 row-bt">
 
                         @if (User.IsInRole("Researcher"))
                         {
@@ -75,7 +56,6 @@
 
                             </form>
                         }
->>>>>>> 76650092e79a80972c0d857d56fe49de7e6ae333
                     </div>
                 </div>
             </div>
