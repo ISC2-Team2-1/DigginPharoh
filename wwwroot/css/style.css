@@ -842,7 +842,7 @@ outline: none;
 input {
 outline: none;
 margin: 0;
-border: none;
+/*border: none;*/
 -webkit-box-shadow: none;
 -moz-box-shadow: none;
 box-shadow: none;

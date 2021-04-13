@@ -91,7 +91,9 @@ figure {
   margin: 0; }
 
 p {
-  margin-bottom: 0px; }
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
 
 input:-webkit-autofill {
   box-shadow: 0 0 0 30px white inset;
@@ -163,11 +165,17 @@ input, select {
   border-bottom: 2px solid #ebebeb;
   padding: 5px 0;
   color: #222;
-  margin-bottom: 31px;
-  font-family: 'Roboto Slab'; }
-  input:focus, select:focus {
+  margin-bottom: .5rem;
+/*  margin-bottom: 31px;
+  font-family: 'Roboto Slab';*/
+
+}
+
+
+input:focus, select:focus {
     color: #222;
-    border-bottom: 2px solid #4966b1; }
+    border-bottom: 2px solid #4966b1;
+}
 
 input[type=checkbox]:not(old) {
   width: 2em;
@@ -220,29 +228,104 @@ input[type=checkbox]:not(old):checked + label > span:before {
   color: #222; }
 
 .submit {
-  width: auto;
-  background: #4966b1;
-  color: #fff;
-  padding: 16px 17px;
-  font-size: 13px;
-  border: none;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
-  -moz-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
-  -webkit-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
-  -o-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
-  -ms-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7); }
-  .submit:hover {
-    background: #3a518d; }
+    background: #4966b1;
+    width: auto;
+    margin-right: 22px;
+    color: #fff;
+    padding: 16px 17px;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+    -moz-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+    -webkit-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+    -o-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+    -ms-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+}
+
+.submit:hover {
+    background: #3a518d;
+}
+
+.more {
+    background: #169E4A;
+    width: auto;
+    margin-right: 22px;
+    color: #fff;
+    padding: 16px 17px;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+    -moz-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+    -webkit-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+    -o-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+    -ms-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+}
+
+.more:hover {
+    background: #1BBB58;
+}
+
+.return {
+    background: #F1BE65;
+    width: auto;
+    margin-right: 22px;
+    color: #fff;
+    padding: 16px 17px;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+    -moz-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+    -webkit-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+    -o-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+    -ms-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+}
+
+.return:hover {
+    background: #F7CC82;
+}
+
+.nextbt {
+    width: auto;
+    margin-right: 22px;
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: rgba(73, 102, 177, 0.7) 0px 1px 15px 0px;
+    background: rgb(73, 102, 177);
+    padding: 0.5rem 1.1rem;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 5px;
+}
+
+.nextbt:hover {
+    background: #3a518d;
+}
 
 ul {
-  background: 0 0;
-  z-index: 9; }
+    background: 0 0;
+    z-index: 9;
+}
 
 ul li {
   padding: 3px 0px;
@@ -292,11 +375,16 @@ li.init {
 .form-check {
   margin-bottom: 20px; }
 
+.form-submit{
+    text-align: center;
+}
+
 .select-list {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 55px; }
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    /*  margin-bottom: 55px; }*/
+}
 
 .list-item {
   position: absolute;
