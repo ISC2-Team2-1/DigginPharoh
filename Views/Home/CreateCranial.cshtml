@@ -1,92 +1,125 @@
 ﻿@model DigginPharoh.Models.Cranial
 
 @{
-    ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout-client.cshtml";
+    ViewBag.title = "Create Cranial";
+    Layout = "_Layout_Summary";
 }
 
-<h1>Create</h1>
+<head>
+    <!-- External css  -->
+    <link href="~/css/spForm/style.css" rel="stylesheet" />
+    <link href="~/css/spForm/material-design-iconic-font.min.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <!-- Plugins.css -->
+    <link href="~/css/plugins.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+</head>
 
-<h4>Cranial</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CreateCranial">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label class="control-label">Burial Id</label>
-                <input value="@ViewBag.BurialId" class="form-control" readonly />
+<style>
+    body {
+        font-family: 'Lato', sans-serif;
+        background-image: url('@Url.Content("~/img/body-bg.jpg")');
+    }
+</style>
+
+
+<div class="main">
+    <div class="container">
+        <form asp-action="CreateCranial" class="appointment-form" id="appointment-form">
+            <h2>@ViewBag.title</h2>
+            <hr />
+
+            <div class="form-group-1">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="select-list">
+                    <label>Burial Id</label>
+                    <input value="@ViewBag.BurialId" readonly />
+                </div>
+                <div class="select-list">
+                    <label asp-for="Sample_Number"></label>
+                    <input asp-for="Sample_Number" />
+                    <span asp-validation-for="Sample_Number" class="text-danger"></span>
+                </div>
+                <div class="select-list">
+                    <label asp-for="Maximum_Cranial_Length"></label>
+                    <input asp-for="Maximum_Cranial_Length" />
+                    <span asp-validation-for="Maximum_Cranial_Length" class="text-danger"></span>
+                </div>
+                <div class="select-list">
+                    <label asp-for="Maximum_Cranial_Breadth"></label>
+                    <input asp-for="Maximum_Cranial_Breadth" />
+                    <span asp-validation-for="Maximum_Cranial_Breadth" class="text-danger"></span>
+                </div>
+                <div class="select-list">
+                    <label asp-for="Basion_Bregma_Height"></label>
+                    <input asp-for="Basion_Bregma_Height" />
+                    <span asp-validation-for="Basion_Bregma_Height" class="text-danger"></span>
+                </div>
+                <div class="select-list">
+                    <label asp-for="Basion_Nasion"></label>
+                    <input asp-for="Basion_Nasion" />
+                    <span asp-validation-for="Basion_Nasion" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Sample_Number" class="control-label"></label>
-                <input asp-for="Sample_Number" class="form-control" />
-                <span asp-validation-for="Sample_Number" class="text-danger"></span>
+
+            <div class="form-group-2">
+                <div class="select-list">
+                    <label asp-for="Basion_Prosthion_Length"></label>
+                    <input asp-for="Basion_Prosthion_Length" />
+                    <span asp-validation-for="Basion_Prosthion_Length" class="text-danger"></span>
+                </div>
+                <div class="select-list">
+                    <label asp-for="Bizygomatic_Diameter"></label>
+                    <input asp-for="Bizygomatic_Diameter" />
+                    <span asp-validation-for="Bizygomatic_Diameter" class="text-danger"></span>
+                </div>
+                <div class="select-list">
+                    <label asp-for="Nasion_Prosthion"></label>
+                    <input asp-for="Nasion_Prosthion" />
+                    <span asp-validation-for="Nasion_Prosthion" class="text-danger"></span>
+                </div>
+                <div class="select-list">
+                    <label asp-for="Maximum_Nasal_Breadth"></label>
+                    <input asp-for="Maximum_Nasal_Breadth" />
+                    <span asp-validation-for="Maximum_Nasal_Breadth" class="text-danger"></span>
+                </div>
+                <div class="select-list">
+                    <label asp-for="Interorbital_Breadth"></label>
+                    <input asp-for="Interorbital_Breadth" />
+                    <span asp-validation-for="Interorbital_Breadth" class="text-danger"></span>
+                </div>
+                <div class="select-list">
+                    <label>Do you wish to add an additional reocrd for @ViewBag.BurialId at this time?</label>
+                    <select asp-for="Burial_Id">
+                        <option>Not now</option>
+                        <option>Yes, a Burial</option>
+                        <option>Yes, a Biological Sample</option>
+                        <option>Yes, a Cranial Record</option>
+                        <option>Yes, a Carbon Dating Record</option>
+                        <option>Yes, a Note</option>
+                    </select>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Maximum_Cranial_Length" class="control-label"></label>
-                <input asp-for="Maximum_Cranial_Length" class="form-control" />
-                <span asp-validation-for="Maximum_Cranial_Length" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Maximum_Cranial_Breadth" class="control-label"></label>
-                <input asp-for="Maximum_Cranial_Breadth" class="form-control" />
-                <span asp-validation-for="Maximum_Cranial_Breadth" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Basion_Bregma_Height" class="control-label"></label>
-                <input asp-for="Basion_Bregma_Height" class="form-control" />
-                <span asp-validation-for="Basion_Bregma_Height" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Basion_Nasion" class="control-label"></label>
-                <input asp-for="Basion_Nasion" class="form-control" />
-                <span asp-validation-for="Basion_Nasion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Basion_Prosthion_Length" class="control-label"></label>
-                <input asp-for="Basion_Prosthion_Length" class="form-control" />
-                <span asp-validation-for="Basion_Prosthion_Length" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Bizygomatic_Diameter" class="control-label"></label>
-                <input asp-for="Bizygomatic_Diameter" class="form-control" />
-                <span asp-validation-for="Bizygomatic_Diameter" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Nasion_Prosthion" class="control-label"></label>
-                <input asp-for="Nasion_Prosthion" class="form-control" />
-                <span asp-validation-for="Nasion_Prosthion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Maximum_Nasal_Breadth" class="control-label"></label>
-                <input asp-for="Maximum_Nasal_Breadth" class="form-control" />
-                <span asp-validation-for="Maximum_Nasal_Breadth" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Interorbital_Breadth" class="control-label"></label>
-                <input asp-for="Interorbital_Breadth" class="form-control" />
-                <span asp-validation-for="Interorbital_Breadth" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Do you wish to add an additional reocrd for @ViewBag.BurialId at this time?</label>
-                <select asp-for="Burial_Id" class="form-control">
-                    <option>Not now</option>
-                    <option>Yes, a Burial</option>
-                    <option>Yes, a Biological Sample</option>
-                    <option>Yes, a Cranial Record</option>
-                    <option>Yes, a Carbon Dating Record</option>
-                    <option>Yes, a Note</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <input asp-route-id="@ViewBag.BurialId" type="submit" value="Create" class="btn btn-primary" />
+
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="form-submit">
+                        <button type="submit" name="submit" id="submit" class="return float-right" asp-action="Index">Back</button>
+                    </div>
+
+                    <div class="form-submit">
+                        <input asp-route-id="@ViewBag.BurialId" type="submit" value="Create" class="submit float-right" />
+                    </div>
+                </div>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

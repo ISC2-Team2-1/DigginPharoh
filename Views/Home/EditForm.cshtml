@@ -11,9 +11,6 @@
     <!-- External css  -->
     <link href="~/css/spForm/style.css" rel="stylesheet" />
     <link href="~/css/spForm/material-design-iconic-font.min.css" rel="stylesheet" />
-
-
-<<<<<<< HEAD
     <link href="~/css/style.css" rel="stylesheet" />
     <!-- Plugins.css -->
     <link href="~/css/plugins.css" rel="stylesheet">
@@ -24,17 +21,6 @@
     <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
-=======
-<input type="hidden" id="Preserve" value="@ViewBag.burialToEdit.Preservation" />
-
-
-<form asp-action="BurialSummary" method="post">
-    <input type="hidden" asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" />
-    <div>
-        <label asp-for="Burial_Id">Burial ID</label>
-        <input asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" required />
-    </div>
->>>>>>> 70d21b48812c1de2f335890e35e016ac3e44fe65
 
 <style>
     body {
@@ -42,14 +28,12 @@
         background-image: url('@Url.Content("~/img/body-bg.jpg")');
     }
 
-<<<<<<< HEAD
     h2 {
         color: #4966B1;
         font-weight: 400;
         font-size: 2rem;
         letter-spacing: .2rem;
-        text-shadow: 0.1rem 0.1rem 0.3rem black;
-        margin: 2.2rem 0 1.2rem 0;
+        text-shadow: 0.1rem 0.1rem 0.2rem black;
         text-align: center;
         letter-spacing: .1rem;
         text-transform: uppercase;
@@ -61,25 +45,10 @@
         font-size: 1.1rem;
         font-weight: 700;
     }
-
-    input {
-        margin: 0;
-        margin-bottom: 15px;
-        border: none;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-        box-shadow: none;
-        width: 100%;
-        font-size: 14px;
-        font-family: inherit;
-        border: 0;
-        outline: 0;
-        background: transparent;
-        border-bottom: 1px solid black!important;
-    }
 </style>
 
 <body>
+    <hr />
     <div class="main">
         <div class="container">
             <form asp-action="BurialSummary" method="post" class="appointment-form" id="appointment-form">
@@ -88,109 +57,92 @@
                 <input type="hidden" asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" />
 
                 <div class="form-group-1">
-                    <div>
+                    <div class="select-list">
                         <label asp-for="Burial_Id">Burial ID</label>
                         <input asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" type="text" required />
                     </div>
 
-                    <div>
+                    <div class="select-list">
                         <label asp-for="burial_depth">Depth</label>
                         <input asp-for="burial_depth" value="@ViewBag.burialToEdit.burial_depth" type="text" />
                     </div>
 
-                    <div>
-                        <label asp-for="Sex_Gender_GE">Sex</label>
-                        <input asp-for="Sex_Gender_GE" value="@ViewBag.burialToEdit.Sex_Gender_GE" type="text" />
+                    <div class="select-list">
+                        <label asp-for="Sex_Gender_GE">Sex (Giles Elliot)</label>
+                        <select id="SexGeSelect">
+                            <option value=null>Select</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="SubAdult">SubAdult</option>
+                            <option value="Unknown">Unknown</option>
+                        </select>
                     </div>
 
-                    <div>
-                        <label asp-for="gender_body_col">Body Gender</label>
-                        <input asp-for="gender_body_col" value="@ViewBag.burialToEdit.gender_body_col" type="text" />
+                    <div class="select-list">
+                        <label asp-for="gender_body_col">Sex (Other)</label>
+                        <select id="SexOSelect">
+                            <option value=null>Select</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Undetermined">Undetermined</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="form-group-2">
-                    <div>
+
+                    <div class="select-list">
                         <label asp-for="head_direction">Head Direction</label>
-                        <input asp-for="head_direction" value="@ViewBag.burialToEdit.head_direction" />
+                        <select id="HeadSelect">
+                            <option value=null>Select</option>
+                            <option value="East">East</option>
+                            <option value="West">West</option>
+                        </select>
                     </div>
 
-                    <div>
+                    <div class="select-list">
                         <label asp-for="Preservation">Preservation</label>
-                        <input asp-for="Preservation" value="@ViewBag.burialToEdit.Preservation" />
+                        <select id="PreserveSelect">
+                            <option value=null>Select</option>
+                            <option value="Excellent (V)">Excellent (V)</option>
+                            <option value="Good (IV)">Good (IV)</option>
+                            <option value="Average (III)">Average (III)</option>
+                            <option value="Fair (II)">Fair (II)</option>
+                            <option value="Poor (I)">Poor (I)</option>
+                        </select>
                     </div>
 
-                    <div>
+                    <div class="select-list">
                         <label asp-for="year_found">Year Found</label>
                         <input asp-for="year_found" value="@ViewBag.burialToEdit.year_found" />
                     </div>
-
                 </div>
-                <div class="form-submit">
-                    <button type="submit" name="submit" id="submit" class="submit">Update Record</button>
+
+                <div class="row">
+                    <div class="form-submit">
+                        <button type="submit" name="submit" id="submit" class="submit">Update Record</button>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" name="submit" id="submit" class="more" asp-controller="Home" value="EditFormTransfer" asp-action="EditFormTransfer" asp-route-id="@ViewBag.burialToEdit.Burial_Id">More Details</button>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" name="submit" id="submit" class="return" onclick="history.back()">Cancel</button>
+                    </div>
                 </div>
-=======
-    <div>
-        <label asp-for="Sex_Gender_GE">Sex (Giles Elliot)</label>
-        <select id="SexGeSelect">
-            <option value=null>Select</option>
-            <option value="Female">Female</option>
-            <option value="Male">Male</option>
-            <option value="SubAdult">SubAdult</option>
-            <option value="Unknown">Unknown</option>
-        </select>
-    </div>
-
-    <div>
-        <label asp-for="gender_body_col">Sex (Other)</label>
-        <select id="SexOSelect">
-            <option value=null>Select</option>
-            <option value="Female">Female</option>
-            <option value="Male">Male</option>
-            <option value="Undetermined">Undetermined</option>
-        </select>
-    </div>
-
-    <div>
-        <label asp-for="head_direction">Head Direction</label>
-        <select id="HeadSelect">
-            <option value=null>Select</option>
-            <option value="East">East</option>
-            <option value="West">West</option>
-        </select>
-    </div>
-
-    <div>
-        <label asp-for="Preservation">Preservation</label>
-        <select id="PreserveSelect">
-            <option value=null>Select</option>
-            <option value="Excellent (V)">Excellent (V)</option>
-            <option value="Good (IV)">Good (IV)</option>
-            <option value="Average (III)">Average (III)</option>
-            <option value="Fair (II)">Fair (II)</option>
-            <option value="Poor (I)">Poor (I)</option>
-        </select>
-    </div>
->>>>>>> 70d21b48812c1de2f335890e35e016ac3e44fe65
 
                 <div asp-validation-summary="All"></div>
             </form>
         </div>
     </div>
 
+    <p>Looking for the Edit Page with all the Details? Click "More Details"!</p>
+    <br />
 
-
-<<<<<<< HEAD
     <script src="~/css/spForm/main.js"></script>
     <script src="~/css/spForm/jquery.min.js"></script>
 </body>
-=======
-    <div asp-validation-summary="All"></div>
-</form>
-
-<p>Looking for the Edit Page with all the Details? <a type="button" asp-controller="Home" value="EditFormTransfer" asp-action="EditFormTransfer" asp-route-id="@ViewBag.burialToEdit.Burial_Id"> Click Here!</a></p>
-<br />
-
 
 <input type="hidden" id="Preserve" value="@ViewBag.burialToEdit.Preservation" />
 <input type="hidden" id="headdirection" value="@ViewBag.burialToEdit.head_direction" />
@@ -200,4 +152,3 @@
 @section Scripts {
     <script src="~/js/select.js"></script>
 }
->>>>>>> 70d21b48812c1de2f335890e35e016ac3e44fe65

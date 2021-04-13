@@ -9,6 +9,8 @@
 <head>
     <!-- Style.css -->
     <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/spForm/style.css" rel="stylesheet" />
+    <link href="~/css/spForm/material-design-iconic-font.min.css" rel="stylesheet" />
     <!-- Plugins.css -->
     <link href="~/css/plugins.css" rel="stylesheet">
     <link href="~/css/bsDetails.css" rel="stylesheet">
@@ -20,6 +22,17 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
+<style>
+    body {
+        font-family: 'Lato', sans-serif;
+        background-image: url('@Url.Content("~/img/details-bg.jpg")');
+    }
+
+    h2{
+        font-size: 1.15rem;
+        letter-spacing spacing: .2rem;
+    }
+</style>
 
 <body>
     <br /><br />
@@ -27,44 +40,7 @@
     <div>
         <h1 class="BurialH1">Burial Detailes</h1>
     </div>
-    <div class="text-center">
-        @foreach (var x in Model.BurialList)
-        {
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 row-bt">
 
-                        @if (User.IsInRole("Researcher"))
-                        {
-                            <form id="@x.Burial_Id" asp-action="DetailEditForm" method="post">
-                                <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
-                                <button class="btn-sum btn-success" type="submit" data-toggle="tooltip" data-placement="top" title="Edit">
-                                    <i class="fa fa-edit"></i>
-                                </button>
-
-                            </form>
-                        }
-
-                        @*Delete Existing Burial Record using deleteid research*@
-                        @if (User.IsInRole("Researcher"))
-                        {
-                            <form id="@x.Burial_Id" asp-action="BurialDetails" method="post">
-                                <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
-                                <button class="btn-sum btn-danger" type="submit" data-toggle="tooltip" data-placement="top" title="Delete">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-
-                            </form>
-                        }
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
-
-    <input class="backBT" type="button" value="Go back!" onclick="history.back()">
-
-    
     <div class="row">
         <div class=" = col-1"></div>
         <div class="col-10">
@@ -479,6 +455,41 @@
         </div>
         <div class="col-1"></div>
     </div>
+    @foreach (var x in Model.BurialList)
+    {
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+                @if (User.IsInRole("Researcher"))
+                {
+                    <form id="@x.Burial_Id" asp-action="DetailEditForm" method="post">
+                        <div class="class=" form-submit"">
+                            <input type="hidden" asp-for="@x.Burial_Id" name="editId" />
+                            <button class="return" type="submit" data-toggle="tooltip" data-placement="top" title="Edit" style="float: left;">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </div>
+                    </form>
+                }
+
+                @if (User.IsInRole("Researcher"))
+                {
+                    <form id="@x.Burial_Id" asp-action="BurialDetails" method="post">
+                        <div class="class=" form-submit"">
+                            <input type="hidden" asp-for="@x.Burial_Id" name="deletionId" />
+                            <button class="submit" type="submit" data-toggle="tooltip" data-placement="top" title="Delete" style="float: left;">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div>
+                    </form>
+                }
+            </div>
+
+            <div class="col-lg-1"></div>
+
+        </div>
+    }
 </body>
+
 
 
