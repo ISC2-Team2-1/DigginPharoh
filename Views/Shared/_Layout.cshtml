@@ -50,26 +50,23 @@
                                 <a asp-action="BurialSummary" asp-controller="Home" class="nav-link">Burials</a>
                             </li>
                             @*<li class="nav-item">
-            <a href="#features" class="nav-link">About</a>
-        </li>*@
+                                <a href="#features" class="nav-link">About</a>
+                            </li>*@
                             <li class="nav-item">
                                 <a href="#collections" class="nav-link">Collections</a>
                             </li>
                             @*<li class="nav-item">
-            <a href="#clients" class="nav-link">Clients</a>
-        </li>*@
+                                <a href="#clients" class="nav-link">Clients</a>
+                            </li>*@
                             @*<li class="nav-item">
-            <a href="#team" class="nav-link">Developers</a>
-        </li>*@
+                                <a href="#team" class="nav-link">Developers</a>
+                            </li>*@
                             <li class="nav-item">
                                 <a href="#contact" class="nav-link">Contact</a>
                             </li>
 
                             @if (SignInManager.IsSignedIn(User))
                             {
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-                                </li>
 
                                 @if (User.IsInRole("Administrator"))
                                 {
@@ -77,6 +74,11 @@
                                         <a asp-action="ListRoles" asp-controller="admin" class="nav-link">Admin Console</a>
                                     </li>
                                 }
+
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+                                </li>
+
 
                                 <li class="nav-item">
                                     <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
