@@ -6,9 +6,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace DigginPharoh.Controllers
 {
@@ -32,6 +35,7 @@ namespace DigginPharoh.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Researcher")]
         public IActionResult EditForm(string editId)
         {
             Burial burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == editId);
@@ -40,7 +44,7 @@ namespace DigginPharoh.Controllers
         }
 
 
-
+        [Authorize(Roles = "Researcher")]
         public IActionResult DetailEditForm(string editId)
         {
             Burial burialToEdit = context.GamousBurials.FirstOrDefault(s => s.Burial_Id == editId);
@@ -48,6 +52,7 @@ namespace DigginPharoh.Controllers
             return View("DetailEditForm");
         }
 
+        [Authorize(Roles = "Researcher")]
         public IActionResult EditFormTransfer(string id)
         {
             string cleanId = id.Replace("%2F", "/");
@@ -119,8 +124,11 @@ namespace DigginPharoh.Controllers
             //here, we will check if the deleteid and the burialid matches;then, we will delete the record from the database
             if (deletionId != null)
             {
-                context.Remove(context.GamousBurials.FirstOrDefault(s => s.Burial_Id == deletionId));
-                context.SaveChanges();
+                    if (User.IsInRole("Administrator"))
+                    {
+                        context.Remove(context.GamousBurials.FirstOrDefault(s => s.Burial_Id == deletionId));
+                        context.SaveChanges();
+                    }
             }
 
             //if people want to edit a record, the summary page will get editid
@@ -296,6 +304,7 @@ namespace DigginPharoh.Controllers
 
 
         // GET: Id/Create
+        [Authorize(Roles = "Researcher")]
         public IActionResult CreateId()
         {
             return View();
@@ -308,6 +317,7 @@ namespace DigginPharoh.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Researcher")]
         public async Task<IActionResult> CreateId([Bind("Burial_Id,burial_location_NS,burial_location_EW,low_pair_NS,high_pair_NS,low_pair_EW,high_pair_EW,burial_subplot,BURIALNUM")] BurialIDInfo burialIDInfo)
         {
             if (ModelState.IsValid)
@@ -352,6 +362,7 @@ namespace DigginPharoh.Controllers
         }
 
         // GET: Burials/Create
+        [Authorize(Roles = "Researcher")]
         public IActionResult Create(string id)
         {
             //Removes encoding
@@ -365,6 +376,7 @@ namespace DigginPharoh.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Researcher")]
         public async Task<IActionResult> Create([Bind("Burial_Id,Gamous_Id,burial_depth,WESTTOHEAD,WESTTOFEET,SOUTHTOHEAD,SOUTHTOFEET,Preservation,Burial_Situation,head_direction,Adult_Child,estimate_age,AGEMETHOD,gender_body_col,Sex_Gender_GE,SEXMETHOD,GE_function_total,length_of_remains,sample_number,basilar_suture,ventral_arc,subpubic_angle,sciatic_notch,pubic_bone,preaur_sulcus,medial_IP_ramus,dorsal_pitting,femur_head,humerus_head,osteophytosis,pubic_symphysis,femur_length,humerus_length,tibia_length,robust,supraorbital_ridges,orbit_edge,parietal_bossing,gonian,nuchal_crest,zygomatic_crest,cranial_suture,maximum_cranial_length,maximum_cranial_breadth,basion_bregma_height,basion_nasion,basion_prosthion_length,bizygomatic_diameter,nasion_prosthion,maximum_nasal_breadth,interorbital_breadth,artifacts_description,hair_color,hair_taken,soft_tissue_taken,bone_taken,tooth_taken,textile_taken,SAMPLE,description_of_taken,artifact_found,estimate_living_stature,tooth_attrition,tooth_eruption,pathology_anomalies,epiphyseal_union,year_found,month_found,day_found,Field_Book,Field_Book_Page_Number,Skull_At_Magazine,Postcrania_At_Magazine,Rack_And_Shelf,To_Be_Confirmed,Skull_Trauma,Postcrania_Trauma,Cribra_Orbitala,Porotic_Hyperostosis,Porotic_Hyperostosis_Locations,Metopic_Suture,Button_Osteoma,Osteology_Unknown_Comment,Temporal_Mandibular_Joint_Osteoarthritis,Linear_Hypoplasia_Enamel,Area_Hill_Burials,Tomb,Goods,Cluster,Face_Bundle,Body_Analysis_Year")] Burial burial, string id)
         {
             if (ModelState.IsValid)
@@ -413,8 +425,8 @@ namespace DigginPharoh.Controllers
             }
             return View(burial);
         }
-
         // GET: Cranials/Create
+        [Authorize(Roles = "Researcher")]
         public IActionResult CreateCranial(string id)
         {
             //Removes encoding
@@ -428,6 +440,7 @@ namespace DigginPharoh.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Researcher")]
         public async Task<IActionResult> CreateCranial([Bind("Burial_Id,Burial_Depth,Sample_Number,Maximum_Cranial_Length,Maximum_Cranial_Breadth,Basion_Bregma_Height,Basion_Nasion,Basion_Prosthion_Length,Bizygomatic_Diameter,Nasion_Prosthion,Maximum_Nasal_Breadth,Interorbital_Breadth,Burial_Artifact_Description,Buried_with_Artifacts,Giles_Gender,Body_Gender")] Cranial cranial, string id)
         {
             if (ModelState.IsValid)
@@ -478,6 +491,7 @@ namespace DigginPharoh.Controllers
         }
 
         // GET: BiologicalSamples/Create
+        [Authorize(Roles = "Researcher")]
         public IActionResult CreateBioSample(string id)
         {
             //Removes encoding
@@ -492,6 +506,7 @@ namespace DigginPharoh.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Researcher")]
         public async Task<IActionResult> CreateBioSample([Bind("Burial_id,Container_Type,Container_num,Large_Item,Cluster_num,Previously_Sampled,Notes,Initials")] BiologicalSamples biologicalSamples, string id)
         {
             if (ModelState.IsValid)
@@ -542,6 +557,7 @@ namespace DigginPharoh.Controllers
         }
 
         // GET: CarbonDating/Create
+        [Authorize(Roles = "Researcher")]
         public IActionResult CreateCarbonDating(string id)
         {
             //Removes encoding
@@ -555,6 +571,7 @@ namespace DigginPharoh.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Researcher")]
         public async Task<IActionResult> CreateCarbonDating([Bind("Burial_Id,AREA_Num,Rack_Num,TUBE_Num,Description,Size_ml,Foci,C14_Sample_2017,Location,Question,Conventional_14C_Age_BP,Calendar_Date_14C,Calibrated_95_Calendar_Date_MAX,Calibrated_95_Calendar_Date_MIN,Calibrated_95_Calendar_Date_SPAN,Calibrated_95_Calendar_Date_AVG,Category,Notes")] Carbon_Dating carbon_Dating, string id)
         {
             if (ModelState.IsValid)
@@ -606,6 +623,7 @@ namespace DigginPharoh.Controllers
 
 
         // GET: Notes/Create
+        [Authorize(Roles = "Researcher")]
         public IActionResult CreateNote(string id)
         {
             //Removes encoding
@@ -619,6 +637,7 @@ namespace DigginPharoh.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Researcher")]
         public async Task<IActionResult> CreateNote([Bind("Burial_Id,Msg")] Note note, string id)
         {
             if (ModelState.IsValid)
