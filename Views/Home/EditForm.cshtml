@@ -48,6 +48,7 @@
 </style>
 
 <body>
+    <hr />
     <div class="main">
         <div class="container">
             <form asp-action="BurialSummary" method="post" class="appointment-form" id="appointment-form">
@@ -60,7 +61,7 @@
                         <label asp-for="Burial_Id">Burial ID</label>
                         <input asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" type="text" required />
                     </div>
-                     
+
                     <div class="select-list">
                         <label asp-for="burial_depth">Depth</label>
                         <input asp-for="burial_depth" value="@ViewBag.burialToEdit.burial_depth" type="text" />
@@ -123,7 +124,7 @@
                     </div>
 
                     <div class="form-submit">
-                        <button type="submit"  name="submit" id="submit" class="more" asp-controller="Home" value="EditFormTransfer" asp-action="EditFormTransfer" asp-route-id="@ViewBag.burialToEdit.Burial_Id">More Details</button>
+                        <button type="submit" name="submit" id="submit" class="more" asp-controller="Home" value="EditFormTransfer" asp-action="EditFormTransfer" asp-route-id="@ViewBag.burialToEdit.Burial_Id">More Details</button>
                     </div>
 
                     <div class="form-submit">
@@ -136,12 +137,12 @@
         </div>
     </div>
 
+    <p>Looking for the Edit Page with all the Details? Click "More Details"!</p>
+    <br />
+
     <script src="~/css/spForm/main.js"></script>
     <script src="~/css/spForm/jquery.min.js"></script>
 </body>
-
-<p>Looking for the Edit Page with all the Details? Click "More Details"!</p>
-<br />
 
 <input type="hidden" id="Preserve" value="@ViewBag.burialToEdit.Preservation" />
 <input type="hidden" id="headdirection" value="@ViewBag.burialToEdit.head_direction" />

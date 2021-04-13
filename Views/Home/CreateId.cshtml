@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Create";
-    Layout = "_Layout-client";
+    Layout = "_Layout_Summary";
 }
 
 <head>
@@ -25,27 +25,8 @@
         font-family: 'Lato', sans-serif;
         background-image: url('@Url.Content("~/img/body-bg.jpg")');
     }
-
-    h2 {
-        color: #4966B1;
-        font-weight: 400;
-        font-size: 2rem;
-        letter-spacing: .2rem;
-        text-shadow: 0.1rem 0.1rem 0.2rem black;
-        text-align: center;
-        letter-spacing: .1rem;
-        text-transform: uppercase;
-    }
-
-    label {
-        display: inline-block;
-        margin-bottom: .5rem;
-        font-size: 1.1rem;
-        font-weight: 700;
-    }
 </style>
 <body>
-
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <div class="main">
@@ -74,8 +55,8 @@
 
                     <div class="select-list">
 
-                        <label asp-for="burial_location_NS" ></label>
-                        <select asp-for="burial_location_NS" >
+                        <label asp-for="burial_location_NS"></label>
+                        <select asp-for="burial_location_NS">
                             <option></option>
                             <option>N</option>
                             <option>S</option>
@@ -107,10 +88,10 @@
                     </div>
                     <!--Add razor code to set the high value equal to the low value plus 10-->
                     @*<div class="form-group">
-                        <label asp-for="high_pair_NS" class="control-label"></label>
-                        <input asp-for="high_pair_NS" class="form-control" />
-                        <span asp-validation-for="high_pair_NS" class="text-danger"></span>
-                    </div>*@
+                            <label asp-for="high_pair_NS" class="control-label"></label>
+                            <input asp-for="high_pair_NS" class="form-control" />
+                            <span asp-validation-for="high_pair_NS" class="text-danger"></span>
+                        </div>*@
 
                     <div class="select-list">
                         <label asp-for="low_pair_EW"></label>
@@ -120,10 +101,10 @@
 
                     <!--Add razor code to set the high value equal to the low value plus 10-->
                     @*<div class="form-group">
-                        <label asp-for="high_pair_EW" class="control-label"></label>
-                        <input asp-for="high_pair_EW" class="form-control" />
-                        <span asp-validation-for="high_pair_EW" class="text-danger"></span>
-                    </div>*@
+                            <label asp-for="high_pair_EW" class="control-label"></label>
+                            <input asp-for="high_pair_EW" class="form-control" />
+                            <span asp-validation-for="high_pair_EW" class="text-danger"></span>
+                        </div>*@
 
                     <div class="select-list">
                         <label asp-for="burial_subplot"></label>
@@ -144,7 +125,7 @@
                         <button type="submit" class="btn btn-secondary float-right" style="float:right">Next</button>
                     </div>
                 </div>
-             </form>
+            </form>
         </div>
     </div>
 

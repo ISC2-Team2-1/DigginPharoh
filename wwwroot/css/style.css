@@ -952,6 +952,7 @@ background: transparent;
     align-items: center;
 }
 
+
     .rs-select2 .select2-container .select2-selection--single .select2-selection__arrow b {
         display: none;
     }
@@ -1073,6 +1074,10 @@ float: left;
     padding-left: 10px;
     list-style-type: none;
 }
+
+
+
+
 
 /**//*============ BOOTSTRAP BREAK POINTS:
 
