@@ -36,41 +36,41 @@
 
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="select-list">
-                        <label class="control-label">Burial Id</label>
-                        <input value="@ViewBag.BurialId" class="form-control" readonly />
+                        <label>Burial Id</label>
+                        <input value="@ViewBag.BurialId"readonly />
                     </div>
                     <div class="select-list">
-                        <label asp-for="Gamous_Id" class="control-label">Gamous Id</label>
-                        <input asp-for="Gamous_Id" class="form-control" />
+                        <label asp-for="Gamous_Id">Gamous Id</label>
+                        <input asp-for="Gamous_Id"/>
                         <span asp-validation-for="Gamous_Id" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="burial_depth" class="control-label">Burial Depth (Meters)</label>
-                        <input asp-for="burial_depth" class="form-control" />
+                        <label asp-for="burial_depth">Burial Depth (Meters)</label>
+                        <input asp-for="burial_depth"/>
                         <span asp-validation-for="burial_depth" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="WESTTOHEAD" class="control-label">West to Head (Meters)</label>
-                        <input asp-for="WESTTOHEAD" class="form-control" />
+                        <label asp-for="WESTTOHEAD">West to Head (Meters)</label>
+                        <input asp-for="WESTTOHEAD"/>
                         <span asp-validation-for="WESTTOHEAD" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="WESTTOFEET" class="control-label">West to Feet (Meters)</label>
-                        <input asp-for="WESTTOFEET" class="form-control" />
+                        <label asp-for="WESTTOFEET">West to Feet (Meters)</label>
+                        <input asp-for="WESTTOFEET"/>
                         <span asp-validation-for="WESTTOFEET" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="SOUTHTOHEAD" class="control-label">South to Head (Meters)</label>
-                        <input asp-for="SOUTHTOHEAD" class="form-control" />
+                        <label asp-for="SOUTHTOHEAD">South to Head (Meters)</label>
+                        <input asp-for="SOUTHTOHEAD"/>
                         <span asp-validation-for="SOUTHTOHEAD" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="SOUTHTOFEET" class="control-label">South to Feet (Meters)</label>
-                        <input asp-for="SOUTHTOFEET" class="form-control" />
+                        <label asp-for="SOUTHTOFEET">South to Feet (Meters)</label>
+                        <input asp-for="SOUTHTOFEET"/>
                         <span asp-validation-for="SOUTHTOFEET" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="Preservation" class="control-label"></label>
+                        <label asp-for="Preservation"></label>
                         <select asp-for="Preservation" class="form-control">
                             <option></option>
                             <option>Poor (I)</option>
@@ -82,12 +82,12 @@
                         <span asp-validation-for="Preservation" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="Burial_Situation" class="control-label">Burial Situation</label> <!--Look into this input box size larger to reflect that they can write a longer description here-->
-                        <input asp-for="Burial_Situation" class="form-control" />
+                        <label asp-for="Burial_Situation">Burial Situation</label> <!--Look into this input box size larger to reflect that they can write a longer description here-->
+                        <input asp-for="Burial_Situation"/>
                         <span asp-validation-for="Burial_Situation" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="head_direction" class="control-label"></label>
+                        <label asp-for="head_direction"></label>
                         <select asp-for="head_direction" class="form-control">
                             <option></option>
                             <option>East</option>
@@ -96,7 +96,7 @@
                         <span asp-validation-for="head_direction" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="Adult_Child" class="control-label"></label>
+                        <label asp-for="Adult_Child"></label>
                         <select asp-for="Adult_Child" class="form-control">
                             <option></option>
                             <option>Adult</option>
@@ -105,12 +105,12 @@
                         <span asp-validation-for="Adult_Child" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="estimate_age" class="control-label">Estimated Age (Years)</label>
-                        <input asp-for="estimate_age" class="form-control" />
+                        <label asp-for="estimate_age">Estimated Age (Years)</label>
+                        <input asp-for="estimate_age"/>
                         <span asp-validation-for="estimate_age" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="AGEMETHOD" class="control-label"></label>
+                        <label asp-for="AGEMETHOD"></label>
                         <select asp-for="AGEMETHOD" class="form-control">
                             <option></option>
                             <option>Pelv</option>
@@ -120,7 +120,7 @@
                         <span asp-validation-for="AGEMETHOD" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="gender_body_col" class="control-label"></label>
+                        <label asp-for="gender_body_col"></label>
                         <select asp-for="gender_body_col" class="form-control">
                             <option></option>
                             <option>Male</option>
@@ -131,7 +131,7 @@
                         <span asp-validation-for="gender_body_col" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="Sex_Gender_GE" class="control-label"></label>
+                        <label asp-for="Sex_Gender_GE"></label>
                         <select asp-for="Sex_Gender_GE" class="form-control">
                             <option></option>
                             <option>Male</option>
@@ -142,7 +142,7 @@
                         <span asp-validation-for="Sex_Gender_GE" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="SEXMETHOD" class="control-label"></label>
+                        <label asp-for="SEXMETHOD"></label>
                         <select asp-for="SEXMETHOD" class="form-control">
                             <option></option>
                             <option>Pelv</option>
@@ -152,22 +152,22 @@
                         <span asp-validation-for="SEXMETHOD" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="GE_function_total" class="control-label">GE Function Total</label>
-                        <input asp-for="GE_function_total" class="form-control" />
+                        <label asp-for="GE_function_total">GE Function Total</label>
+                        <input asp-for="GE_function_total"/>
                         <span asp-validation-for="GE_function_total" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="length_of_remains" class="control-label">Length of Remains (cm.)</label>
-                        <input asp-for="length_of_remains" class="form-control" />
+                        <label asp-for="length_of_remains">Length of Remains (cm.)</label>
+                        <input asp-for="length_of_remains"/>
                         <span asp-validation-for="length_of_remains" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="sample_number" class="control-label">Sample Number</label>
-                        <input asp-for="sample_number" class="form-control" />
+                        <label asp-for="sample_number">Sample Number</label>
+                        <input asp-for="sample_number"/>
                         <span asp-validation-for="sample_number" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="basilar_suture" class="control-label">Basilar Surure</label>
+                        <label asp-for="basilar_suture">Basilar Surure</label>
                         <select asp-for="basilar_suture" class="form-control">
                             <option></option>
                             <option>Open</option>
@@ -176,7 +176,7 @@
                         <span asp-validation-for="basilar_suture" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="ventral_arc" class="control-label">Ventral Arc</label>
+                        <label asp-for="ventral_arc">Ventral Arc</label>
                         <select asp-for="ventral_arc" class="form-control">
                             <option></option>
                             <option>0</option>
@@ -187,7 +187,7 @@
                         <span asp-validation-for="ventral_arc" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="subpubic_angle" class="control-label"></label>
+                        <label asp-for="subpubic_angle"></label>
                         <select asp-for="subpubic_angle" class="form-control">
                             <option></option>
                             <option>0</option>
@@ -198,7 +198,7 @@
                         <span asp-validation-for="subpubic_angle" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="sciatic_notch" class="control-label"></label>
+                        <label asp-for="sciatic_notch"></label>
                         <select asp-for="sciatic_notch" class="form-control">
                             <option></option>
                             <option>0</option>
@@ -209,7 +209,7 @@
                         <span asp-validation-for="sciatic_notch" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="pubic_bone" class="control-label"></label>
+                        <label asp-for="pubic_bone"></label>
                         <select asp-for="pubic_bone" class="form-control">
                             <option></option>
                             <option>0</option>
@@ -220,7 +220,7 @@
                         <span asp-validation-for="pubic_bone" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="preaur_sulcus" class="control-label"></label>
+                        <label asp-for="preaur_sulcus"></label>
                         <select asp-for="preaur_sulcus" class="form-control">
                             <option></option>
                             <option>0</option>
@@ -231,7 +231,7 @@
                         <span asp-validation-for="preaur_sulcus" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="medial_IP_ramus" class="control-label"></label>
+                        <label asp-for="medial_IP_ramus"></label>
                         <select asp-for="medial_IP_ramus" class="form-control">
                             <option></option>
                             <option>0</option>
@@ -242,7 +242,7 @@
                         <span asp-validation-for="medial_IP_ramus" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="dorsal_pitting" class="control-label"></label>
+                        <label asp-for="dorsal_pitting"></label>
                         <select asp-for="dorsal_pitting" class="form-control">
                             <option></option>
                             <option>0</option>
@@ -253,17 +253,17 @@
                         <span asp-validation-for="dorsal_pitting" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="femur_head" class="control-label"></label>
-                        <input asp-for="femur_head" class="form-control" />
+                        <label asp-for="femur_head"></label>
+                        <input asp-for="femur_head"/>
                         <span asp-validation-for="femur_head" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="humerus_head" class="control-label"></label>
-                        <input asp-for="humerus_head" class="form-control" />
+                        <label asp-for="humerus_head"></label>
+                        <input asp-for="humerus_head"/>
                         <span asp-validation-for="humerus_head" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="osteophytosis" class="control-label"></label>
+                        <label asp-for="osteophytosis"></label>
                         <select asp-for="osteophytosis" class="form-control">
                             <option></option>
                             <option>None</option>
@@ -274,33 +274,33 @@
                         <span asp-validation-for="osteophytosis" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="pubic_symphysis" class="control-label"></label>
-                        <input asp-for="pubic_symphysis" class="form-control" />
+                        <label asp-for="pubic_symphysis"></label>
+                        <input asp-for="pubic_symphysis"/>
                         <span asp-validation-for="pubic_symphysis" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="femur_length" class="control-label"></label>
-                        <input asp-for="femur_length" class="form-control" />
+                        <label asp-for="femur_length"></label>
+                        <input asp-for="femur_length"/>
                         <span asp-validation-for="femur_length" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="humerus_length" class="control-label"></label>
-                        <input asp-for="humerus_length" class="form-control" />
+                        <label asp-for="humerus_length"></label>
+                        <input asp-for="humerus_length"/>
                         <span asp-validation-for="humerus_length" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="tibia_length" class="control-label"></label>
-                        <input asp-for="tibia_length" class="form-control" />
+                        <label asp-for="tibia_length"></label>
+                        <input asp-for="tibia_length"/>
                         <span asp-validation-for="tibia_length" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="robust" class="control-label"></label>
-                        <input asp-for="robust" class="form-control" />
+                        <label asp-for="robust"></label>
+                        <input asp-for="robust"/>
                         <span asp-validation-for="robust" class="text-danger"></span>
                     </div>
                     <div class="select-list">
-                        <label asp-for="supraorbital_ridges" class="control-label"></label>
-                        <input asp-for="supraorbital_ridges" class="form-control" />
+                        <label asp-for="supraorbital_ridges"></label>
+                        <input asp-for="supraorbital_ridges"/>
                         <span asp-validation-for="supraorbital_ridges" class="text-danger"></span>
                     </div>
                     <div class="select-list">
