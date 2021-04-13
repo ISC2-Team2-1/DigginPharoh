@@ -18,7 +18,7 @@ namespace DigginPharoh.Controllers
         private ApplicationDbContext context { get; set; }
         public int PageSize = 15;
         public string burialIdHolder;
-
+        public IndexViewModel IndexViewModel;
 
         public HomeController(ILogger<HomeController> logger, ApplicationDbContext ctx)
         {
@@ -258,7 +258,16 @@ namespace DigginPharoh.Controllers
             return View(new IndexViewModel
             {
                 BurialList = context.GamousBurials
+                 .Where(s => s.Burial_Id == detailId),
+                Carbon_DatingList = context.CarbonDates
+                 .Where(s => s.Burial_Id == detailId),
+                CranialList = context.Craniums
+                 .Where(s => s.Burial_Id == detailId),
+                BiologicalSampleList = context.BioSamples
+                 .Where(s => s.Burial_id == detailId),
+                NoteList = context.JustNotes
                  .Where(s => s.Burial_Id == detailId)
+
             });
         }
 

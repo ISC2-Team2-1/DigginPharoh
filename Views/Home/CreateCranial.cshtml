@@ -18,11 +18,6 @@
                 <input value="@ViewBag.BurialId" class="form-control" readonly />
             </div>
             <div class="form-group">
-                <label asp-for="Burial_Depth" class="control-label"></label>
-                <input asp-for="Burial_Depth" class="form-control" />
-                <span asp-validation-for="Burial_Depth" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Sample_Number" class="control-label"></label>
                 <input asp-for="Sample_Number" class="form-control" />
                 <span asp-validation-for="Sample_Number" class="text-danger"></span>
@@ -71,26 +66,6 @@
                 <label asp-for="Interorbital_Breadth" class="control-label"></label>
                 <input asp-for="Interorbital_Breadth" class="form-control" />
                 <span asp-validation-for="Interorbital_Breadth" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Burial_Artifact_Description" class="control-label"></label>
-                <input asp-for="Burial_Artifact_Description" class="form-control" />
-                <span asp-validation-for="Burial_Artifact_Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Buried_with_Artifacts" class="control-label"></label>
-                <input asp-for="Buried_with_Artifacts" class="form-control" />
-                <span asp-validation-for="Buried_with_Artifacts" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Giles_Gender" class="control-label"></label>
-                <input asp-for="Giles_Gender" class="form-control" />
-                <span asp-validation-for="Giles_Gender" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Body_Gender" class="control-label"></label>
-                <input asp-for="Body_Gender" class="form-control" />
-                <span asp-validation-for="Body_Gender" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-label">Do you wish to add an additional reocrd for @ViewBag.BurialId at this time?</label>
