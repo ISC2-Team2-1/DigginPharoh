@@ -1,39 +1,84 @@
 ﻿@model EditRoleViewModel
 
 @{
-    ViewBag.Title = "Edit Role";
+    Layout = "_Layout_Summary";
 }
 
-<br />
-<br />
-<br />
-<h1>@Model.RoleName Access</h1>
+<style>
+    body{
+        background-image: url('@Url.Content("~/img/adminRole.jpg")');
+    }
 
-<form method="post" class="mt-3">
+    .col-lg-4 {
+       text-align: center;
+       font-weight: 700;
+       text-transform: uppercase;
+       margin-top: 2.5rem;
 
-    <div class="card">
-        <div class="card-header">
-            <h3>Users in this role</h3>
+    }
+
+    .h1s {
+        margin-top: 6.2rem;
+        color: white;
+        font-weight: 400;
+        font-size: 2.5rem;
+        letter-spacing: .2rem;
+        text-shadow: 0.1rem 0.1rem 0.2rem black;
+        text-align: center;
+        letter-spacing: .1rem;
+        text-transform: uppercase;
+    }
+</style>
+
+@*Title*@
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
         </div>
-        <div class="card-body">
-            @if (Model.Users.Any())
-            {
-                foreach (var user in Model.Users)
-                {
-                    <h5 class="card-title">@user</h5>
-                }
-            }
-            else
-            {
-                <h5 class="card-title">None at the moment</h5>
-            }
+        <div class="col-lg-6">
+            <h1 class="h1s">@Model.RoleName Access</h1>
+            <hr />
         </div>
-        <div class="card-footer">
-            <a asp-controller="admin" asp-action="EditUsersInRole"
-               asp-route-roleId="@Model.Id" class="btn btn-primary">
-                Add or remove users from this role
-            </a>
-            <a asp-action="ListRoles" class="btn btn-primary">Back</a>
+        <div class="col-lg-3">
         </div>
     </div>
-</form>
+</div>
+
+@*user list*@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <form method="post" class="mt-3">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Users in this role</h3>
+                    </div>
+                    <div class="card-body">
+                        @if (Model.Users.Any())
+                        {
+                            foreach (var user in Model.Users)
+                            {
+                                <h5 class="card-title">@user</h5>
+                            }
+                        }
+                        else
+                        {
+                            <h5 class="card-title">None at the moment</h5>
+                        }
+                    </div>
+                    <div class="card-footer">
+                        <a asp-controller="admin" asp-action="EditUsersInRole"
+                           asp-route-roleId="@Model.Id" class="btn btn-primary">
+                            ADD/Remove
+                        </a>
+                        <a asp-action="ListRoles" class="btn btn-primary">Back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>

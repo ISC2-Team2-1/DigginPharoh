@@ -2,31 +2,89 @@
 
 @{
     var roleId = ViewBag.roleId;
+    Layout = "_Layout_Summary";
 }
+<style>
+    body{
+        background-image: url('@Url.Content("~/img/adminRole.jpg")');
+    }
 
-<form method="post">
-    <div class="card">
-        <div class="card-header">
-            <h2>Add or remove users from this role</h2>
+    .col-lg-6 {
+       text-align: center;
+       font-weight: 400;
+       margin-top: 1rem;
+
+    }
+
+    .h1s {
+        margin-top: 3.2rem;
+        color: white;
+        font-weight: 400;
+        font-size: 2.5rem;
+        letter-spacing: .2rem;
+        text-shadow: 0.1rem 0.1rem 0.2rem black;
+        text-align: center;
+        letter-spacing: .1rem;
+        text-transform: uppercase;
+    }
+</style>
+
+@*Title*@
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
         </div>
-        <div class="card-body">
-            @for (int i = 0; i < Model.Count; i++)
-            {
-                <div class="form-check m-1">
-                    <input type="hidden" asp-for="@Model[i].UserId" />
-                    <input type="hidden" asp-for="@Model[i].UserName" />
-                    <input asp-for="@Model[i].IsSelected" class="form-check-input" />
-                    <label class="form-check-label" asp-for="@Model[i].IsSelected">
-                        @Model[i].UserName
-                    </label>
-                </div>
-            }
+        <div class="col-lg-6">
+            <h1 class="h1s">Edit User Access</h1>
+            <hr />
         </div>
-        <div class="card-footer">
-            <input type="submit" value="Update" class="btn btn-primary"
-                   style="width:auto" />
-            <a asp-action="EditRole" asp-route-id="@roleId"
-               class="btn btn-primary" style="width:auto">Cancel</a>
+        <div class="col-lg-3">
         </div>
     </div>
-</form>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <form method="post">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Add/Remove users from this role</h2>
+                    </div>
+                    <div class="card-body">
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            <div class="form-check m-1">
+                                <input type="hidden" asp-for="@Model[i].UserId" />
+                                <input type="hidden" asp-for="@Model[i].UserName" />
+                                <input asp-for="@Model[i].IsSelected" class="form-check-input" />
+                                <label class="form-check-label" asp-for="@Model[i].IsSelected">
+                                    @Model[i].UserName
+                                </label>
+                            </div>
+                        }
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" value="Update" class="btn btn-primary"
+                               style="width:auto" />
+                        <a asp-action="EditRole" asp-route-id="@roleId"
+                           class="btn btn-primary" style="width:auto">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>

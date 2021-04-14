@@ -78,7 +78,7 @@
         </div>
 
 
-
+        @*Burial Summary Table Header*@
         <div class="col-md-10" style="max-height:800px">
             @if (User.IsInRole("Researcher"))
             {
@@ -113,6 +113,9 @@
 
                             </tr>
                         </thead>
+
+
+                        @*Dynamic data in Burial Summary Table*@
                         <publictbody>
                             @foreach (var x in Model.BurialList)
                             {
@@ -139,7 +142,7 @@
                                     </form>
                                 </td>
 
-                                    @*Edit Movies matching edit and movieId research*@
+                                    @*Edit Muumy Info matching edit and burialId research*@
                                     @if (User.IsInRole("Researcher"))
                                     {
                                         <td>
@@ -153,7 +156,7 @@
                                         </td>
                                     }
 
-                                    @*Delete Existing Movies using deleteid research*@
+                                    @*Delete Existing Burial Record using deleteid research*@
                                     @if (User.IsInRole("Administrator"))
                                     {
                                         <td>
