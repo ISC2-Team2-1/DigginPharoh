@@ -29,487 +29,501 @@
 </style>
 
 <div class="main">
-    <div class="container" style=" height: auto; max-height:800px; overflow-y: auto;">
-        <form asp-action="BurialSummary" method="post" class="appointment-form" id="appointment-form">
-            <h2>@ViewBag.title</h2>
-            <hr />
-
-            <div class="form-group-1">
-                <input type="hidden" asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" />
-                <div class="select-list">
-                    <label asp-for="Burial_Id">Burial ID</label>
-                    <input asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" required />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Gamous_Id">Gamous_Id</label>
-                    <input asp-for="Gamous_Id" value="@ViewBag.burialToEdit.Gamous_Id" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="burial_depth">burial_depth</label>
-                    <input asp-for="burial_depth" value="@ViewBag.burialToEdit.burial_depth" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="WESTTOHEAD">WESTTOHEAD </label>
-                    <input asp-for="WESTTOHEAD" value="@ViewBag.burialToEdit.WESTTOHEAD" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="WESTTOFEET">WESTTOFEET</label>
-                    <input asp-for="WESTTOFEET" value="@ViewBag.burialToEdit.WESTTOFEET" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="SOUTHTOHEAD">SOUTHTOHEAD</label>
-                    <input asp-for="SOUTHTOHEAD" value="@ViewBag.burialToEdit.SOUTHTOHEAD" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="SOUTHTOFEET">SOUTHTOFEET</label>
-                    <input asp-for="SOUTHTOFEET" value="@ViewBag.burialToEdit.SOUTHTOFEET" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Preservation">Preservation</label>
-                    <select id="PreserveSelect">
-                        <option value=null>Select</option>
-                        <option value="Excellent (V)">Excellent (V)</option>
-                        <option value="Good (IV)">Good (IV)</option>
-                        <option value="Average (III)">Average (III)</option>
-                        <option value="Fair (II)">Fair (II)</option>
-                        <option value="Poor (I)">Poor (I)</option>
-                    </select>
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Burial_Situation">Burial_Situation</label>
-                    <input asp-for="Burial_Situation" value="@ViewBag.burialToEdit.Burial_Situation" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="head_direction">Head Direction</label>
-                    <select id="HeadSelect">
-                        <option value=null>Select</option>
-                        <option value="East">East</option>
-                        <option value="West">West</option>
-                    </select>
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Adult_Child">Adult_Child</label>
-                    <input asp-for="Adult_Child" value="@ViewBag.burialToEdit.Adult_Child" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="estimate_age">estimate_age</label>
-                    <input asp-for="estimate_age" value="@ViewBag.burialToEdit.estimate_age" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="AGEMETHOD">AGEMETHOD</label>
-                    <input asp-for="AGEMETHOD" value="@ViewBag.burialToEdit.AGEMETHOD" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Sex_Gender_GE">Sex (Giles Elliot)</label>
-                    <select id="SexGeSelect">
-                        <option value=null>Select</option>
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
-                        <option value="SubAdult">SubAdult</option>
-                        <option value="Unknown">Unknown</option>
-                    </select>
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="gender_body_col">Sex (Other)</label>
-                    <select id="SexOSelect">
-                        <option value=null>Select</option>
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
-                        <option value="Undetermined">Undetermined</option>
-                    </select>
-                </div>
-
-
-
-                <div class="select-list">
-                    <label asp-for="SEXMETHOD">SEXMETHOD</label>
-                    <input asp-for="SEXMETHOD" value="@ViewBag.burialToEdit.SEXMETHOD" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="GE_function_total">GE_function_total</label>
-                    <input asp-for="GE_function_total" value="@ViewBag.burialToEdit.GE_function_total" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="length_of_remains">length_of_remains</label>
-                    <input asp-for="length_of_remains" value="@ViewBag.burialToEdit.length_of_remains" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Rack_And_Shelf">Rack_And_Shelf</label>
-                    <input asp-for="Rack_And_Shelf" value="@ViewBag.burialToEdit.Rack_And_Shelf" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Button_Osteoma">Button_Osteoma</label>
-                    <input asp-for="Button_Osteoma" value="@ViewBag.burialToEdit.Button_Osteoma" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Tomb">Tomb</label>
-                    <input asp-for="Tomb" value="@ViewBag.burialToEdit.Tomb" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Goods">Goods</label>
-                    <input asp-for="Goods" value="@ViewBag.burialToEdit.Goods" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Cluster">Cluster</label>
-                    <input asp-for="Cluster" value="@ViewBag.burialToEdit.Cluster" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Face_Bundle">Face_Bundle</label>
-                    <input asp-for="Face_Bundle" value="@ViewBag.burialToEdit.Face_Bundle" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Area_Hill_Burials">Area_Hill_Burials</label>
-                    <input asp-for="Area_Hill_Burials" value="@ViewBag.burialToEdit.Area_Hill_Burials" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Linear_Hypoplasia_Enamel">Linear_Hypoplasia_Enamel</label>
-                    <input asp-for="Linear_Hypoplasia_Enamel" value="@ViewBag.burialToEdit.Linear_Hypoplasia_Enamel" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Body_Analysis_Year">Body_Analysis_Year</label>
-                    <input asp-for="Body_Analysis_Year" value="@ViewBag.burialToEdit.Body_Analysis_Year" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Temporal_Mandibular_Joint_Osteoarthritis">Cluster</label>
-                    <input asp-for="Temporal_Mandibular_Joint_Osteoarthritis" value="@ViewBag.burialToEdit.Temporal_Mandibular_Joint_Osteoarthritis" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Osteology_Unknown_Comment">Osteology_Unknown_Comment</label>
-                    <input asp-for="Osteology_Unknown_Comment" value="@ViewBag.burialToEdit.Osteology_Unknown_Comment" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="To_Be_Confirmed">To_Be_Confirmed</label>
-                    <input asp-for="To_Be_Confirmed" value="@ViewBag.burialToEdit.To_Be_Confirmed" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="SAMPLE">SAMPLE</label>
-                    <input asp-for="SAMPLE" value="@ViewBag.burialToEdit.SAMPLE" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="basilar_suture">basilar_suture</label>
-                    <input asp-for="basilar_suture" value="@ViewBag.burialToEdit.basilar_suture" />
-                </div>
-                <div class="select-list">
-                    <label asp-for="ventral_arc">ventral_arc</label>
-                    <input asp-for="ventral_arc" value="@ViewBag.burialToEdit.ventral_arc" />
-                </div>
-                <div class="select-list">
-                    <label asp-for="subpubic_angle">subpubic_angle</label>
-                    <input asp-for="subpubic_angle" value="@ViewBag.burialToEdit.subpubic_angle" />
-                </div>
-                <div class="select-list">
-                    <label asp-for="sciatic_notch">sciatic_notch</label>
-                    <input asp-for="sciatic_notch" value="@ViewBag.burialToEdit.sciatic_notch" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="pubic_bone">pubic_bone</label>
-                    <input asp-for="pubic_bone" value="@ViewBag.burialToEdit.pubic_bone" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="preaur_sulcus">preaur_sulcus</label>
-                    <input asp-for="preaur_sulcus" value="@ViewBag.burialToEdit.preaur_sulcus" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="medial_IP_ramus">medial_IP_ramus</label>
-                    <input asp-for="medial_IP_ramus" value="@ViewBag.burialToEdit.medial_IP_ramus" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="dorsal_pitting">dorsal_pitting</label>
-                    <input asp-for="dorsal_pitting" value="@ViewBag.burialToEdit.dorsal_pitting" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="femur_head">femur_head</label>
-                    <input asp-for="femur_head" value="@ViewBag.burialToEdit.femur_head" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="humerus_head">humerus_head</label>
-                    <input asp-for="humerus_head" value="@ViewBag.burialToEdit.humerus_head" />
-                </div>
-                <div class="select-list">
-                    <label asp-for="osteophytosis">osteophytosis</label>
-                    <input asp-for="osteophytosis" value="@ViewBag.burialToEdit.osteophytosis" />
-                </div>
-                <div>
-                    <label asp-for="pubic_symphysis">pubic_symphysis</label>
-                    <input asp-for="pubic_symphysis" value="@ViewBag.burialToEdit.pubic_symphysis" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="femur_length">femur_length</label>
-                    <input asp-for="femur_length" value="@ViewBag.burialToEdit.femur_length" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="humerus_length">humerus_length</label>
-                    <input asp-for="humerus_length" value="@ViewBag.burialToEdit.humerus_length" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="tibia_length">tibia_length</label>
-                    <input asp-for="tibia_length" value="@ViewBag.burialToEdit.tibia_length" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="robust">robust</label>
-                    <input asp-for="robust" value="@ViewBag.burialToEdit.robust" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="supraorbital_ridges">supraorbital_ridges</label>
-                    <input asp-for="supraorbital_ridges" value="@ViewBag.burialToEdit.supraorbital_ridges" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="hair_color">hair_color</label>
-                    <input asp-for="hair_color" value="@ViewBag.burialToEdit.hair_color" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="hair_taken">hair_taken</label>
-                    <input asp-for="hair_taken" value="@ViewBag.burialToEdit.hair_taken" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Postcrania_At_Magazine">Postcrania_At_Magazine</label>
-                    <input asp-for="Postcrania_At_Magazine" value="@ViewBag.burialToEdit.Postcrania_At_Magazine" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Skull_Trauma">Skull_Trauma</label>
-                    <input asp-for="Skull_Trauma" value="@ViewBag.burialToEdit.Skull_Trauma" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Postcrania_Trauma">Postcrania_Trauma</label>
-                    <input asp-for="Postcrania_Trauma" value="@ViewBag.burialToEdit.Postcrania_Trauma" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Cribra_Orbitala">Cribra_Orbitala</label>
-                    <input asp-for="Cribra_Orbitala" value="@ViewBag.burialToEdit.Cribra_Orbitala" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Porotic_Hyperostosis">Porotic_Hyperostosis</label>
-                    <input asp-for="Porotic_Hyperostosis" value="@ViewBag.burialToEdit.Porotic_Hyperostosis" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Porotic_Hyperostosis_Locations">Porotic_Hyperostosis_Locations</label>
-                    <input asp-for="Porotic_Hyperostosis_Locations" value="@ViewBag.burialToEdit.Porotic_Hyperostosis_Locations" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="Metopic_Suture">Metopic_Suture</label>
-                    <input asp-for="Metopic_Suture" value="@ViewBag.burialToEdit.Metopic_Suture" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="artifacts_description">artifacts_description</label>
-                    <input asp-for="artifacts_description" value="@ViewBag.burialToEdit.artifacts_description" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="interorbital_breadth">interorbital_breadth</label>
-                    <input asp-for="interorbital_breadth" value="@ViewBag.burialToEdit.interorbital_breadth" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="maximum_nasal_breadth">maximum_nasal_breadth</label>
-                    <input asp-for="maximum_nasal_breadth" value="@ViewBag.burialToEdit.maximum_nasal_breadth" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="orbit_edge">orbit_edge</label>
-                    <input asp-for="orbit_edge" value="@ViewBag.burialToEdit.orbit_edge" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="soft_tissue_taken">soft_tissue_taken</label>
-                    <input asp-for="soft_tissue_taken" value="@ViewBag.burialToEdit.soft_tissue_taken" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="bone_taken">bone_taken</label>
-                    <input asp-for="bone_taken" value="@ViewBag.burialToEdit.bone_taken" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="tooth_taken">tooth_taken</label>
-                    <input asp-for="tooth_taken" value="@ViewBag.burialToEdit.tooth_taken" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="description_of_taken">description_of_taken</label>
-                    <input asp-for="description_of_taken" value="@ViewBag.burialToEdit.description_of_taken" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="artifact_found">artifact_found</label>
-                    <input asp-for="artifact_found" value="@ViewBag.burialToEdit.artifact_found" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="estimate_living_stature">estimate_living_stature</label>
-                    <input asp-for="estimate_living_stature" value="@ViewBag.burialToEdit.estimate_living_stature" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="tooth_attrition">tooth_attrition</label>
-                    <input asp-for="tooth_attrition" value="@ViewBag.burialToEdit.tooth_attrition" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="tooth_eruption">tooth_eruption</label>
-                    <input asp-for="tooth_eruption" value="@ViewBag.burialToEdit.tooth_eruption" />
-                </div>
-                <div class="select-list">
-                    <label asp-for="pathology_anomalies">pathology_anomalies</label>
-                    <input asp-for="pathology_anomalies" value="@ViewBag.burialToEdit.pathology_anomalies" />
-                </div>
-                <div class="select-list">
-                    <label asp-for="epiphyseal_union">epiphyseal_union</label>
-                    <input asp-for="epiphyseal_union" value="@ViewBag.burialToEdit.epiphyseal_union" />
-                </div>
-                <div class="select-list">
-                    <label asp-for="year_found">year_found</label>
-                    <input asp-for="year_found" value="@ViewBag.burialToEdit.year_found" />
-                </div>
-                <div class="select-list">
-                    <label asp-for="month_found">month_found</label>
-                    <input asp-for="month_found" value="@ViewBag.burialToEdit.month_found" />
-                </div>
-                <div class="select-list">
-                    <label asp-for="day_found">day_found</label>
-                    <input asp-for="day_found" value="@ViewBag.burialToEdit.day_found" />
-                </div>
-                <div class="select-list">
-                    <label asp-for="Field_Book">Field_Book</label>
-                    <input asp-for="Field_Book" value="@ViewBag.burialToEdit.Field_Book" />
-                </div>
-                <div class="select-list">
-                    <label asp-for="Field_Book_Page_Number">Field_Book_Page_Number</label>
-                    <input asp-for="Field_Book_Page_Number" value="@ViewBag.burialToEdit.Field_Book_Page_Number" />
-                </div>
-                <div class="select-list">
-                    <label asp-for="Skull_At_Magazine">Skull_At_Magazine</label>
-                    <input asp-for="Skull_At_Magazine" value="@ViewBag.burialToEdit.Skull_At_Magazine" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="nasion_prosthion">nasion_prosthion</label>
-                    <input asp-for="nasion_prosthion" value="@ViewBag.burialToEdit.nasion_prosthion" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="bizygomatic_diameter">bizygomatic_diameter</label>
-                    <input asp-for="bizygomatic_diameter" value="@ViewBag.burialToEdit.bizygomatic_diameter" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="basion_prosthion_length">basion_prosthion_length</label>
-                    <input asp-for="basion_prosthion_length" value="@ViewBag.burialToEdit.basion_prosthion_length" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="basion_nasion">basion_nasion</label>
-                    <input asp-for="basion_nasion" value="@ViewBag.burialToEdit.basion_nasion" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="basion_bregma_height">basion_bregma_height</label>
-                    <input asp-for="basion_bregma_height" value="@ViewBag.burialToEdit.basion_bregma_height" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="maximum_cranial_breadth">maximum_cranial_breadth</label>
-                    <input asp-for="maximum_cranial_breadth" value="@ViewBag.burialToEdit.maximum_cranial_breadth" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="maximum_cranial_length">maximum_cranial_length</label>
-                    <input asp-for="maximum_cranial_length" value="@ViewBag.burialToEdit.maximum_cranial_length" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="cranial_suture">cranial_suture</label>
-                    <input asp-for="cranial_suture" value="@ViewBag.burialToEdit.cranial_suture" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="zygomatic_crest">zygomatic_crest</label>
-                    <input asp-for="zygomatic_crest" value="@ViewBag.burialToEdit.zygomatic_crest" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="nuchal_crest">nuchal_crest</label>
-                    <input asp-for="nuchal_crest" value="@ViewBag.burialToEdit.nuchal_crest" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="gonian">gonian</label>
-                    <input asp-for="gonian" value="@ViewBag.burialToEdit.gonian" />
-                </div>
-
-                <div class="select-list">
-                    <label asp-for="parietal_bossing">parietal_bossing</label>
-                    <input asp-for="parietal_bossing" value="@ViewBag.burialToEdit.parietal_bossing" />
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="form-submit">
-                        <button type="submit" class="submit">Confirm Changes</button>
+            <div class="container" style=" height: auto; max-height:800px; overflow-y: auto;">
+                
+                <form asp-action="BurialSummary" method="post" class="appointment-form" id="appointment-form">
+                    <div class="row">
+                        <div class="col-10">
+                            <h2>@ViewBag.title</h2>
+                        </div>
+                        <div class="col-2">
+                            <button class="btn-sum btn-success" data-toggle="tooltip" data-placement="top" title="Add Image [Not Implemented]" href="#">
+                                <i class="far fa-images"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
+                    <hr />
+
+                    <div class="form-group-1">
+                        <input type="hidden" asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" />
+                        <div class="select-list">
+                            <label asp-for="Burial_Id">Burial ID</label>
+                            <input asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" required />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Gamous_Id">Gamous_Id</label>
+                            <input asp-for="Gamous_Id" value="@ViewBag.burialToEdit.Gamous_Id" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="burial_depth">burial_depth</label>
+                            <input asp-for="burial_depth" value="@ViewBag.burialToEdit.burial_depth" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="WESTTOHEAD">WESTTOHEAD </label>
+                            <input asp-for="WESTTOHEAD" value="@ViewBag.burialToEdit.WESTTOHEAD" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="WESTTOFEET">WESTTOFEET</label>
+                            <input asp-for="WESTTOFEET" value="@ViewBag.burialToEdit.WESTTOFEET" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="SOUTHTOHEAD">SOUTHTOHEAD</label>
+                            <input asp-for="SOUTHTOHEAD" value="@ViewBag.burialToEdit.SOUTHTOHEAD" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="SOUTHTOFEET">SOUTHTOFEET</label>
+                            <input asp-for="SOUTHTOFEET" value="@ViewBag.burialToEdit.SOUTHTOFEET" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Preservation">Preservation</label>
+                            <select id="PreserveSelect">
+                                <option value=null>Select</option>
+                                <option value="Excellent (V)">Excellent (V)</option>
+                                <option value="Good (IV)">Good (IV)</option>
+                                <option value="Average (III)">Average (III)</option>
+                                <option value="Fair (II)">Fair (II)</option>
+                                <option value="Poor (I)">Poor (I)</option>
+                            </select>
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Burial_Situation">Burial_Situation</label>
+                            <input asp-for="Burial_Situation" value="@ViewBag.burialToEdit.Burial_Situation" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="head_direction">Head Direction</label>
+                            <select id="HeadSelect">
+                                <option value=null>Select</option>
+                                <option value="East">East</option>
+                                <option value="West">West</option>
+                            </select>
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Adult_Child">Adult_Child</label>
+                            <input asp-for="Adult_Child" value="@ViewBag.burialToEdit.Adult_Child" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="estimate_age">estimate_age</label>
+                            <input asp-for="estimate_age" value="@ViewBag.burialToEdit.estimate_age" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="AGEMETHOD">AGEMETHOD</label>
+                            <input asp-for="AGEMETHOD" value="@ViewBag.burialToEdit.AGEMETHOD" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Sex_Gender_GE">Sex (Giles Elliot)</label>
+                            <select id="SexGeSelect">
+                                <option value=null>Select</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="SubAdult">SubAdult</option>
+                                <option value="Unknown">Unknown</option>
+                            </select>
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="gender_body_col">Sex (Other)</label>
+                            <select id="SexOSelect">
+                                <option value=null>Select</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Undetermined">Undetermined</option>
+                            </select>
+                        </div>
+
+
+
+                        <div class="select-list">
+                            <label asp-for="SEXMETHOD">SEXMETHOD</label>
+                            <input asp-for="SEXMETHOD" value="@ViewBag.burialToEdit.SEXMETHOD" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="GE_function_total">GE_function_total</label>
+                            <input asp-for="GE_function_total" value="@ViewBag.burialToEdit.GE_function_total" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="length_of_remains">length_of_remains</label>
+                            <input asp-for="length_of_remains" value="@ViewBag.burialToEdit.length_of_remains" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Rack_And_Shelf">Rack_And_Shelf</label>
+                            <input asp-for="Rack_And_Shelf" value="@ViewBag.burialToEdit.Rack_And_Shelf" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Button_Osteoma">Button_Osteoma</label>
+                            <input asp-for="Button_Osteoma" value="@ViewBag.burialToEdit.Button_Osteoma" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Tomb">Tomb</label>
+                            <input asp-for="Tomb" value="@ViewBag.burialToEdit.Tomb" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Goods">Goods</label>
+                            <input asp-for="Goods" value="@ViewBag.burialToEdit.Goods" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Cluster">Cluster</label>
+                            <input asp-for="Cluster" value="@ViewBag.burialToEdit.Cluster" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Face_Bundle">Face_Bundle</label>
+                            <input asp-for="Face_Bundle" value="@ViewBag.burialToEdit.Face_Bundle" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Area_Hill_Burials">Area_Hill_Burials</label>
+                            <input asp-for="Area_Hill_Burials" value="@ViewBag.burialToEdit.Area_Hill_Burials" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Linear_Hypoplasia_Enamel">Linear_Hypoplasia_Enamel</label>
+                            <input asp-for="Linear_Hypoplasia_Enamel" value="@ViewBag.burialToEdit.Linear_Hypoplasia_Enamel" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Body_Analysis_Year">Body_Analysis_Year</label>
+                            <input asp-for="Body_Analysis_Year" value="@ViewBag.burialToEdit.Body_Analysis_Year" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Temporal_Mandibular_Joint_Osteoarthritis">Cluster</label>
+                            <input asp-for="Temporal_Mandibular_Joint_Osteoarthritis" value="@ViewBag.burialToEdit.Temporal_Mandibular_Joint_Osteoarthritis" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Osteology_Unknown_Comment">Osteology_Unknown_Comment</label>
+                            <input asp-for="Osteology_Unknown_Comment" value="@ViewBag.burialToEdit.Osteology_Unknown_Comment" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="To_Be_Confirmed">To_Be_Confirmed</label>
+                            <input asp-for="To_Be_Confirmed" value="@ViewBag.burialToEdit.To_Be_Confirmed" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="SAMPLE">SAMPLE</label>
+                            <input asp-for="SAMPLE" value="@ViewBag.burialToEdit.SAMPLE" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="basilar_suture">basilar_suture</label>
+                            <input asp-for="basilar_suture" value="@ViewBag.burialToEdit.basilar_suture" />
+                        </div>
+                        <div class="select-list">
+                            <label asp-for="ventral_arc">ventral_arc</label>
+                            <input asp-for="ventral_arc" value="@ViewBag.burialToEdit.ventral_arc" />
+                        </div>
+                        <div class="select-list">
+                            <label asp-for="subpubic_angle">subpubic_angle</label>
+                            <input asp-for="subpubic_angle" value="@ViewBag.burialToEdit.subpubic_angle" />
+                        </div>
+                        <div class="select-list">
+                            <label asp-for="sciatic_notch">sciatic_notch</label>
+                            <input asp-for="sciatic_notch" value="@ViewBag.burialToEdit.sciatic_notch" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="pubic_bone">pubic_bone</label>
+                            <input asp-for="pubic_bone" value="@ViewBag.burialToEdit.pubic_bone" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="preaur_sulcus">preaur_sulcus</label>
+                            <input asp-for="preaur_sulcus" value="@ViewBag.burialToEdit.preaur_sulcus" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="medial_IP_ramus">medial_IP_ramus</label>
+                            <input asp-for="medial_IP_ramus" value="@ViewBag.burialToEdit.medial_IP_ramus" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="dorsal_pitting">dorsal_pitting</label>
+                            <input asp-for="dorsal_pitting" value="@ViewBag.burialToEdit.dorsal_pitting" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="femur_head">femur_head</label>
+                            <input asp-for="femur_head" value="@ViewBag.burialToEdit.femur_head" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="humerus_head">humerus_head</label>
+                            <input asp-for="humerus_head" value="@ViewBag.burialToEdit.humerus_head" />
+                        </div>
+                        <div class="select-list">
+                            <label asp-for="osteophytosis">osteophytosis</label>
+                            <input asp-for="osteophytosis" value="@ViewBag.burialToEdit.osteophytosis" />
+                        </div>
+                        <div>
+                            <label asp-for="pubic_symphysis">pubic_symphysis</label>
+                            <input asp-for="pubic_symphysis" value="@ViewBag.burialToEdit.pubic_symphysis" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="femur_length">femur_length</label>
+                            <input asp-for="femur_length" value="@ViewBag.burialToEdit.femur_length" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="humerus_length">humerus_length</label>
+                            <input asp-for="humerus_length" value="@ViewBag.burialToEdit.humerus_length" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="tibia_length">tibia_length</label>
+                            <input asp-for="tibia_length" value="@ViewBag.burialToEdit.tibia_length" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="robust">robust</label>
+                            <input asp-for="robust" value="@ViewBag.burialToEdit.robust" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="supraorbital_ridges">supraorbital_ridges</label>
+                            <input asp-for="supraorbital_ridges" value="@ViewBag.burialToEdit.supraorbital_ridges" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="hair_color">hair_color</label>
+                            <input asp-for="hair_color" value="@ViewBag.burialToEdit.hair_color" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="hair_taken">hair_taken</label>
+                            <input asp-for="hair_taken" value="@ViewBag.burialToEdit.hair_taken" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Postcrania_At_Magazine">Postcrania_At_Magazine</label>
+                            <input asp-for="Postcrania_At_Magazine" value="@ViewBag.burialToEdit.Postcrania_At_Magazine" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Skull_Trauma">Skull_Trauma</label>
+                            <input asp-for="Skull_Trauma" value="@ViewBag.burialToEdit.Skull_Trauma" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Postcrania_Trauma">Postcrania_Trauma</label>
+                            <input asp-for="Postcrania_Trauma" value="@ViewBag.burialToEdit.Postcrania_Trauma" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Cribra_Orbitala">Cribra_Orbitala</label>
+                            <input asp-for="Cribra_Orbitala" value="@ViewBag.burialToEdit.Cribra_Orbitala" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Porotic_Hyperostosis">Porotic_Hyperostosis</label>
+                            <input asp-for="Porotic_Hyperostosis" value="@ViewBag.burialToEdit.Porotic_Hyperostosis" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Porotic_Hyperostosis_Locations">Porotic_Hyperostosis_Locations</label>
+                            <input asp-for="Porotic_Hyperostosis_Locations" value="@ViewBag.burialToEdit.Porotic_Hyperostosis_Locations" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="Metopic_Suture">Metopic_Suture</label>
+                            <input asp-for="Metopic_Suture" value="@ViewBag.burialToEdit.Metopic_Suture" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="artifacts_description">artifacts_description</label>
+                            <input asp-for="artifacts_description" value="@ViewBag.burialToEdit.artifacts_description" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="interorbital_breadth">interorbital_breadth</label>
+                            <input asp-for="interorbital_breadth" value="@ViewBag.burialToEdit.interorbital_breadth" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="maximum_nasal_breadth">maximum_nasal_breadth</label>
+                            <input asp-for="maximum_nasal_breadth" value="@ViewBag.burialToEdit.maximum_nasal_breadth" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="orbit_edge">orbit_edge</label>
+                            <input asp-for="orbit_edge" value="@ViewBag.burialToEdit.orbit_edge" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="soft_tissue_taken">soft_tissue_taken</label>
+                            <input asp-for="soft_tissue_taken" value="@ViewBag.burialToEdit.soft_tissue_taken" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="bone_taken">bone_taken</label>
+                            <input asp-for="bone_taken" value="@ViewBag.burialToEdit.bone_taken" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="tooth_taken">tooth_taken</label>
+                            <input asp-for="tooth_taken" value="@ViewBag.burialToEdit.tooth_taken" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="description_of_taken">description_of_taken</label>
+                            <input asp-for="description_of_taken" value="@ViewBag.burialToEdit.description_of_taken" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="artifact_found">artifact_found</label>
+                            <input asp-for="artifact_found" value="@ViewBag.burialToEdit.artifact_found" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="estimate_living_stature">estimate_living_stature</label>
+                            <input asp-for="estimate_living_stature" value="@ViewBag.burialToEdit.estimate_living_stature" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="tooth_attrition">tooth_attrition</label>
+                            <input asp-for="tooth_attrition" value="@ViewBag.burialToEdit.tooth_attrition" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="tooth_eruption">tooth_eruption</label>
+                            <input asp-for="tooth_eruption" value="@ViewBag.burialToEdit.tooth_eruption" />
+                        </div>
+                        <div class="select-list">
+                            <label asp-for="pathology_anomalies">pathology_anomalies</label>
+                            <input asp-for="pathology_anomalies" value="@ViewBag.burialToEdit.pathology_anomalies" />
+                        </div>
+                        <div class="select-list">
+                            <label asp-for="epiphyseal_union">epiphyseal_union</label>
+                            <input asp-for="epiphyseal_union" value="@ViewBag.burialToEdit.epiphyseal_union" />
+                        </div>
+                        <div class="select-list">
+                            <label asp-for="year_found">year_found</label>
+                            <input asp-for="year_found" value="@ViewBag.burialToEdit.year_found" />
+                        </div>
+                        <div class="select-list">
+                            <label asp-for="month_found">month_found</label>
+                            <input asp-for="month_found" value="@ViewBag.burialToEdit.month_found" />
+                        </div>
+                        <div class="select-list">
+                            <label asp-for="day_found">day_found</label>
+                            <input asp-for="day_found" value="@ViewBag.burialToEdit.day_found" />
+                        </div>
+                        <div class="select-list">
+                            <label asp-for="Field_Book">Field_Book</label>
+                            <input asp-for="Field_Book" value="@ViewBag.burialToEdit.Field_Book" />
+                        </div>
+                        <div class="select-list">
+                            <label asp-for="Field_Book_Page_Number">Field_Book_Page_Number</label>
+                            <input asp-for="Field_Book_Page_Number" value="@ViewBag.burialToEdit.Field_Book_Page_Number" />
+                        </div>
+                        <div class="select-list">
+                            <label asp-for="Skull_At_Magazine">Skull_At_Magazine</label>
+                            <input asp-for="Skull_At_Magazine" value="@ViewBag.burialToEdit.Skull_At_Magazine" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="nasion_prosthion">nasion_prosthion</label>
+                            <input asp-for="nasion_prosthion" value="@ViewBag.burialToEdit.nasion_prosthion" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="bizygomatic_diameter">bizygomatic_diameter</label>
+                            <input asp-for="bizygomatic_diameter" value="@ViewBag.burialToEdit.bizygomatic_diameter" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="basion_prosthion_length">basion_prosthion_length</label>
+                            <input asp-for="basion_prosthion_length" value="@ViewBag.burialToEdit.basion_prosthion_length" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="basion_nasion">basion_nasion</label>
+                            <input asp-for="basion_nasion" value="@ViewBag.burialToEdit.basion_nasion" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="basion_bregma_height">basion_bregma_height</label>
+                            <input asp-for="basion_bregma_height" value="@ViewBag.burialToEdit.basion_bregma_height" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="maximum_cranial_breadth">maximum_cranial_breadth</label>
+                            <input asp-for="maximum_cranial_breadth" value="@ViewBag.burialToEdit.maximum_cranial_breadth" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="maximum_cranial_length">maximum_cranial_length</label>
+                            <input asp-for="maximum_cranial_length" value="@ViewBag.burialToEdit.maximum_cranial_length" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="cranial_suture">cranial_suture</label>
+                            <input asp-for="cranial_suture" value="@ViewBag.burialToEdit.cranial_suture" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="zygomatic_crest">zygomatic_crest</label>
+                            <input asp-for="zygomatic_crest" value="@ViewBag.burialToEdit.zygomatic_crest" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="nuchal_crest">nuchal_crest</label>
+                            <input asp-for="nuchal_crest" value="@ViewBag.burialToEdit.nuchal_crest" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="gonian">gonian</label>
+                            <input asp-for="gonian" value="@ViewBag.burialToEdit.gonian" />
+                        </div>
+
+                        <div class="select-list">
+                            <label asp-for="parietal_bossing">parietal_bossing</label>
+                            <input asp-for="parietal_bossing" value="@ViewBag.burialToEdit.parietal_bossing" />
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-submit">
+                                <button type="submit" class="submit">Confirm Changes</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div asp-validation-summary="All"></div>
+                </form>
+                <input type="hidden" id="Preserve" value="@ViewBag.burialToEdit.Preservation" />
+                <input type="hidden" id="headdirection" value="@ViewBag.burialToEdit.head_direction" />
+                <input type="hidden" id="SexGe" value="@ViewBag.burialToEdit.Sex_Gender_GE" />
+                <input type="hidden" id="SexO" value="@ViewBag.burialToEdit.gender_body_col" />
             </div>
+        </div>
 
+            
 
-            <div asp-validation-summary="All"></div>
-        </form>
-        <input type="hidden" id="Preserve" value="@ViewBag.burialToEdit.Preservation" />
-        <input type="hidden" id="headdirection" value="@ViewBag.burialToEdit.head_direction" />
-        <input type="hidden" id="SexGe" value="@ViewBag.burialToEdit.Sex_Gender_GE" />
-        <input type="hidden" id="SexO" value="@ViewBag.burialToEdit.gender_body_col" />
-    </div>
-</div>
 
 @section Scripts {
     <script src="~/js/select.js"></script>
