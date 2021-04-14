@@ -44,6 +44,7 @@
             <div class="row">
                 <div class="col-4">
                     <h2>Burials</h2>
+                    <br />
                     <div class="row">
                         <fieldset class="fieldset-outer">
                             @foreach (var x in Model.BurialList)
@@ -319,7 +320,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <h2>Notes and Samples</h2>
+                    <h2>Notes, Samples, Cranials and Carbon Dating</h2>
                     <div class="row">
                         <fieldset class="fieldset-outer">
                             @foreach (var x in Model.NoteList)
@@ -352,13 +353,7 @@
                                 <label>Initials</label>
                                 <input type="text" value="@x.Initials" readonly /><br /><br />
                             }
-                        </fieldset>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <h2>Cranials and Carbon Dating</h2>
-                    <div class="row">
-                        <fieldset class="fieldset-outer">
+
                             @foreach (var x in Model.CranialList)
                             {
                                 <label>Sample Number</label>
@@ -445,6 +440,19 @@
                                 <label>Notes</label>
                                 <input type="text" value="@x.Notes" readonly /><br /><br />
                             }
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <h2>Images</h2>
+                    <i class="text-center">Exmples only, not yet implemented</i>
+                    <div class="row">
+                        <fieldset class="fieldset-outer">
+                            <img src="~/img/ImageExample1.jpg" />
+                            <img src="~/img/ExampleImage3.jpg" />
+                            <img src="~/img/ImageExample3.jpg" />
+                            <img src="~/img/ExampleImage4.png" />
+                            <img src="~/img/ExampleImage5.png" />
                         </fieldset>
                     </div>
                 </div>
