@@ -23,6 +23,7 @@ namespace DigginPharoh.Controllers
         public string burialIdHolder;
         public IndexViewModel IndexViewModel;
 
+        //Bring in the database
         public HomeController(ILogger<HomeController> logger, ApplicationDbContext ctx)
         {
             _logger = logger;
@@ -34,6 +35,7 @@ namespace DigginPharoh.Controllers
             return View();
         }
 
+        //if the user account belongs to a researcher, the researcher then can view, filter, add, and edit the summary and detailed data.
         [HttpPost]
         [Authorize(Roles = "Researcher")]
         public IActionResult EditForm(string editId)
@@ -52,6 +54,7 @@ namespace DigginPharoh.Controllers
             return View("DetailEditForm");
         }
 
+
         [Authorize(Roles = "Researcher")]
         public IActionResult EditFormTransfer(string id)
         {
@@ -61,12 +64,13 @@ namespace DigginPharoh.Controllers
             return View("DetailEditForm");
         }
 
+        //This function mainly manages the filter, edit and delete functions
         public IActionResult BurialSummary(string id, string deletionId, int pageNum = 1, Burial? burialWithEdits = null) //pass in string id
 
         {
             var filters = new Filters(id);
             ViewBag.Filters = filters;
-            ViewBag.GamousBurials = context.GamousBurials.ToList(); // To get head direction
+            ViewBag.GamousBurials = context.GamousBurials.ToList(); 
             ViewBag.HeadDirFilterValues = Filters.HeadDirFilterValues;
             ViewBag.DepthFilterValues = Filters.DepthFilterValues;
             ViewBag.SexGeFilterValues = Filters.SexGeFilterValues;
