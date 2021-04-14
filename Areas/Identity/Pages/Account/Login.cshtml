@@ -3,52 +3,29 @@
 
 @{
     ViewData["Title"] = "";
-}
-<style>
-    .buttonHolder {
-        text-align: center;
-    }
-    body {
-        background-image: url('@Url.Content("~/img/loginBg10.jpg")');
-        background-size: cover;
-        background-position: center center;
-    }
-    label {
-        @*color: #093971;*@
-        color: white;
-        font-size: 1.1rem;
-    }
-    .titleLog {
-        text-align: center;
-        margin-bottom: 4rem;
-        color: #fff;
-        margin-bottom: 36px;
-        font-weight: 700;
-        font-size: 1.9rem;
-    }
-    h1 {
-        text-align: center;
-        color: white;
-    }
-    p {
-        color: white;
-    }
-    .bt-pl {
-        padding-left: 10px;
-        color: white;
-    }
+    Layout = "_Layout_Summary";
 
-    .bt-pl:hover {
-        padding-left: 10px;
-        color: black;
-        text-decoration: none;
-    }
+}
+
+<style>
+body {
+    background-image: url('@Url.Content("~/img/loginBg10.jpg")');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 750px;
+    color: #000;
+    font: 14px Arial;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+}
+
 </style>
 
 <head>
-    <link href="~/css/style.css" rel="stylesheet" />
-    <!-- Plugins.css -->
-    <link href="~/css/plugins.css" rel="stylesheet">
+
+    <link href="~/css/login.css" rel="stylesheet" />
     <!-- Google Fonts https://fonts.google.com/ -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- Animate.css https://cdnjs.com/libraries/animate.css/
@@ -63,85 +40,36 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
 
-<br />
-<br />
-
-<div class="row">
-    <div class="col-md-4">
-    </div>
-
-    <div class="col-md-4">
-        <div class="card-heading"></div>
-        <div class="card-body">
-            <div>
-                <h1 class="titleLog">Log in with your account</h1>
+<div class="container" style="margin-top: 6.8rem;
+        background: radial-gradient(black, transparent);
+        margin-top: 11rem;
+">
+    <section id="content">
+        <form id="account" method="post">
+            <h1>Login Form</h1>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                @*<label asp-for="Input.Email" id="username"></label>*@
+                <input type="text" asp-for="Input.Email" id="username" placeholder="Username"/>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
-            <form id="account" method="post">
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" />
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <div class="checkbox buttonHolder">
-                        <p>
-                            <label asp-for="Input.RememberMe">
-                                <input asp-for="Input.RememberMe" />
-                                @Html.DisplayNameFor(m => m.Input.RememberMe)
-                            </label>
+            <div class="form-group">
+                @*<label asp-for="Input.Password" id="password"></label>*@
+                <input type="password" asp-for="Input.Password" id="password" placeholder="Password"/>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div>
+                <input type="submit" value="Log in" />
+                <a href="#">Lost your password?</a>
+                <a href="#">Register</a>
+            </div>
+        </form><!-- form -->
+        <div class="">
+            <a href="https://byu.edu"><img style="height:28px;" src="~/img/byu-brand.png"></img></a>
+        </div><!-- button -->
+    </section><!-- content -->
+</div><!-- container -->
 
-                            <a class="bt-pl" id="forgot-password" asp-page="./ForgotPassword">Forgot Password</a>
-                            <a class="bt-pl" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Create a New Account</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="buttonHolder">
-                    <button type="submit" class="btn btn--pill btn--green">Log in</button>
-                </div>
-
-            </form>
-        </div>
-    </div>
-        @*<section>
-            <h4>Use another service to log in.</h4>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                            for details on setting up this ASP.NET application to support logging in via external services.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>*@
-    
-
-    <div class="col-md-4"></div>
-</div>
-
-    @section Scripts {
-        <partial name="_ValidationScriptsPartial" />
-    }
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
