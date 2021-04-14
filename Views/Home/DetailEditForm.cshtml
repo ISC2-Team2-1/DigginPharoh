@@ -43,6 +43,7 @@
 
 <div class="main">
     <div class="container" style=" height: auto; max-height:800px; overflow-y: auto;">
+        <br />
         <div class="row">
             <div class="col-10">
                 <h2>@ViewBag.title</h2>
@@ -54,9 +55,6 @@
             </div>
         </div>
         <form asp-action="BurialSummary" method="post" class="appointment-form" id="appointment-form">
-
-            <hr />
-
             <div class="form-group-1">
                 <input type="hidden" asp-for="Burial_Id" value="@ViewBag.burialToEdit.Burial_Id" />
                 <div class="select-list">
